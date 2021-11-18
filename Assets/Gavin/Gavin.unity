@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1363328995}
   cameraSize: 5
-  cameraGrowthSpeed: 10
+  cameraGrowthSpeed: 0.1
 --- !u!114 &1302138031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 1363328997}
   - component: {fileID: 1363328996}
   - component: {fileID: 1363328998}
+  - component: {fileID: 1363328999}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -564,8 +565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growSpeed: 0.1
-  lerpGrowSpeed: 10
-  startSize: 2
+  lerpGrowSpeed: 1
+  startSize: 1
   cameraFollow: {fileID: 1302138030}
 --- !u!50 &1363328998
 Rigidbody2D:
@@ -588,6 +589,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1363328999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363328992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc5572d1f6015a4d9a3605a2c9a006d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1545416468
 PrefabInstance:
   m_ObjectHideFlags: 0

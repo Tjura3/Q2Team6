@@ -26,27 +26,23 @@ public class GrowScript : MonoBehaviour
         //Debug.Log("Lerp Val: " + Vector3.Lerp(transform.localScale, new Vector3(transform.localScale.x, transform.localScale.y, 1), lerpGrowSpeed));
         if (transform.localScale.x < currentSize)
         {
-            transform.localScale += Vector3.Lerp(transform.localScale, new Vector3(currentSize, currentSize, currentSize), lerpGrowSpeed);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(currentSize, currentSize, currentSize), lerpGrowSpeed);
         }
 
-        if (transform.localScale.x > currentSize)
+        if (transform.localScale.x >= currentSize)
         {
             transform.localScale = new Vector3(currentSize, currentSize, currentSize);
             
         }
     }
 
-
-    /*
-     * JUST FOR TESTING PURPOSES
-     */
-    private void OnTriggerEnter2D(Collider2D collision)
+    /// <summary>
+    /// Will grow when you call this function                                        
+    /// </summary>
+    public void Eat(GameObject gameObject)
     {
-        if (collision.gameObject.tag == "TestFood")
-        {
-            Destroy(collision.gameObject);
-            currentSize += growSpeed;
-            Debug.Log("Munch");
-        }
+        Destroy(gameObject);
+        currentSize += growSpeed;
+        Debug.Log("Munch");
     }
 }

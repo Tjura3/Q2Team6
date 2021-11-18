@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z);
         if (camera.orthographicSize < cameraSize)
         {
-            camera.orthographicSize += Mathf.Lerp(cameraSize, camera.orthographicSize, cameraGrowthSpeed);
+            camera.orthographicSize = Mathf.Lerp(cameraSize, camera.orthographicSize, cameraGrowthSpeed);
         }
         
         if(camera.orthographicSize > cameraSize)

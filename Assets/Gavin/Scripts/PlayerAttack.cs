@@ -5,12 +5,19 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     Collider2D collider;
+    
     GrowScript growScript;
+    
+    [SerializeField] Camera camera;
+
+    GameObject stunHitbox;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
         growScript = GetComponent<GrowScript>();
+
+        stunHitbox = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -20,6 +27,11 @@ public class PlayerAttack : MonoBehaviour
         {
             Eat();
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            StunAttack();
+        }
     }
 
     /// <summary>
@@ -27,7 +39,6 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     void Eat()
     {
-
         List<Collider2D> colliders = new List<Collider2D>();
         collider.GetContacts(colliders);
 
@@ -39,5 +50,15 @@ public class PlayerAttack : MonoBehaviour
                 growScript.Eat(collider.gameObject);
             }
         }
+    }
+
+    void StunAttack()
+    {
+        Vector3 direction = Input.mousePosition;
+        direction.z = -camera.transform.position.z;
+        direction = camera.ScreenToWorldPoint(direction) - stunHitbox.transform.position;
+        stunHitbox.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+        Debug.Log(stunHitbox.transform.rotation);
     }
 }

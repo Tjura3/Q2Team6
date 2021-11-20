@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 195176875}
   - component: {fileID: 195176878}
   - component: {fileID: 195176877}
+  - component: {fileID: 195176879}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -327,6 +328,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &195176879
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195176874}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7
 --- !u!1 &207746508
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +359,7 @@ GameObject:
   - component: {fileID: 207746513}
   m_Layer: 0
   m_Name: EnemyParent
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,7 +792,7 @@ GameObject:
   - component: {fileID: 1338348499}
   m_Layer: 0
   m_Name: EnemyParent (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

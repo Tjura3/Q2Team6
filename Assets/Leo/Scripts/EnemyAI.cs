@@ -25,20 +25,33 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
-        
-        
+        //InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
-    void Detected()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            InvokeRepeating("UpdatePath", 0f, .5f);
+            //Debug.Log("Detected");
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            return;
+            //Debug.Log("UnDetected");
+        }
     }
 
     void UpdatePath()
     {
-        if(seeker.IsDone())
+        if (seeker.IsDone())
+        {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
     }
 
     void OnPathComplete(Path p)

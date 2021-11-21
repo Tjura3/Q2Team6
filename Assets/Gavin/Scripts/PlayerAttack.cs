@@ -10,7 +10,12 @@ public class PlayerAttack : MonoBehaviour
     
     [SerializeField] Camera camera;
 
+
     GameObject stunHitbox;
+    Collider2D stunHitboxCollider;
+    [SerializeField] float stunHitboxDuration;
+    float stunHitboxActiveTime;
+    bool stunHitboxActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
         growScript = GetComponent<GrowScript>();
 
         stunHitbox = transform.GetChild(0).gameObject;
+        stunHitboxCollider = stunHitbox.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +38,22 @@ public class PlayerAttack : MonoBehaviour
         {
             StunAttack();
         }
+
+        if (stunHitboxActive)
+        {
+            stunHitboxActiveTime += Time.deltaTime;
+            if(stunHitboxActiveTime >= stunHitboxDuration)
+            {
+                stunHitboxActiveTime = 0;
+                stunHitboxActive = false;
+            }
+        }
+        else
+        {
+            stunHitboxActiveTime = 0;
+            stunHitbox.SetActive(false);
+        }
+
     }
 
     /// <summary>
@@ -54,11 +76,12 @@ public class PlayerAttack : MonoBehaviour
 
     void StunAttack()
     {
-        Vector3 direction = Input.mousePosition;
-        direction.z = -camera.transform.position.z;
-        direction = camera.ScreenToWorldPoint(direction) - stunHitbox.transform.position;
-        stunHitbox.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = camera.ScreenToWorldPoint(mousePos);
 
-        Debug.Log(stunHitbox.transform.rotation);
+        stunHitbox.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x));
+        stunHitboxActive = true;
+        stunHitbox.SetActive(true);
     }
 }

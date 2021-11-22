@@ -11,9 +11,22 @@ public class ElasticTongue : MonoBehaviour
     //The distance before line becomes stretchy
     [SerializeField] float startDistance;
     [SerializeField] float strechStrength;
+    [SerializeField] float maxSpeed;
+
+    //For generating the rope
+    [SerializeField] int numberOfPoints;
+    [SerializeField] float initialDistanceBetweenPoints;
+    [SerializeField] GameObject pointPrefab;
+
+
+    [SerializeField] Camera camera;
+    [SerializeField] float mouseMoveSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
+        GeneratePoints();
+
         points = transform.GetComponentsInChildren<Transform>();
         //Fixing weird problem with empty child
         Transform[] tempPoints = new Transform[points.Length - 1];
@@ -28,6 +41,18 @@ public class ElasticTongue : MonoBehaviour
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = points.Length;
+
+
+        points[points.Length - 1].position = new Vector3(6, 0, 0);
+    }
+
+    void GeneratePoints()
+    {
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            GameObject point = Instantiate(pointPrefab, new Vector3(i * initialDistanceBetweenPoints, 0, 0), new Quaternion(), transform);
+        }
+
     }
 
     // Update is called once per frame
@@ -38,13 +63,33 @@ public class ElasticTongue : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetMouseButton(0))
+        {
+
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = camera.ScreenToWorldPoint(mousePos);
+
+            Vector2 dir = (mousePos - points[0].position).normalized;
+
+
+
+            pointsRigidbody2Ds[0].AddForce(dir * mouseMoveSpeed);
+        }
+
+
+        UpdatePoints();
+        
+    }
+
+    void UpdatePoints()
+    {
         for (int i = 0; i < points.Length; i++)
         {
-            if(i != 0)
+            if (i != 0)
             {
                 float distance = Vector2.Distance(points[i].position, points[i - 1].position);
                 distance -= startDistance;
-                if(distance < 0)
+                if (distance < 0)
                 {
                     distance = 0;
                 }
@@ -56,10 +101,15 @@ public class ElasticTongue : MonoBehaviour
                     pullForce /= 2;
                 }
 
+                if (pullForce > maxSpeed)
+                {
+                    pullForce = maxSpeed;
+                }
+
                 pointsRigidbody2Ds[i - 1].AddForce((-points[i - 1].position + points[i].position).normalized * pullForce);
             }
 
-            if(i != points.Length - 1)
+            if (i != points.Length - 1)
             {
 
                 float distance = Vector2.Distance(points[i].position, points[i + 1].position);
@@ -76,10 +126,16 @@ public class ElasticTongue : MonoBehaviour
                     pullForce /= 2;
                 }
 
+                if (pullForce > maxSpeed)
+                {
+                    pullForce = maxSpeed;
+                }
 
                 pointsRigidbody2Ds[i + 1].AddForce((-points[i + 1].position + points[i].position).normalized * pullForce);
             }
         }
+
+        pointsRigidbody2Ds[points.Length - 1].velocity = Vector3.zero;
     }
 
     void DrawLine()

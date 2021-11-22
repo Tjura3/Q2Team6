@@ -10,11 +10,15 @@ public class enemyRoaming : MonoBehaviour
 
     public float maxDistance;
 
+    SpriteRenderer sr;
     Vector2 destination;
+
+    bool wait;
 
     // Start is called before the first frame update
     void Start()
     {
+        sr = gameObject.GetComponent<SpriteRenderer>();
         findDestination();
     }
 
@@ -23,10 +27,23 @@ public class enemyRoaming : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, destination) < range)
+        if (Vector2.Distance(transform.position, destination) < range && !wait)
         {
             //findDestination();
             StartCoroutine(pauseRoaming());
+        }
+
+        if (destination.x >= transform.position.x)
+        {
+            Debug.Log("Flip x 1 2");
+            //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
+            sr.flipX = true;
+        }
+        else if (destination.x <= transform.position.x)
+        {
+            Debug.Log("Flip x 2 2");
+            //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
+            sr.flipX = false;
         }
     }
 
@@ -37,9 +54,11 @@ public class enemyRoaming : MonoBehaviour
 
     IEnumerator pauseRoaming()
     {
+        wait = true;
         yield return new WaitForSeconds(Random.Range(1, 3));
 
         findDestination();
+        wait = false;
 
         yield return new WaitForFixedUpdate();
 

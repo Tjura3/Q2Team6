@@ -20,10 +20,14 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+
+    SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         //InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -90,13 +94,17 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        if (force.x >= 0.01f)
+        if (direction.x >= 0.01f)
         {
-            enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
+            Debug.Log("Flip x 1");
+            //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
+            sr.flipX = true;
         }
-        else if (force.x <= -0.01f)
+        else if (direction.x <= -0.01f)
         {
-            enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
+            Debug.Log("Flip x 2");
+            //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
+            sr.flipX = false;
         }
 
     }

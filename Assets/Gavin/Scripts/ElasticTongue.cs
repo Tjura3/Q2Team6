@@ -17,7 +17,7 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] int numberOfPoints;
     [SerializeField] float initialDistanceBetweenPoints;
     [SerializeField] GameObject pointPrefab;
-
+    [SerializeField] float shootOutDistance;
 
     [SerializeField] Camera camera;
     [SerializeField] float mouseMoveSpeed;
@@ -52,7 +52,8 @@ public class ElasticTongue : MonoBehaviour
     {
         for (int i = 0; i < numberOfPoints; i++)
         {
-            GameObject point = Instantiate(pointPrefab, new Vector3((i * initialDistanceBetweenPoints) - numberOfPoints * initialDistanceBetweenPoints, 0, 0), new Quaternion(), transform);
+            //new Vector3((i * initialDistanceBetweenPoints) - numberOfPoints * initialDistanceBetweenPoints, 0, 0)
+            GameObject point = Instantiate(pointPrefab, new Vector3(0, 0, 0), new Quaternion(), transform);
         }
 
     }
@@ -78,6 +79,10 @@ public class ElasticTongue : MonoBehaviour
             pointsRigidbody2Ds[0].AddForce(dir * mouseMoveSpeed);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            pointsRigidbody2Ds[0].AddForce(Vector2.left * shootOutDistance);
+        }
 
         UpdatePoints();
         

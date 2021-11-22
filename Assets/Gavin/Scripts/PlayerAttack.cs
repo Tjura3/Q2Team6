@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            StunAttack();
+            //StunAttack();
         }
 
         if (stunHitboxActive)
@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
         foreach(Collider2D collider in colliders)
         {
             //CHANGE TAG FROM TEST FOOD TO ENEMY OR SOMETHING IDK
-            if(collider.tag == "TestFood")
+            if(collider.tag == "Enemy")
             {
                 growScript.Eat(collider.gameObject);
             }

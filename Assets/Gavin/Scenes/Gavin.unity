@@ -1312,7 +1312,12 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: strechStrength
-      value: 2000
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927597, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}

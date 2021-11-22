@@ -23,7 +23,7 @@ public class CopiedPlayerMovement : MonoBehaviour
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
 
-        if (Input.GetAxis("Horizontal") == 0)
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
         {
             a.SetBool("Running", false);
         }
@@ -33,11 +33,17 @@ public class CopiedPlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") < 0)
         {
             sr.flipX = true;
         }
         else
+        {
+            sr.flipX = false;
+        }
+
+        //Bottom left kinda cringe
+        if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
         {
             sr.flipX = false;
         }

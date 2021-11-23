@@ -72,7 +72,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   target: {fileID: 6856690120196019883, guid: 75fc20c35b4a2b44781c1cefcc400e49, type: 3}
   speed: 400
   nextWaypointDistance: 3
+  done: 0
   enemyGFX: {fileID: 0}
 --- !u!114 &1951178659171601327
 MonoBehaviour:
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca0320b62cae27e48a7658d7b7779245, type: 3}
   m_Name: 
@@ -191,7 +192,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a54ba68963b7563448c393c2fa17281a, type: 2}
   m_CullingMode: 0

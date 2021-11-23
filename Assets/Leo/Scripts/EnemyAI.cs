@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
+    public bool done = false;
+
     public Transform enemyGFX;
 
     Path path;
@@ -29,15 +31,15 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        //InvokeRepeating("UpdatePath", 0f, .5f);
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && done == false)
         {
+            done = false;
             InvokeRepeating("UpdatePath", 0f, .5f);
-            //Debug.Log("Detected");
         }
     }
 
@@ -45,14 +47,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            return;
-            //Debug.Log("UnDetected");
+            done = true;
         }
-    }
+    }*/
 
     void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (seeker.IsDone() && done == false)
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -70,6 +71,17 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Vector2.Distance(rb.position, target.position) < 5)
+        {
+            done = false;
+            UpdatePath();
+        }
+
+        if (Vector2.Distance(rb.position, target.position) > 5)
+        {
+            done = true;
+        }
+
         if (path == null)
             return;
 
@@ -96,13 +108,13 @@ public class EnemyAI : MonoBehaviour
 
         if (direction.x >= 0.01f)
         {
-            Debug.Log("Flip x 1");
+            //Debug.Log("Flip x 1");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = true;
         }
         else if (direction.x <= -0.01f)
         {
-            Debug.Log("Flip x 2");
+            //Debug.Log("Flip x 2");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = false;
         }

@@ -53,7 +53,7 @@ public class ElasticTongue : MonoBehaviour
         for (int i = 0; i < numberOfPoints; i++)
         {
             //new Vector3((i * initialDistanceBetweenPoints) - numberOfPoints * initialDistanceBetweenPoints, 0, 0)
-            GameObject point = Instantiate(pointPrefab, new Vector3(0, 0, 0), new Quaternion(), transform);
+            GameObject point = Instantiate(pointPrefab, new Vector3((i * initialDistanceBetweenPoints) - numberOfPoints * initialDistanceBetweenPoints, 0, 0), new Quaternion(), transform);
         }
 
     }

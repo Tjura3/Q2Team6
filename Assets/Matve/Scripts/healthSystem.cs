@@ -12,7 +12,7 @@ public class healthSystem : MonoBehaviour
     public float invTimer;
 
     public bool debug;
-
+    public bool isDead;
     public bool canDamage;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,7 @@ public class healthSystem : MonoBehaviour
 
         if (healthPoints <= 0)
         {
+            isDead = true;
             healthPoints = 0.0f;
             canDamage = false;
         }
@@ -49,7 +50,10 @@ public class healthSystem : MonoBehaviour
             canDamage = true;
         }
 
-
+        if(healthPoints > 0)
+        {
+            isDead = false;
+        } 
     }
 
 

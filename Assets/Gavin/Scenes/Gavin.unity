@@ -3786,17 +3786,17 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: spawnDist
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
-        type: 3}
-      propertyPath: despawDist
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
+      propertyPath: despawDist
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
       propertyPath: startDistance
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
@@ -3806,7 +3806,12 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: maxNumOfPoints
-      value: 5
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: mouseDragSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
@@ -3821,12 +3826,22 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: strechStrength
-      value: 200
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: mouseShootSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: shootOutDistance
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: whileShootingDistance
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
@@ -3896,6 +3911,11 @@ PrefabInstance:
     - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key2.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: m_Parameters.generateLightingData
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,

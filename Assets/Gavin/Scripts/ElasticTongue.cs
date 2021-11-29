@@ -9,6 +9,7 @@ public class ElasticTongue : MonoBehaviour
 
     //The distance before line becomes stretchy
     [SerializeField] float startDistance;
+    [SerializeField] float whileShootingDistance;
     [SerializeField] float strechStrength;
     [SerializeField] float damperStrength;
     [SerializeField] float maxSpeed;
@@ -23,13 +24,22 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] float despawDist;
 
     [SerializeField] Camera camera;
-    [SerializeField] float mouseMoveSpeed;
+    [SerializeField] float mouseDragSpeed;
+    [SerializeField] float mouseShootSpeed;
 
     [SerializeField] Transform playerT;
+
+    float pointDistance;
+    //Does the tongue need to be launched
+    bool shoot;
+    //Is the tongue being dragged
+    bool drag;
 
     // Start is called before the first frame update
     void Start()
     {
+        pointDistance = startDistance;
+
         points = new List<Point>();
 
         //GeneratePoints();
@@ -58,27 +68,56 @@ public class ElasticTongue : MonoBehaviour
     void Update()
     {
         DrawLine();
-    }
-
-    private void FixedUpdate()
-    {
-
+        if (Input.GetMouseButtonDown(0) && !drag)
+        {
+            shoot = true;
+            Debug.Log("Shoot");
+        }
 
         if (Input.GetMouseButton(0))
+        {
+            pointDistance = whileShootingDistance;
+            drag = true;
+        }
+        else
+        {
+            pointDistance = startDistance;
+            drag = false;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (shoot)
         {
 
             Vector3 mousePos = Input.mousePosition;
             mousePos = camera.ScreenToWorldPoint(mousePos);
+            mousePos.z = 0;
 
             Vector2 dir = (mousePos - points[0].transform.position).normalized;
 
+            points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
 
-
-            points[0].rb.AddForce(dir * mouseMoveSpeed);
+            shoot = false;
         }
 
-        UpdatePoints();
+        if (drag)
+        {
+
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = camera.ScreenToWorldPoint(mousePos);
+            mousePos.z = 0;
+
+            Vector2 dir = (mousePos - points[0].transform.position).normalized;
+
+            points[0].rb.AddForce(dir * mouseDragSpeed);
+        }
+
+
         UpdateTongue();
+
+        UpdatePoints();
+
 
     }
 
@@ -87,28 +126,29 @@ public class ElasticTongue : MonoBehaviour
     /// </summary>
     void UpdateTongue()
     {
-        if (points.Count > 1)
-        {
-            if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist)
-            {
+       
 
-                points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
-                CreateNewPoint();
-                points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
-                UpdateLine();
-                Debug.Log("Spawned 1");
-            }else if(Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0))
+        if (points.Count > 2)
+        {
+            if (Vector2.Distance(points[0].transform.position, playerT.position) >= spawnDist)
             {
-                Debug.Log("Point count: " + points.Count);
-                Destroy(points[points.Count - 2].gameObject);
-                points.RemoveAt(points.Count - 2);
-                Debug.Log("Destroyed");
-                UpdateLine();
+                if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints)
+                {
+                    points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
+                    CreateNewPoint();
+                    points[points.Count - 1].rb.bodyType = RigidbodyType2D.Static;
+                    UpdateLine();
+                }
+                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 50)
+                {
+                    Destroy(points[points.Count - 2].gameObject);
+                    points.RemoveAt(points.Count - 2);
+                    UpdateLine();
+                }
             }
         }
         else
         {
-            Debug.Log(points.Count);
             points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
             CreateNewPoint();
             points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
@@ -188,6 +228,8 @@ public class ElasticTongue : MonoBehaviour
 
         for (int i = 0; i < points.Count; i++)
         {
+            points[i].rb.mass = points.Count * -(1/(maxNumOfPoints+10)) + 1;
+
             if (i != 0)
             {
                 //Calculate one behind
@@ -198,6 +240,12 @@ public class ElasticTongue : MonoBehaviour
             {
                 //Calculate one in front
                 points[i].rb.AddForce((points[i + 1].transform.localPosition - points[i].transform.localPosition).normalized * CalculatePullForce(points[i + 1], points[i]));
+            }
+
+            points[i].canBeDestroyed++;
+            if(points[i].canBeDestroyed > 100)
+            {
+                points[i].canBeDestroyed = 100;
             }
         }
 
@@ -221,6 +269,7 @@ public class ElasticTongue : MonoBehaviour
     void CreateNewPoint()
     {
         Point point = new Point(Instantiate(pointPrefab, playerT.position, new Quaternion(), transform));
+
         points.Add(point);
     }
 
@@ -229,7 +278,7 @@ public class ElasticTongue : MonoBehaviour
 
         //Get Distance
         float distance = Vector2.Distance(point1.transform.localPosition, point2.transform.localPosition);
-        distance -= startDistance;
+        distance -= pointDistance;
 
         if (distance < 0)
         {
@@ -256,6 +305,7 @@ class Point
     public Transform transform;
     public Rigidbody2D rb;
     public GameObject gameObject;
+    public int canBeDestroyed;
     public Point(GameObject gameObject)
     {
         transform = gameObject.transform;

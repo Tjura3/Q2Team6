@@ -7,13 +7,14 @@ public class EnemyAI : MonoBehaviour
 {
 
     public Transform target;
+    public bool isChaser;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
     public bool done = false;
 
-    public Transform enemyGFX;
+    //public Transform enemyGFX;
 
     Path path;
     int currentWaypoint = 0;
@@ -28,10 +29,29 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (isChaser)
+        {
+            target = GameObject.Find("Player").transform;
+        }
+        else
+        {
+            GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
+            GameObject closestHouse = houses[0];
+            for (int i = 0; i < houses.Length; i++)
+            {
+                if(Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
+                {
+                    closestHouse = houses[i];
+                }
+            }
+
+            target = closestHouse.transform;
+        }
         seeker = GetComponent<Seeker>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        
+        InvokeRepeating("UpdatePath", 0f, .5f);
+
     }
 
     /*private void OnTriggerEnter2D(Collider2D collision)
@@ -71,17 +91,25 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector2.Distance(rb.position, target.position) < 5)
+        if (Vector2.Distance(rb.position, target.position) < 10)
         {
             done = false;
-            UpdatePath();
+            //UpdatePath();
+            //InvokeRepeating("UpdatePath", 0f, .5f);
         }
 
-        if (Vector2.Distance(rb.position, target.position) > 5)
+        if (Vector2.Distance(rb.position, target.position) > 10)
         {
             done = true;
         }
 
+        if (Vector2.Distance(rb.position, target.position) > 20)
+        {
+            rb.velocity = Vector2.zero;
+
+        }
+
+  
         if (path == null)
             return;
 

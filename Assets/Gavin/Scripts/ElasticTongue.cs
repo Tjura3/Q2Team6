@@ -35,6 +35,8 @@ public class ElasticTongue : MonoBehaviour
     //Is the tongue being dragged
     bool drag;
 
+    [SerializeField] float testVar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -136,10 +138,10 @@ public class ElasticTongue : MonoBehaviour
                 {
                     points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
                     CreateNewPoint();
-                    points[points.Count - 1].rb.bodyType = RigidbodyType2D.Static;
+                    points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
                     UpdateLine();
                 }
-                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 50)
+                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5)
                 {
                     Destroy(points[points.Count - 2].gameObject);
                     points.RemoveAt(points.Count - 2);
@@ -155,6 +157,9 @@ public class ElasticTongue : MonoBehaviour
             UpdateLine();
         }
         points[points.Count - 1].velocity = Vector3.zero;
+
+        //strechStrength = -(maxNumOfPoints * 2) * points.Count + 2000f;
+        //Debug.Log(-(maxNumOfPoints * testVar) * points.Count);
     }
 
     /*void UpdatePoints()
@@ -222,13 +227,13 @@ public class ElasticTongue : MonoBehaviour
     /// Calculates the velocity and applies it to every point
     /// </summary>
     void UpdatePoints()
-    {
+    { 
         points[points.Count - 1].rb.MovePosition(playerT.position);
 
 
         for (int i = 0; i < points.Count; i++)
         {
-            points[i].rb.mass = points.Count * -(1/(maxNumOfPoints+10)) + 1;
+
 
             if (i != 0)
             {

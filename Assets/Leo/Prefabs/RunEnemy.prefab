@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6855945494530930516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416893526598497230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd91d3a1408a2d44b096f39ff8bb581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 200
+  nextWaypointDistance: 3
+  done: 0
 --- !u!1001 &4630510000912990349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 823679042251404126, guid: 87b6759d940c41a489883784705986a3,
         type: 3}
       propertyPath: speed
-      value: -400
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 823679042251404126, guid: 87b6759d940c41a489883784705986a3,
         type: 3}
@@ -83,5 +99,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6342047013015181249, guid: 87b6759d940c41a489883784705986a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87b6759d940c41a489883784705986a3, type: 3}
+--- !u!1 &5416893526598497230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 823679042251404099, guid: 87b6759d940c41a489883784705986a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4630510000912990349}
+  m_PrefabAsset: {fileID: 0}

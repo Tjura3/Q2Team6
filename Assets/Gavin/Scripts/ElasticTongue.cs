@@ -9,9 +9,7 @@ public class ElasticTongue : MonoBehaviour
 
     //The distance before line becomes stretchy
     [SerializeField] float startDistance;
-    [SerializeField] float whileShootingDistance;
     [SerializeField] float strechStrength;
-    [SerializeField] float damperStrength;
     [SerializeField] float maxSpeed;
 
     //For generating the rope
@@ -29,7 +27,6 @@ public class ElasticTongue : MonoBehaviour
 
     [SerializeField] Transform playerT;
 
-    float pointDistance;
     //Does the tongue need to be launched
     bool shoot;
     //Is the tongue being dragged
@@ -37,10 +34,18 @@ public class ElasticTongue : MonoBehaviour
 
     [SerializeField] float testVar;
 
+    bool isShooting;
+    Vector2 shootVelocity;
+
+    [SerializeField] float maxShootTime;
+    [SerializeField] float minShootTime;
+    float shootTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        pointDistance = startDistance;
+        shootTime = 0;
+        shootVelocity = Vector2.zero;
 
         points = new List<Point>();
 
@@ -70,21 +75,22 @@ public class ElasticTongue : MonoBehaviour
     void Update()
     {
         DrawLine();
-        if (Input.GetMouseButtonDown(0) && !drag)
+        if (Input.GetMouseButtonDown(0))
         {
             shoot = true;
             Debug.Log("Shoot");
+            isShooting = true;
+            shootTime = 0;
+
         }
 
-        if (Input.GetMouseButton(0))
+
+
+        shootTime += Time.deltaTime;
+        if ((shootTime >= maxShootTime || (!Input.GetMouseButton(0) && shootTime >= minShootTime)) && isShooting)
         {
-            pointDistance = whileShootingDistance;
-            drag = true;
-        }
-        else
-        {
-            pointDistance = startDistance;
-            drag = false;
+            isShooting = false;
+            Debug.Log("Reset");
         }
     }
     private void FixedUpdate()
@@ -98,7 +104,9 @@ public class ElasticTongue : MonoBehaviour
 
             Vector2 dir = (mousePos - points[0].transform.position).normalized;
 
-            points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
+            //points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
+
+            shootVelocity = dir * mouseShootSpeed;
 
             shoot = false;
         }
@@ -121,6 +129,7 @@ public class ElasticTongue : MonoBehaviour
         UpdatePoints();
 
 
+        points[points.Count - 1].velocity = Vector3.zero;
     }
 
     /// <summary>
@@ -134,14 +143,15 @@ public class ElasticTongue : MonoBehaviour
         {
             if (Vector2.Distance(points[0].transform.position, playerT.position) >= spawnDist)
             {
-                if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints)
+                if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints && isShooting)
                 {
+                    Debug.Log("Point created");
                     points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
                     CreateNewPoint();
                     points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
                     UpdateLine();
                 }
-                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5)
+                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !isShooting)
                 {
                     Destroy(points[points.Count - 2].gameObject);
                     points.RemoveAt(points.Count - 2);
@@ -156,72 +166,11 @@ public class ElasticTongue : MonoBehaviour
             points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
             UpdateLine();
         }
-        points[points.Count - 1].velocity = Vector3.zero;
 
         //strechStrength = -(maxNumOfPoints * 2) * points.Count + 2000f;
         //Debug.Log(-(maxNumOfPoints * testVar) * points.Count);
     }
 
-    /*void UpdatePoints()
-    {
-        pointsRigidbody2Ds[pointsRigidbody2Ds.Length - 1].MovePosition(playerT.position);
-
-        for (int i = 0; i < points.Length; i++)
-        {
-            if (i != 0)
-            {
-                float distance = Vector2.Distance(points[i].localPosition, points[i - 1].localPosition);
-                distance -= startDistance;
-                if (distance < 0)
-                {
-                    distance = 0;
-                }
-
-                float pullForce = -strechStrength * distance - damperStrength * distance;
-                pullForce *= -1;
-
-                if (i != points.Length - 1)
-                {
-                    pullForce /= 2;
-                }
-
-                if (pullForce > maxSpeed)
-                {
-                    pullForce = maxSpeed;
-                }
-
-                pointsRigidbody2Ds[i - 1].AddForce((-points[i - 1].localPosition + points[i].localPosition).normalized * pullForce);
-            }
-
-            if (i != points.Length - 1)
-            {
-
-                float distance = Vector2.Distance(points[i].localPosition, points[i + 1].localPosition);
-                distance -= startDistance;
-                if (distance < 0)
-                {
-                    distance = 0;
-                }
-
-                float pullForce = -strechStrength * distance - damperStrength * distance;
-                pullForce *= -1;
-
-                if (i != 0)
-                {
-                    pullForce /= 2;
-                }
-
-                if (pullForce > maxSpeed)
-                {
-                    pullForce = maxSpeed;
-                }
-
-                pointsRigidbody2Ds[i + 1].AddForce((-points[i + 1].localPosition + points[i].localPosition).normalized * pullForce);
-            }
-        }
-
-        //pointsRigidbody2Ds[points.Length - 1].velocity = Vector3.zero;
-    }*/
 
     /// <summary>
     /// Calculates the velocity and applies it to every point
@@ -234,6 +183,11 @@ public class ElasticTongue : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
 
+            if (isShooting)
+            {
+                points[i].rb.velocity = shootVelocity;
+                continue;
+            }
 
             if (i != 0)
             {
@@ -283,7 +237,7 @@ public class ElasticTongue : MonoBehaviour
 
         //Get Distance
         float distance = Vector2.Distance(point1.transform.localPosition, point2.transform.localPosition);
-        distance -= pointDistance;
+        //distance -= pointDistance;
 
         if (distance < 0)
         {
@@ -291,8 +245,7 @@ public class ElasticTongue : MonoBehaviour
         }
 
         //Calculate pullForce
-        float pullForce = -strechStrength * distance - damperStrength * distance;
-        pullForce *= -1;
+        float pullForce = strechStrength * distance;
 
         if (pullForce > maxSpeed)
         {

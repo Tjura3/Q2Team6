@@ -3940,6 +3940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
+      propertyPath: slowDist
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
       propertyPath: spawnDist
       value: 0.1
       objectReference: {fileID: 0}
@@ -3951,12 +3956,12 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: maxShootTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: minShootTime
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}

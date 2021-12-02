@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 823679042251404124}
   - component: {fileID: 823679042251404125}
   - component: {fileID: 823679042251404098}
-  - component: {fileID: 823679042251404126}
   - component: {fileID: 1951178659171601327}
   - component: {fileID: 1133092788865099764}
   - component: {fileID: 9065252331753589731}
+  - component: {fileID: -6342047013015181249}
   m_Layer: 0
-  m_Name: EnemyParent (1)
+  m_Name: ChaseEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -102,23 +102,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &823679042251404126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58310b4909123934f88c8badf51ff9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 6856690120196019883, guid: 75fc20c35b4a2b44781c1cefcc400e49, type: 3}
-  speed: 400
-  nextWaypointDistance: 3
-  done: 0
-  enemyGFX: {fileID: 0}
 --- !u!114 &1951178659171601327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +175,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a54ba68963b7563448c393c2fa17281a, type: 2}
   m_CullingMode: 0
@@ -203,3 +186,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6342047013015181249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823679042251404099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294f11c3dce70c0468ac3f8670ce31b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 200
+  nextWaypointDistance: 3
+  done: 0

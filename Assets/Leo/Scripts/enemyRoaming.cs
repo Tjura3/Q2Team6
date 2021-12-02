@@ -35,13 +35,13 @@ public class enemyRoaming : MonoBehaviour
 
         if (destination.x >= transform.position.x)
         {
-            Debug.Log("Flip x 1 2");
+            //Debug.Log("Flip x 1 2");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = true;
         }
         else if (destination.x <= transform.position.x)
         {
-            Debug.Log("Flip x 2 2");
+            //Debug.Log("Flip x 2 2");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = false;
         }

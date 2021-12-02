@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyAI : MonoBehaviour
+public class ScaredAI : MonoBehaviour
 {
 
     public Transform target;
-    public bool isChaser;
+
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -29,24 +29,18 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (isChaser)
+        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
+        GameObject closestHouse = houses[0];
+        for (int i = 0; i < houses.Length; i++)
         {
-            target = GameObject.Find("Player").transform;
-        }
-        else
-        {
-            GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
-            GameObject closestHouse = houses[0];
-            for (int i = 0; i < houses.Length; i++)
+            if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
             {
-                if(Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
-                {
-                    closestHouse = houses[i];
-                }
+                closestHouse = houses[i];
             }
-
-            target = closestHouse.transform;
         }
+
+        target = closestHouse.transform;
+        
         seeker = GetComponent<Seeker>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -54,22 +48,21 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
     {
-        if (collision.gameObject.CompareTag("Player") && done == false)
+        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
+        GameObject closestHouse = houses[0];
+        for (int i = 0; i < houses.Length; i++)
         {
-            done = false;
-            InvokeRepeating("UpdatePath", 0f, .5f);
+            if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
+            {
+                closestHouse = houses[i];
+            }
         }
+
+        target = closestHouse.transform;
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            done = true;
-        }
-    }*/
 
     void UpdatePath()
     {
@@ -91,25 +84,16 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isChaser && Vector2.Distance(rb.position, target.position) < 10)
+        if (Vector2.Distance(rb.position, target.position) < 10)
         {
             done = false;
-            //UpdatePath();
-            //InvokeRepeating("UpdatePath", 0f, .5f);
-        } else if (isChaser && Vector2.Distance(rb.position, target.position) > 10)
-        {
-            done = true;
-        } else if (!isChaser && Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
-        {
-            done = false;
-            //UpdatePath();
-            //InvokeRepeating("UpdatePath", 0f, .5f);
-        } else if (!isChaser && Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
+        }
+        else if (Vector2.Distance(rb.position, target.position) > 10)
         {
             done = true;
         }
 
-        if (!isChaser && target == null)
+        if (target == null)
         {
             GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
             GameObject closestHouse = houses[0];
@@ -124,7 +108,7 @@ public class EnemyAI : MonoBehaviour
             target = closestHouse.transform;
         }
 
-        if (!isChaser && Vector2.Distance(rb.position, target.position) < 10)
+
 
         if (Vector2.Distance(rb.position, target.position) > 20)
         {
@@ -132,15 +116,16 @@ public class EnemyAI : MonoBehaviour
 
         }
 
-  
+
         if (path == null)
             return;
 
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
             return;
-        } else
+        }
+        else
         {
             reachedEndOfPath = false;
         }

@@ -41,6 +41,8 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] float minShootTime;
     float shootTime;
 
+    [SerializeField] float slowDist;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,11 +52,13 @@ public class ElasticTongue : MonoBehaviour
         points = new List<Point>();
 
         //GeneratePoints();
-        CreateNewPoint();
+        //CreateNewPoint();
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = points.Count;
 
+
+        //points[points.Count].rb.bodyType = RigidbodyType2D.Kinematic;
 
 
         //points[points.Length - 1].position = new Vector3(6, 0, 0);
@@ -130,6 +134,7 @@ public class ElasticTongue : MonoBehaviour
 
 
         points[points.Count - 1].velocity = Vector3.zero;
+        points[points.Count - 1].transform.name = "Last";
     }
 
     /// <summary>
@@ -143,12 +148,11 @@ public class ElasticTongue : MonoBehaviour
         {
             if (Vector2.Distance(points[0].transform.position, playerT.position) >= spawnDist)
             {
+
                 if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints && isShooting)
                 {
                     Debug.Log("Point created");
-                    points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
                     CreateNewPoint();
-                    points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
                     UpdateLine();
                 }
                 else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !isShooting)
@@ -161,9 +165,7 @@ public class ElasticTongue : MonoBehaviour
         }
         else
         {
-            points[points.Count - 1].rb.bodyType = RigidbodyType2D.Dynamic;
             CreateNewPoint();
-            points[points.Count - 1].rb.bodyType = RigidbodyType2D.Kinematic;
             UpdateLine();
         }
 
@@ -187,6 +189,10 @@ public class ElasticTongue : MonoBehaviour
             {
                 points[i].rb.velocity = shootVelocity;
                 continue;
+            }
+            else if (Vector2.Distance(points[i].transform.position, playerT.position) <= slowDist)
+            {
+                points[i].rb.velocity *= 0.2f;
             }
 
             if (i != 0)
@@ -229,7 +235,28 @@ public class ElasticTongue : MonoBehaviour
     {
         Point point = new Point(Instantiate(pointPrefab, playerT.position, new Quaternion(), transform));
 
-        points.Add(point);
+        if (points.Count < 1)
+        {
+            points.Add(point);
+            points[0].rb.bodyType = RigidbodyType2D.Kinematic;
+        }
+        else
+        {
+            points.Insert(points.Count - 1, point);
+        }
+
+
+        Debug.Log("===============");
+
+        Debug.Log(points.Count);
+
+        for (int i = 0; i < points.Count; i++)
+        {
+            Debug.Log(i + ": " + points[i].transform.name);
+        }
+
+
+        Debug.Log("===============");
     }
 
     float CalculatePullForce(Point point1, Point point2)

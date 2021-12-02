@@ -47,5 +47,11 @@ public class CopiedPlayerMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb2.velocity = Vector2.zero;
     }
 }

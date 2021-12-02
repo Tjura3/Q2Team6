@@ -14,8 +14,6 @@ public class lookAtPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
-        transform.LookAt(player.position, transform.up);
-        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+        transform.right = player.position - transform.position;
     }
 }

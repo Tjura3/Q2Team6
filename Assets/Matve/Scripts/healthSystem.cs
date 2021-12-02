@@ -58,7 +58,7 @@ public class healthSystem : MonoBehaviour
 
 
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {

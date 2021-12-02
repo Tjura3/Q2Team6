@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 26988411}
   - component: {fileID: 26988410}
   - component: {fileID: 26988409}
+  - component: {fileID: 26988414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -156,9 +157,10 @@ MonoBehaviour:
   healthPoints: 0
   maxHealth: 100
   invFrame: 1
-  invTime: 10
+  invTime: 1
   invTimer: 0
   debug: 1
+  isDead: 0
   canDamage: 1
 --- !u!61 &26988410
 BoxCollider2D:
@@ -271,6 +273,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &26988414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26988408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55daa04a8200741429fc1518a4279d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.1
 --- !u!1 &253676071
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +300,8 @@ GameObject:
   - component: {fileID: 253676073}
   - component: {fileID: 253676072}
   m_Layer: 0
-  m_Name: New Sprite
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b79943f46c5e44f865ce45f467d5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 250
 --- !u!61 &253676073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -345,7 +360,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

@@ -61,6 +61,8 @@ public class ChaserAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+
         if (Vector2.Distance(rb.position, target.position) < 10)
         {
             done = false;
@@ -129,8 +131,9 @@ public class ChaserAI : MonoBehaviour
     {
         wait = true;
         //Debug.Log("stuff");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         GetComponent<enemyRoaming>().enabled = true;
+        wait = false;
         yield return new WaitForFixedUpdate();
     }
 }

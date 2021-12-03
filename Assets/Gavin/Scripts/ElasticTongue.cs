@@ -124,7 +124,7 @@ public class ElasticTongue : MonoBehaviour
 
             Vector2 dir = (mousePos - points[0].transform.position).normalized;
 
-            points[0].rb.AddForce(dir * mouseDragSpeed);
+            //points[0].rb.AddForce(dir * mouseDragSpeed);
         }
 
 
@@ -133,8 +133,8 @@ public class ElasticTongue : MonoBehaviour
         UpdatePoints();
 
 
-        points[points.Count - 1].velocity = Vector3.zero;
-        points[points.Count - 1].transform.name = "Last";
+        points[points.Count - 1].rb.velocity = Vector3.zero;
+
     }
 
     /// <summary>
@@ -184,7 +184,7 @@ public class ElasticTongue : MonoBehaviour
 
         for (int i = 0; i < points.Count; i++)
         {
-
+            bool slow = false;
             if (isShooting)
             {
                 points[i].rb.velocity = shootVelocity;
@@ -192,7 +192,7 @@ public class ElasticTongue : MonoBehaviour
             }
             else if (Vector2.Distance(points[i].transform.position, playerT.position) <= slowDist)
             {
-                points[i].rb.velocity *= 0.2f;
+                slow = true;
             }
 
             if (i != 0)
@@ -211,6 +211,11 @@ public class ElasticTongue : MonoBehaviour
             if(points[i].canBeDestroyed > 100)
             {
                 points[i].canBeDestroyed = 100;
+            }
+
+            if (slow)
+            {
+                points[i].rb.velocity *= 0.2f;
             }
         }
 
@@ -239,6 +244,7 @@ public class ElasticTongue : MonoBehaviour
         {
             points.Add(point);
             points[0].rb.bodyType = RigidbodyType2D.Kinematic;
+            points[0].gameObject.GetComponent<Collider2D>().isTrigger = true;
         }
         else
         {

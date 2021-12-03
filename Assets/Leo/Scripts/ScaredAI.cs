@@ -82,6 +82,8 @@ public class ScaredAI : MonoBehaviour
             done = false;
             GetComponent<enemyRoaming>().enabled = false;
             noMove = false;
+
+            FindHouse();
         }
         else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
         {
@@ -156,6 +158,7 @@ public class ScaredAI : MonoBehaviour
                 if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
                 {
                     closestHouse = houses[i];
+                    Debug.Log("New best: " + i);
                 }
             }
             target = closestHouse.transform;

@@ -158,15 +158,14 @@ public class ScaredAI : MonoBehaviour
                 if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
                 {
                     closestHouse = houses[i];
-                    Debug.Log("New best: " + i);
                 }
             }
             target = closestHouse.transform;
         } else
         {
-            //Debug.Log("no house");
+            Debug.Log("no house");
             target = GameObject.Find("Player").transform;
-            speed = -speed;
+            speed = -Mathf.Abs(speed);
         }
     } 
 

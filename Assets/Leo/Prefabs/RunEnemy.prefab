@@ -28,6 +28,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RunEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 823679042251404099, guid: 87b6759d940c41a489883784705986a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: RunEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 823679042251404126, guid: 87b6759d940c41a489883784705986a3,
         type: 3}
       propertyPath: speed

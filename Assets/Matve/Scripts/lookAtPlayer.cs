@@ -5,6 +5,7 @@ using UnityEngine;
 public class lookAtPlayer : MonoBehaviour
 {
     public Transform player;
+    public Transform gunBarrel;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class lookAtPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.right = player.position - transform.position;
+        gunBarrel.up = player.position - gunBarrel.position;
     }
 }

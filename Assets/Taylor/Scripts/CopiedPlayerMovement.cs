@@ -33,7 +33,7 @@ public class CopiedPlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") < 0)
+        if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Vertical") > 0)
         {
             sr.flipX = true;
         }
@@ -43,9 +43,15 @@ public class CopiedPlayerMovement : MonoBehaviour
         }
 
         //Bottom left kinda cringe
-        if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
+        if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
         {
             sr.flipX = false;
         }
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb2.velocity = Vector2.zero;
     }
 }

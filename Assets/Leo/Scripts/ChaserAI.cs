@@ -13,6 +13,7 @@ public class ChaserAI : MonoBehaviour
     public float nextWaypointDistance = 3f;
 
     public bool done = false;
+    bool wait = false;
 
     //public Transform enemyGFX;
 
@@ -60,13 +61,21 @@ public class ChaserAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+
         if (Vector2.Distance(rb.position, target.position) < 10)
         {
             done = false;
+            GetComponent<enemyRoaming>().enabled = false;
         }
         else if (Vector2.Distance(rb.position, target.position) > 10)
         {
             done = true;
+            if (wait == false)
+            {
+                StartCoroutine(WaitToRoam());
+            }
+            return;
         }
 
 
@@ -116,5 +125,15 @@ public class ChaserAI : MonoBehaviour
             sr.flipX = false;
         }
 
+    }
+
+    IEnumerator WaitToRoam()
+    {
+        wait = true;
+        //Debug.Log("stuff");
+        yield return new WaitForSeconds(2);
+        GetComponent<enemyRoaming>().enabled = true;
+        wait = false;
+        yield return new WaitForFixedUpdate();
     }
 }

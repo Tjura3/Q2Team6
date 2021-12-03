@@ -25,11 +25,11 @@ public class CopiedPlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
         {
-            a.SetBool("Running", false);
+            //a.SetBool("Running", false);
         }
         else
         {
-            a.SetBool("Running", true);
+            //a.SetBool("Running", true);
         }
 
 

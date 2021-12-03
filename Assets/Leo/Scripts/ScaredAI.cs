@@ -13,6 +13,7 @@ public class ScaredAI : MonoBehaviour
     public float nextWaypointDistance = 3f;
 
     public bool done = false;
+    bool wait = false;
 
     //public Transform enemyGFX;
 
@@ -26,21 +27,15 @@ public class ScaredAI : MonoBehaviour
 
     SpriteRenderer sr;
 
+    bool noMove = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
-        GameObject closestHouse = houses[0];
-        for (int i = 0; i < houses.Length; i++)
-        {
-            if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
-            {
-                closestHouse = houses[i];
-            }
-        }
+        FindHouse();
 
-        target = closestHouse.transform;
-        
+        //Debug.Log("Do a thing");
+
         seeker = GetComponent<Seeker>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -48,25 +43,11 @@ public class ScaredAI : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
-        GameObject closestHouse = houses[0];
-        for (int i = 0; i < houses.Length; i++)
-        {
-            if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
-            {
-                closestHouse = houses[i];
-            }
-        }
-
-        target = closestHouse.transform;
-    }
 
 
     void UpdatePath()
     {
-        if (seeker.IsDone() && done == false)
+        if (seeker.IsDone() && done == false && target != null)
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -84,31 +65,40 @@ public class ScaredAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector2.Distance(rb.position, target.position) < 10)
+        UpdateEnemyPath();
+    }
+
+    void UpdateEnemyPath()
+    {
+        if (target == null)
+
+        {
+            FindHouse();
+            return;
+        }
+
+        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
         {
             done = false;
+            GetComponent<enemyRoaming>().enabled = false;
+            noMove = false;
+
+            FindHouse();
         }
-        else if (Vector2.Distance(rb.position, target.position) > 10)
+        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
         {
             done = true;
-        }
-
-        if (target == null)
-        {
-            GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
-            GameObject closestHouse = houses[0];
-            for (int i = 0; i < houses.Length; i++)
+            if (wait == false)
             {
-                if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
-                {
-                    closestHouse = houses[i];
-                }
+                StartCoroutine(WaitToRoam());
             }
 
-            target = closestHouse.transform;
+            if (noMove)
+            {
+                return;
+            }
+
         }
-
-
 
         if (Vector2.Distance(rb.position, target.position) > 20)
         {
@@ -154,6 +144,38 @@ public class ScaredAI : MonoBehaviour
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = false;
         }
+    }
 
+    public void FindHouse()
+    {
+        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
+        if (houses.Length != 0)
+        {
+            //Debug.Log(houses.Length);
+            GameObject closestHouse = houses[0];
+            for (int i = 0; i < houses.Length; i++)
+            {
+                if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
+                {
+                    closestHouse = houses[i];
+                }
+            }
+            target = closestHouse.transform;
+        } else
+        {
+            Debug.Log("no house");
+            target = GameObject.Find("Player").transform;
+            speed = -Mathf.Abs(speed);
+        }
+    } 
+
+    IEnumerator WaitToRoam()
+    {
+        wait = true;
+        yield return new WaitForSeconds(2);
+        noMove = true;
+        GetComponent<enemyRoaming>().enabled = true;
+        wait = false;
+        yield return new WaitForFixedUpdate();
     }
 }

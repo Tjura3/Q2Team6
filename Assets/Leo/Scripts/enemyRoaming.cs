@@ -30,16 +30,16 @@ public class enemyRoaming : MonoBehaviour
         if (Vector2.Distance(transform.position, destination) < range && !wait)
         {
             //findDestination();
-            StartCoroutine(pauseRoaming());
+            StartCoroutine(PauseRoaming());
         }
 
-        if (destination.x >= transform.position.x)
+        if (destination.x > transform.position.x)
         {
             //Debug.Log("Flip x 1 2");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = true;
         }
-        else if (destination.x <= transform.position.x)
+        else if (destination.x < transform.position.x)
         {
             //Debug.Log("Flip x 2 2");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
@@ -52,7 +52,7 @@ public class enemyRoaming : MonoBehaviour
         destination = new Vector2(Random.Range(-maxDistance, maxDistance), Random.Range(-maxDistance, maxDistance));
     }
 
-    IEnumerator pauseRoaming()
+    IEnumerator PauseRoaming()
     {
         wait = true;
         yield return new WaitForSeconds(Random.Range(1, 3));

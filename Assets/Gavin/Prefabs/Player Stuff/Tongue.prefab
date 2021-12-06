@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5692983717276927596}
   - component: {fileID: 5692983717276927587}
   m_Layer: 0
-  m_Name: Line
+  m_Name: Tongue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f27def4e2a259e04f8a6445a68d4ec47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,8 +79,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.14343831
-        value: 0.30554658
+        time: 0.14781758
+        value: 0.41932374
         inSlope: 0
         outSlope: 0
         tangentMode: 1
@@ -92,9 +92,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.4811321, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 0.48175287, b: 0, a: 1}
       key1: {r: 1, g: 0.48175287, b: 0, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 1, g: 0.48175287, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -102,7 +102,7 @@ LineRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -119,12 +119,12 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 90
+    numCornerVertices: 5
     numCapVertices: 4
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!114 &5692983717276927587
@@ -139,12 +139,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a43f0b4845c8fd4b8ac96d33a7360f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDistance: 0.025
-  strechStrength: 2000
-  maxSpeed: 500
-  numberOfPoints: 100
+  startDistance: 0
+  strechStrength: 500
+  maxSpeed: 10000
+  maxNumOfPoints: 50
   initialDistanceBetweenPoints: 0.025
   pointPrefab: {fileID: 5945156180727510716, guid: 74831af7c76145944b384f146b4090fe,
     type: 3}
+  spawnDist: 0.1
+  despawDist: 0.5
   camera: {fileID: 0}
-  mouseMoveSpeed: 500
+  mouseDragSpeed: 50
+  mouseShootSpeed: 10
+  playerT: {fileID: 0}
+  testVar: 50
+  maxShootTime: 0.5
+  minShootTime: 0.2
+  slowDist: 0.6

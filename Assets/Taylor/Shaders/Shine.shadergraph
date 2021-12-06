@@ -16,7 +16,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"d63f2b10-1a03-4190-8c62-05b826aff027\"\n    },\n    \"m_Name\": \"Speed\",\n    \"m_DefaultReferenceName\": \"Vector1_E7CE08D7\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 2.0,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"d63f2b10-1a03-4190-8c62-05b826aff027\"\n    },\n    \"m_Name\": \"Speed\",\n    \"m_DefaultReferenceName\": \"Vector1_E7CE08D7\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.20000000298023225,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
         },
         {
             "typeInfo": {

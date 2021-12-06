@@ -128,42 +128,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -171,10 +135,10 @@ TextureImporter:
       name: New Environment_2
       rect:
         serializedVersion: 2
-        x: 30
-        y: 1070
-        width: 436
-        height: 412
+        x: 28
+        y: 1059
+        width: 447
+        height: 426
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +156,10 @@ TextureImporter:
       name: New Environment_3
       rect:
         serializedVersion: 2
-        x: 515
-        y: 1065
-        width: 433
-        height: 414
+        x: 510
+        y: 1062
+        width: 442
+        height: 420
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +177,10 @@ TextureImporter:
       name: New Environment_4
       rect:
         serializedVersion: 2
-        x: 999
-        y: 1063
-        width: 435
-        height: 414
+        x: 996
+        y: 1060
+        width: 441
+        height: 420
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +198,10 @@ TextureImporter:
       name: New Environment_5
       rect:
         serializedVersion: 2
-        x: 1486
-        y: 1065
-        width: 437
-        height: 412
+        x: 1481
+        y: 1060
+        width: 446
+        height: 420
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +282,10 @@ TextureImporter:
       name: New Environment_16
       rect:
         serializedVersion: 2
-        x: 29
-        y: 613
-        width: 436
-        height: 414
+        x: 26
+        y: 608
+        width: 445
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +303,10 @@ TextureImporter:
       name: New Environment_17
       rect:
         serializedVersion: 2
-        x: 513
-        y: 612
-        width: 435
-        height: 413
+        x: 510
+        y: 608
+        width: 442
+        height: 420
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +324,10 @@ TextureImporter:
       name: New Environment_18
       rect:
         serializedVersion: 2
-        x: 991
-        y: 612
-        width: 439
-        height: 416
+        x: 988
+        y: 608
+        width: 446
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +345,10 @@ TextureImporter:
       name: New Environment_19
       rect:
         serializedVersion: 2
-        x: 1473
-        y: 613
-        width: 436
-        height: 415
+        x: 1469
+        y: 610
+        width: 445
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +387,10 @@ TextureImporter:
       name: New Environment_24
       rect:
         serializedVersion: 2
-        x: 27
+        x: 0
         y: 155
-        width: 444
-        height: 417
+        width: 471
+        height: 421
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

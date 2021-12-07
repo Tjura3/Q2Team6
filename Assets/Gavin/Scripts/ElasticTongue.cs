@@ -251,18 +251,6 @@ public class ElasticTongue : MonoBehaviour
             points.Insert(points.Count - 1, point);
         }
 
-
-        Debug.Log("===============");
-
-        Debug.Log(points.Count);
-
-        for (int i = 0; i < points.Count; i++)
-        {
-            Debug.Log(i + ": " + points[i].transform.name);
-        }
-
-
-        Debug.Log("===============");
     }
 
     float CalculatePullForce(Point point1, Point point2)

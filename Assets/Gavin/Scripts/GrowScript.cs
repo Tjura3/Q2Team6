@@ -19,7 +19,7 @@ public class GrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraFollow.cameraSize = currentSize * 2 + 5;
+        cameraFollow.cameraSize = currentSize * 2 + 15;
 
         //Debug.Log("cameraSize: " + cameraFollow.cameraSize);
         //Debug.Log("CurrentSize: " + currentSize);

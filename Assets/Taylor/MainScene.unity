@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55daa04a8200741429fc1518a4279d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.02
+  speed: 0.04
 --- !u!95 &130990320
 Animator:
   serializedVersion: 3
@@ -13464,6 +13464,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133092788865099764, guid: 87b6759d940c41a489883784705986a3,
         type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133092788865099764, guid: 87b6759d940c41a489883784705986a3,
+        type: 3}
       propertyPath: m_SortingLayerID
       value: 1712055583
       objectReference: {fileID: 0}
@@ -15824,6 +15829,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763320736547366777, guid: 7d491982ae3eb784c91b32ef3b8b4cd5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d491982ae3eb784c91b32ef3b8b4cd5, type: 3}

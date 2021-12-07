@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RangedAttack : MonoBehaviour
 {
+    GameObject Player;
+    healthSystem HS;
     public GameObject projectile;
     public Transform rotate; //Projectile spawn point
 
@@ -16,12 +18,19 @@ public class RangedAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindWithTag("Player");
+        HS = Player.GetComponent<healthSystem>();
+
         canShoot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (HS.isDead)
+        {
+            inRange = false;
+        }
         if (inRange)
         {
             if (canShoot)

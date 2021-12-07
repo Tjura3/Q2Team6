@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class healthSystem : MonoBehaviour
 {
+    PlayerMovement PM;
+
     public float healthPoints;
     public float maxHealth = 100.0f;
 
@@ -17,6 +19,7 @@ public class healthSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PM = GetComponent<PlayerMovement>();
         canDamage = true;
         healthPoints = maxHealth;
     }
@@ -24,7 +27,21 @@ public class healthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!canDamage)
+        {
+            if (invFrame)
+            {
+                if (invTimer < invTime)
+                {
+                    invTimer += Time.deltaTime;
+                }
+                else if (invTimer > invTime)
+                {
+                    invTimer = 0;
+                    canDamage = true;
+                }
+            }
+        }
         if (debug)
         {
             if (Input.GetKeyDown(KeyCode.H))
@@ -53,12 +70,20 @@ public class healthSystem : MonoBehaviour
         if(healthPoints > 0)
         {
             isDead = false;
-        } 
+        }
+        if (isDead)
+        {
+            PM.enabled = false;
+        }
+        else
+        {
+            PM.enabled = true;
+        }
     }
 
 
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
@@ -68,34 +93,8 @@ public class healthSystem : MonoBehaviour
                 healthPoints -= collision.gameObject.GetComponent<DoDamage>().damage;
                 canDamage = false;
             }
-            else
-            {
-                if (invFrame)
-                {
-                    if (invTimer < invTime)
-                    {
-                        invTimer += Time.deltaTime;
-                    }
-                    else if (invTimer > invTime)
-                    {
-                        invTimer = 0;
-                        canDamage = true;
-                    }
-                }
-                else
-                {
-                    canDamage = true;
-                }
-
-            }
 
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            invTimer = 0;
-        }
-    }
+    
 }

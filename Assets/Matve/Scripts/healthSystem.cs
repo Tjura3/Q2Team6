@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class healthSystem : MonoBehaviour
 {
     PlayerMovement PM;
+
+    public Text text;
 
     public float healthPoints;
     public float maxHealth = 100.0f;
@@ -27,6 +30,7 @@ public class healthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(healthPoints);
         if (!canDamage)
         {
             if (invFrame)

@@ -21,7 +21,6 @@ public class CopiedPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
         {
@@ -52,6 +51,7 @@ public class CopiedPlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2.velocity = Vector2.zero;
+
+        rb2.MovePosition(rb2.position + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed * Time.deltaTime);
     }
 }

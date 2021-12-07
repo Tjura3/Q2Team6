@@ -5,12 +5,12 @@ using UnityEngine;
 public class HouseScript : MonoBehaviour
 {
 
-    int red = 0;
-    int orange = 0;
-    int yellow = 0;
-    int green = 0;
-    int blue = 0;
-    int purple = 0;
+    public int red = 0;
+    public int orange = 0;
+    public int yellow = 0;
+    public int green = 0;
+    public int blue = 0;
+    public int purple = 0;
 
     public GameObject redBean;
     public GameObject orangeBean;
@@ -22,39 +22,39 @@ public class HouseScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == ("Red"))
+        if (collision.gameObject.name.Split(' ')[0] == ("Red"))
         {
             red += 1;
             Destroy(collision.gameObject);
 
-        } else if (collision.gameObject.name == ("Orange")) { 
+        } else if (collision.gameObject.name.Split(' ')[0] == ("Orange")) { 
 
             orange += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name == ("Yellow"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Yellow"))
         {
 
             yellow += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name == ("Green"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Green"))
         {
 
             green += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name == ("Blue"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Blue"))
         {
 
             blue += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name == ("Purple"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Purple"))
         {
 
             purple += 1;

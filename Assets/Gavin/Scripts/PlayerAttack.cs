@@ -22,8 +22,8 @@ public class PlayerAttack : MonoBehaviour
         collider = GetComponent<Collider2D>();
         growScript = GetComponent<GrowScript>();
 
-        stunHitbox = transform.GetChild(0).gameObject;
-        stunHitboxCollider = stunHitbox.GetComponent<Collider2D>();
+        //stunHitbox = transform.GetChild(0).gameObject;
+        //stunHitboxCollider = stunHitbox.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Eat();
         }
-
+        return;
         if (Input.GetMouseButtonDown(0))
         {
             //StunAttack();
@@ -64,11 +64,15 @@ public class PlayerAttack : MonoBehaviour
         List<Collider2D> colliders = new List<Collider2D>();
         collider.GetContacts(colliders);
 
+        print("Searching colliders");
+
         foreach(Collider2D collider in colliders)
         {
+            print("Loop");
             //CHANGE TAG FROM TEST FOOD TO ENEMY OR SOMETHING IDK
-            if(collider.tag == "Enemy")
+            if (collider.tag == "Enemy" || collider.tag == "RunEnemy")
             {
+                print("eat");
                 growScript.Eat(collider.gameObject);
             }
         }

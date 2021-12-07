@@ -19,7 +19,7 @@ public class PointStickScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag.CompareTo("Enemy") == 0)
+        if (collision.transform.tag.CompareTo("Enemy") == 0 || collision.transform.tag.CompareTo("RunEnemy") == 0)
         {
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
@@ -30,6 +30,21 @@ public class PointStickScript : MonoBehaviour
 
             pc.AddSource(constraintSource);
             pc.constraintActive = true;
+
+            ScaredAI scaredAI = collision.gameObject.GetComponent<ScaredAI>();
+            ChaserAI chaserAI = collision.gameObject.GetComponent<ChaserAI>();
+            enemyRoaming enemyRoaming = collision.gameObject.GetComponent<enemyRoaming>();
+
+            if (scaredAI != null)
+            {
+                scaredAI.enabled = false;
+            }
+            else
+            {
+                chaserAI.enabled = false;
+            }
+
+            enemyRoaming.enabled = false;
         }
     }
 }

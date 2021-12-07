@@ -111,6 +111,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133092788865099764, guid: 87b6759d940c41a489883784705986a3,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cc528a6f86894e5da005895dfbfdc06,
+        type: 3}
+    - target: {fileID: 1133092788865099764, guid: 87b6759d940c41a489883784705986a3,
+        type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
@@ -124,6 +130,11 @@ PrefabInstance:
       propertyPath: maxDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9065252331753589731, guid: 87b6759d940c41a489883784705986a3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1af90d4971ed7401496ab5171ea6c83e, type: 2}
     m_RemovedComponents:
     - {fileID: -6342047013015181249, guid: 87b6759d940c41a489883784705986a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87b6759d940c41a489883784705986a3, type: 3}

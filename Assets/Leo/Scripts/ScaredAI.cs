@@ -28,6 +28,7 @@ public class ScaredAI : MonoBehaviour
     SpriteRenderer sr;
 
     bool noMove = false;
+    bool playerIsTarget = false;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,11 @@ public class ScaredAI : MonoBehaviour
             noMove = false;
 
             FindHouse();
+
+            /*if ((Vector2.Distance(rb.position, target.position) > 20) && playerIsTarget == true)
+            {
+                rb.velocity = Vector2.zero;
+            }*/
         }
         else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
         {
@@ -100,11 +106,7 @@ public class ScaredAI : MonoBehaviour
 
         }
 
-        if (Vector2.Distance(rb.position, target.position) > 20)
-        {
-            rb.velocity = Vector2.zero;
-
-        }
+        
 
 
         if (path == null)
@@ -166,6 +168,7 @@ public class ScaredAI : MonoBehaviour
             Debug.Log("no house");
             target = GameObject.Find("Player").transform;
             speed = -Mathf.Abs(speed);
+            playerIsTarget = true;
         }
     } 
 

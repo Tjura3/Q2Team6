@@ -16,6 +16,24 @@ MonoBehaviour:
   speed: 400
   nextWaypointDistance: 3
   done: 0
+--- !u!114 &7673416079805010905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416893526598497230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65b587b01de57845af05ba2210c831b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  maxDistance: 5
+  speed: 200
+  nextWaypointDistance: 3
+  done: 0
+  range: 0
 --- !u!1001 &4630510000912990349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 1951178659171601327, guid: 87b6759d940c41a489883784705986a3,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951178659171601327, guid: 87b6759d940c41a489883784705986a3,
         type: 3}

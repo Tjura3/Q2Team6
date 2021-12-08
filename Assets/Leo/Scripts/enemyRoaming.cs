@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class enemyRoaming : MonoBehaviour
 {
@@ -49,8 +50,8 @@ public class enemyRoaming : MonoBehaviour
 
     void findDestination()
     {
-        //current = new Vector2(transform.position);
         destination = new Vector2(( - Random.Range(-maxDistance, maxDistance)), Random.Range(-maxDistance, maxDistance)) + new Vector2(transform.position.x, transform.position.y);
+
     }
 
     IEnumerator PauseRoaming()

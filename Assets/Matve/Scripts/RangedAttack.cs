@@ -27,6 +27,8 @@ public class RangedAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (HS.isDead)
         {
             inRange = false;

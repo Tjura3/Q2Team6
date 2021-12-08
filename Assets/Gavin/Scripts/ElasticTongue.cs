@@ -29,6 +29,7 @@ public class ElasticTongue : MonoBehaviour
 
     //Does the tongue need to be launched
     bool shoot;
+    bool canShoot;
     //Is the tongue being dragged
     bool drag;
 
@@ -43,9 +44,17 @@ public class ElasticTongue : MonoBehaviour
 
     [SerializeField] float slowDist;
 
+    PlayerMovement playerMovement;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        canShoot = true;
+
+        //playerMovement = GetComponent<PlayerMovement>();
+        //playerMovement.canMove = true;
+
         shootTime = 0;
         shootVelocity = Vector2.zero;
 
@@ -94,6 +103,7 @@ public class ElasticTongue : MonoBehaviour
         if ((shootTime >= maxShootTime || (!Input.GetMouseButton(0) && shootTime >= minShootTime)) && isShooting)
         {
             isShooting = false;
+            canShoot = true;
             Debug.Log("Reset");
         }
     }
@@ -101,6 +111,12 @@ public class ElasticTongue : MonoBehaviour
     {
         if (shoot)
         {
+
+            //playerMovement.canMove = false;
+            //Put mouth ani stuff here
+
+            //-----------
+
 
             Vector3 mousePos = Input.mousePosition;
             mousePos = camera.ScreenToWorldPoint(mousePos);
@@ -111,20 +127,8 @@ public class ElasticTongue : MonoBehaviour
             //points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
 
             shootVelocity = dir * mouseShootSpeed;
-
+            //canShoot = false;
             shoot = false;
-        }
-
-        if (drag)
-        {
-
-            Vector3 mousePos = Input.mousePosition;
-            mousePos = camera.ScreenToWorldPoint(mousePos);
-            mousePos.z = 0;
-
-            Vector2 dir = (mousePos - points[0].transform.position).normalized;
-
-            //points[0].rb.AddForce(dir * mouseDragSpeed);
         }
 
 

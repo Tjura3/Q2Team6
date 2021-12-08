@@ -6,6 +6,7 @@ public class lookAtPlayer : MonoBehaviour
 {
     public Transform player;
     public Transform gunBarrel;
+    public Transform enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +17,14 @@ public class lookAtPlayer : MonoBehaviour
     void Update()
     {
         gunBarrel.up = player.position - gunBarrel.position;
+
+       if(player.position.x > enemy.position.x)
+        {
+            enemy.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            enemy.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }

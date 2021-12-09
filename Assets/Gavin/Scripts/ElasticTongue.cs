@@ -25,7 +25,6 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] float mouseDragSpeed;
     [SerializeField] float mouseShootSpeed;
 
-    [SerializeField] Transform playerT;
 
     //Does the tongue need to be launched
     bool shoot;
@@ -46,16 +45,17 @@ public class ElasticTongue : MonoBehaviour
 
     [SerializeField] float slowDist;
 
-    PlayerMovement playerMovement;
-
+    [Header("Player Variables")]
+    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] Collider2D playerCollider;
+    [SerializeField] Transform playerT;
 
     // Start is called before the first frame update
     void Start()
     {
         canShoot = true;
 
-        //playerMovement = GetComponent<PlayerMovement>();
-        //playerMovement.canMove = true;
+        playerMovement.canMove = true;
 
         shootTime = 0;
         shootVelocity = Vector2.zero;
@@ -162,6 +162,18 @@ public class ElasticTongue : MonoBehaviour
                 }
                 else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !isShooting)
                 {
+
+                    List<GameObject> destroyedPoint = points[points.Count - 2].pointStick.objectsAttached;
+
+                    for (int i = 0; i < destroyedPoint.Count; i++)
+                    {
+                        points[points.Count - 3].pointStick.objectsAttached.Add(destroyedPoint[i]);
+                        points[points.Count - 3].pointStick.Sticky(destroyedPoint[i]);
+
+                    }
+
+                    
+
                     Destroy(points[points.Count - 2].gameObject);
                     points.RemoveAt(points.Count - 2);
                     UpdateLine();
@@ -311,9 +323,11 @@ class Point
     public Transform transform;
     public Rigidbody2D rb;
     public GameObject gameObject;
+    public PointStickScript pointStick;
     public int canBeDestroyed;
     public Point(GameObject gameObject)
     {
+        pointStick = gameObject.GetComponent<PointStickScript>();
         transform = gameObject.transform;
         rb = gameObject.GetComponent<Rigidbody2D>();
         this.gameObject = gameObject;

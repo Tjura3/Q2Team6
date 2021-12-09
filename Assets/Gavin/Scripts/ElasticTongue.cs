@@ -35,7 +35,9 @@ public class ElasticTongue : MonoBehaviour
 
     [SerializeField] float testVar;
 
+    //Is the tongue going out.
     bool isShooting;
+    bool isTongueOut;
     Vector2 shootVelocity;
 
     [SerializeField] float maxShootTime;
@@ -104,7 +106,6 @@ public class ElasticTongue : MonoBehaviour
         {
             isShooting = false;
             canShoot = true;
-            Debug.Log("Reset");
         }
     }
     private void FixedUpdate()
@@ -155,7 +156,7 @@ public class ElasticTongue : MonoBehaviour
 
                 if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints && isShooting)
                 {
-                    Debug.Log("Point created");
+                    isTongueOut = isShooting;
                     CreateNewPoint();
                     UpdateLine();
                 }
@@ -173,10 +174,32 @@ public class ElasticTongue : MonoBehaviour
             UpdateLine();
         }
 
+        if(IsAllPointsInside() && isTongueOut)
+        {
+            isTongueOut = false;
+            CloseMouth();
+        }
+
         //strechStrength = -(maxNumOfPoints * 2) * points.Count + 2000f;
         //Debug.Log(-(maxNumOfPoints * testVar) * points.Count);
     }
 
+    void CloseMouth()
+    {
+        print("Close mouth");
+    }
+
+    bool IsAllPointsInside()
+    {
+        for (int i = 0; i < points.Count; i++)
+        {
+            if(Vector2.Distance(points[i].transform.position, playerT.position) >= spawnDist)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /// <summary>
     /// Calculates the velocity and applies it to every point

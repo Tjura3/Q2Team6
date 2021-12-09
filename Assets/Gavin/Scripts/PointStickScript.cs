@@ -28,8 +28,13 @@ public class PointStickScript : MonoBehaviour
             ParentConstraint pc = collision.gameObject.GetComponent<ParentConstraint>();
             pc.locked = true;
 
-            pc.AddSource(constraintSource);
-            pc.constraintActive = true;
+            if (pc.sourceCount == 0)
+            {
+                pc.AddSource(constraintSource);
+                pc.constraintActive = true;
+
+                collision.gameObject.GetComponent<Collider2D>().isTrigger = true;
+            }
 
             ScaredAI scaredAI = collision.gameObject.GetComponent<ScaredAI>();
             ChaserAI chaserAI = collision.gameObject.GetComponent<ChaserAI>();

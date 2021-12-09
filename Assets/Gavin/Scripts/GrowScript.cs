@@ -21,6 +21,8 @@ public class GrowScript : MonoBehaviour
     {
         cameraFollow.cameraSize = currentSize * 2 + 15;
 
+        
+
         //Debug.Log("cameraSize: " + cameraFollow.cameraSize);
         //Debug.Log("CurrentSize: " + currentSize);
         //Debug.Log("Lerp Val: " + Vector3.Lerp(transform.localScale, new Vector3(transform.localScale.x, transform.localScale.y, 1), lerpGrowSpeed));

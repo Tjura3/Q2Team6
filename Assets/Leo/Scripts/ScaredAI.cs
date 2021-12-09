@@ -27,7 +27,6 @@ public class ScaredAI : MonoBehaviour
 
     SpriteRenderer sr;
 
-    bool noMove = false;
     bool playerIsTarget = false;
 
     // Start is called before the first frame update
@@ -71,6 +70,7 @@ public class ScaredAI : MonoBehaviour
 
     void UpdateEnemyPath()
     {
+
         if (target == null)
 
         {
@@ -81,10 +81,8 @@ public class ScaredAI : MonoBehaviour
         if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
         {
             done = false;
-            GetComponent<enemyRoaming>().enabled = false;
-            noMove = false;
+            GetComponent<NewRoaming>().isOff = true;
 
-            FindHouse();
 
             /*if ((Vector2.Distance(rb.position, target.position) > 20) && playerIsTarget == true)
             {
@@ -99,18 +97,15 @@ public class ScaredAI : MonoBehaviour
                 StartCoroutine(WaitToRoam());
             }
 
-            if (noMove)
-            {
-                return;
-            }
-
         }
 
-        
+
 
 
         if (path == null)
+        {
             return;
+        }
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -124,7 +119,7 @@ public class ScaredAI : MonoBehaviour
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
-
+        //print("force: " + force);
         rb.AddForce(force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -165,7 +160,7 @@ public class ScaredAI : MonoBehaviour
             target = closestHouse.transform;
         } else
         {
-            Debug.Log("no house");
+            //Debug.Log("no house");
             target = GameObject.Find("Player").transform;
             speed = -Mathf.Abs(speed);
             playerIsTarget = true;
@@ -176,8 +171,7 @@ public class ScaredAI : MonoBehaviour
     {
         wait = true;
         yield return new WaitForSeconds(2);
-        noMove = true;
-        GetComponent<enemyRoaming>().enabled = true;
+        GetComponent<NewRoaming>().isOff = false;
         wait = false;
         yield return new WaitForFixedUpdate();
     }

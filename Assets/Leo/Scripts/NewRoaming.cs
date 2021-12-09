@@ -32,6 +32,8 @@ public class NewRoaming : MonoBehaviour
 
     bool switchTarget;
 
+    public bool isOff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +44,17 @@ public class NewRoaming : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .5f);
-        InvokeRepeating("SwitchTarget", 0f, 5f);
+        InvokeRepeating("SwitchTarget", 0f, 3f);
 
     }
 
     void SwitchTarget()
     {
+        if (isOff)
+        {
+            return;
+        }
+
         switchTarget = true;
         findDestination();
 
@@ -55,7 +62,12 @@ public class NewRoaming : MonoBehaviour
 
     void UpdatePath()
     {
-        if ((seeker.IsDone() && done == false) || switchTarget)
+        if (isOff)
+        {
+            return;
+        }
+
+        if (seeker.IsDone() || switchTarget)
         {
             switchTarget = false;
             seeker.StartPath(rb.position, target, OnPathComplete);
@@ -89,7 +101,7 @@ public class NewRoaming : MonoBehaviour
 
 
 
-        if (path == null)
+        if (path == null || isOff)
             return;
 
         if (currentWaypoint >= path.vectorPath.Count)
@@ -127,7 +139,7 @@ public class NewRoaming : MonoBehaviour
 
     void findDestination()
     {
-        Debug.Log("Find destination");
+        //Debug.Log("Find destination");
         target = new Vector2((-Random.Range(-maxDistance, maxDistance)), Random.Range(-maxDistance, maxDistance)) + new Vector2(transform.position.x, transform.position.y);
 
     }

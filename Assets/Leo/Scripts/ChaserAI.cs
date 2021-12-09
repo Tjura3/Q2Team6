@@ -66,7 +66,7 @@ public class ChaserAI : MonoBehaviour
         if (Vector2.Distance(rb.position, target.position) < 10)
         {
             done = false;
-            GetComponent<enemyRoaming>().enabled = false;
+            GetComponent<NewRoaming>().isOff = true;
         }
         else if (Vector2.Distance(rb.position, target.position) > 10)
         {
@@ -88,7 +88,10 @@ public class ChaserAI : MonoBehaviour
 
 
         if (path == null)
+        {
             return;
+        }
+            
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -132,7 +135,7 @@ public class ChaserAI : MonoBehaviour
         wait = true;
         //Debug.Log("stuff");
         yield return new WaitForSeconds(2);
-        GetComponent<enemyRoaming>().enabled = true;
+        GetComponent<NewRoaming>().isOff = false;
         wait = false;
         yield return new WaitForFixedUpdate();
     }

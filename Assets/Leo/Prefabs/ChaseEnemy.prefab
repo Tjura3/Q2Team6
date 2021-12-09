@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1133092788865099764}
   - component: {fileID: 9065252331753589731}
   - component: {fileID: -6342047013015181249}
+  - component: {fileID: 7498378339525210975}
   m_Layer: 0
   m_Name: ChaseEnemy
   m_TagString: Enemy
@@ -202,3 +203,22 @@ MonoBehaviour:
   speed: 400
   nextWaypointDistance: 3
   done: 0
+--- !u!114 &7498378339525210975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823679042251404099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65b587b01de57845af05ba2210c831b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  maxDistance: 6
+  speed: 200
+  nextWaypointDistance: 1
+  done: 0
+  range: 0
+  isOff: 0

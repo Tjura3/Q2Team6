@@ -22,39 +22,39 @@ public class HouseScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Split(' ')[0] == ("Red"))
+        if (collision.gameObject.name.Split(' ')[0] == ("Red") || collision.gameObject.name.Split('(')[0] == ("Red"))
         {
             red += 1;
             Destroy(collision.gameObject);
 
-        } else if (collision.gameObject.name.Split(' ')[0] == ("Orange")) { 
+        } else if (collision.gameObject.name.Split(' ')[0] == ("Orange") || collision.gameObject.name.Split('(')[0] == ("Orange")) { 
 
             orange += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Yellow"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Yellow") || collision.gameObject.name.Split('(')[0] == ("Yellow"))
         {
 
             yellow += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Green"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Green") || collision.gameObject.name.Split('(')[0] == ("Green"))
         {
 
             green += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Blue"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Blue") || collision.gameObject.name.Split('(')[0] == ("Blue"))
         {
 
             blue += 1;
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Purple"))
+        else if (collision.gameObject.name.Split(' ')[0] == ("Purple") || collision.gameObject.name.Split('(')[0] == ("Purple"))
         {
 
             purple += 1;

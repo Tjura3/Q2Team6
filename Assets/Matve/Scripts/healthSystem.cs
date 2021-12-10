@@ -7,7 +7,7 @@ public class healthSystem : MonoBehaviour
 {
     PlayerMovement PM;
 
-    public Text text;
+    public Text hpText;
 
     public float healthPoints;
     public float maxHealth = 100.0f;
@@ -30,7 +30,7 @@ public class healthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(healthPoints);
+        hpText.text = "" + healthPoints;
         if (!canDamage)
         {
             if (invFrame)
@@ -81,7 +81,7 @@ public class healthSystem : MonoBehaviour
         }
         else
         {
-            PM.enabled = true;
+            
         }
     }
 

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
+    Rigidbody2D RB;
+
+    public float kbForce;
+    public float kbForceNeg;
     // Start is called before the first frame update
     void Start()
     {
         
+        RB = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -16,15 +21,13 @@ public class Knockback : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D player)
+    private void OnTriggerEnter2D(Collider2D Tier3)
     {
-        GameObject Player = player.gameObject;
-        if(player.gameObject.tag == "Player")
+        
+        if(Tier3.gameObject.tag == "Tier3")
         {
-            if (player.gameObject.transform.position.x >= gameObject.transform.position.x)
-            {
-                
-            }
+            print("AAAAAAAAAAAAAAAA");
+            RB.AddForce(new Vector2(kbForceNeg, 0));
         }
     }
 }

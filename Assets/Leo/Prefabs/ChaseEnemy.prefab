@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 823679042251404124}
   - component: {fileID: 823679042251404125}
   - component: {fileID: 823679042251404098}
-  - component: {fileID: 1951178659171601327}
   - component: {fileID: 1133092788865099764}
   - component: {fileID: 9065252331753589731}
   - component: {fileID: -6342047013015181249}
@@ -103,21 +102,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1951178659171601327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823679042251404099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0320b62cae27e48a7658d7b7779245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  range: 0.5
-  maxDistance: 3
 --- !u!212 &1133092788865099764
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -157,12 +141,12 @@ SpriteRenderer:
   m_SortingLayerID: 1712055583
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 23c3b29e405234fd7b73bc95f4e18b5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42b5174a8e6f4cc40a321b72eae8f7dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

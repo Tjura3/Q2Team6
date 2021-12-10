@@ -34,6 +34,7 @@ MonoBehaviour:
   nextWaypointDistance: 1
   done: 0
   range: 0
+  isOff: 0
 --- !u!1001 &4630510000912990349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 1af90d4971ed7401496ab5171ea6c83e, type: 2}
     m_RemovedComponents:
     - {fileID: -6342047013015181249, guid: 87b6759d940c41a489883784705986a3, type: 3}
+    - {fileID: 7498378339525210975, guid: 87b6759d940c41a489883784705986a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87b6759d940c41a489883784705986a3, type: 3}
 --- !u!1 &5416893526598497230 stripped
 GameObject:

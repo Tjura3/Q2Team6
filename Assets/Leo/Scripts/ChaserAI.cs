@@ -43,7 +43,7 @@ public class ChaserAI : MonoBehaviour
 
     void UpdatePath()
     {
-        if (seeker.IsDone() && done == false)
+        if (seeker.IsDone() && done == false && target != null)
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -61,29 +61,30 @@ public class ChaserAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        UpdateEnemyPath();
+    }
 
-        if (Vector2.Distance(rb.position, target.position) < 10)
+    void UpdateEnemyPath()
+    {
+        if (target == null)
+
+        {
+            return;
+        }
+
+        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
         {
             done = false;
             GetComponent<NewRoaming>().isOff = true;
         }
-        else if (Vector2.Distance(rb.position, target.position) > 10)
+        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
         {
             done = true;
             if (wait == false)
             {
                 StartCoroutine(WaitToRoam());
             }
-            return;
-        }
-
-
-
-        if (Vector2.Distance(rb.position, target.position) > 20)
-        {
-            rb.velocity = Vector2.zero;
-
+            //return;
         }
 
 
@@ -91,7 +92,7 @@ public class ChaserAI : MonoBehaviour
         {
             return;
         }
-            
+
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -127,7 +128,6 @@ public class ChaserAI : MonoBehaviour
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = false;
         }
-
     }
 
     IEnumerator WaitToRoam()

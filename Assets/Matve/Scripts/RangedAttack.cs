@@ -8,6 +8,8 @@ public class RangedAttack : MonoBehaviour
     healthSystem HS;
     public GameObject projectile;
     public Transform rotate; //Projectile spawn point
+    public Transform target;
+    Rigidbody2D rb;
 
     public bool canShoot;
     public bool inRange;
@@ -15,24 +17,37 @@ public class RangedAttack : MonoBehaviour
     public float speed;
     public float timer;
     public float delayTime;
+
+    ShooterAI shooter;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindWithTag("Player");
         HS = Player.GetComponent<healthSystem>();
-
+        target = GameObject.Find("Player").transform;
+        
+        rb = GetComponent<Rigidbody2D>();
+        shooter = GetComponent<ShooterAI>();
         canShoot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (shooter.done == false)
+        {
+            inRange = true;
+            GetComponent<NewRoaming>().isOff = true;
 
-        if (HS.isDead)
+        } else if (shooter.done == true)
+        {
+            inRange = false;
+
+        } else if (HS.isDead)
         {
             inRange = false;
         }
+
         if (inRange)
         {
             if (canShoot)

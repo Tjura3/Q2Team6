@@ -7,10 +7,12 @@ public class lookAtPlayer : MonoBehaviour
     public Transform player;
     public Transform gunBarrel;
     public Transform enemy;
+    SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        sr = gameObject.GetComponentInParent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,10 +23,12 @@ public class lookAtPlayer : MonoBehaviour
        if(player.position.x > enemy.position.x)
         {
             enemy.rotation = Quaternion.Euler(0, 180, 0);
+            sr.flipX = false;
         }
         else
         {
             enemy.rotation = Quaternion.Euler(0, 0, 0);
+            sr.flipX = false;
         }
     }
 }

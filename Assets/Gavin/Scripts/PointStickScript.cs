@@ -62,7 +62,7 @@ public class PointStickScript : MonoBehaviour
                 chaserAI.enabled = false;
             }
 
-            enemyRoaming.enabled = false;
+            //enemyRoaming.enabled = false;
         }
     }
 
@@ -110,7 +110,7 @@ public class PointStickScript : MonoBehaviour
                 chaserAI.enabled = false;
             }
 
-            enemyRoaming.enabled = false;
+            //enemyRoaming.enabled = false;
         }
     }
 
@@ -139,6 +139,34 @@ public class PointStickScript : MonoBehaviour
             pc.constraintActive = true;
 
             objectsAttached.Add(enemyGO);
+        }
+    }
+
+    public void UpdateStuckObjects()
+    {
+        foreach(GameObject gameObject in objectsAttached)
+        {
+            ConstraintSource constraintSource = new ConstraintSource();
+            constraintSource.sourceTransform = transform;
+            constraintSource.weight = 1;
+
+            ParentConstraint pc = gameObject.GetComponent<ParentConstraint>();
+            pc.locked = true;
+
+            gameObject.name = transform.gameObject.name;
+
+            //Clear sources that have been deleted
+            for (int i = 0; i < pc.sourceCount; i++)
+            {
+                if (pc.GetSource(i).sourceTransform == null)
+                {
+                    pc.RemoveSource(i);
+                    i--;
+                }
+            }
+
+            pc.AddSource(constraintSource);
+            pc.constraintActive = true;
         }
     }
 }

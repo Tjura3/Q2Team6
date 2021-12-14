@@ -165,10 +165,14 @@ public class ElasticTongue : MonoBehaviour
 
                     List<GameObject> destroyedPoint = points[points.Count - 2].pointStick.objectsAttached;
 
+                    Point point = points[points.Count - 3];
+
                     for (int i = 0; i < destroyedPoint.Count; i++)
                     {
-                        points[points.Count - 3].pointStick.objectsAttached.Add(destroyedPoint[i]);
-                        points[points.Count - 3].pointStick.Sticky(destroyedPoint[i]);
+                        point.pointStick.objectsAttached.Add(destroyedPoint[i]);
+                        point.pointStick.Sticky(destroyedPoint[i]);
+
+                        point.gameObject.name = (points.Count - 3).ToString();
 
                     }
 
@@ -176,7 +180,15 @@ public class ElasticTongue : MonoBehaviour
 
                     Destroy(points[points.Count - 2].gameObject);
                     points.RemoveAt(points.Count - 2);
+
+                    point.gameObject.name = points[points.Count - 2].gameObject.name + (points.Count - 2).ToString();
+
+                    point.pointStick.UpdateStuckObjects();
+
                     UpdateLine();
+
+
+                    
                 }
             }
         }

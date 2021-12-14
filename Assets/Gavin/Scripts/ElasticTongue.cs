@@ -213,8 +213,8 @@ public class ElasticTongue : MonoBehaviour
 
     void CloseMouth()
     {
-
         playerAnimator.SetBool("MouthOpen", false);
+        
     }
 
     bool IsAllPointsInside()

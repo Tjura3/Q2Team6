@@ -64,11 +64,14 @@ public class HouseScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            int offset = 0;
+
             if (red > 0)
             {
                 for (int i = 1; i <= red; i++)
                 {
-                    Instantiate(redBean, new Vector2(transform.position.x + i, transform.position.y), redBean.transform.rotation);
+                    offset++;
+                    Instantiate(redBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), redBean.transform.rotation);
                 }
 
             }
@@ -77,7 +80,8 @@ public class HouseScript : MonoBehaviour
 
                 for (int i = 1; i <= orange; i++)
                 {
-                    Instantiate(orangeBean, new Vector2(transform.position.x + i, transform.position.y), orangeBean.transform.rotation);
+                    offset++;
+                    Instantiate(orangeBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), orangeBean.transform.rotation);
                 }
 
             }
@@ -86,7 +90,8 @@ public class HouseScript : MonoBehaviour
 
                 for (int i = 1; i <= yellow; i++)
                 {
-                    Instantiate(yellowBean, new Vector2(transform.position.x + i, transform.position.y), yellowBean.transform.rotation);
+                    offset++;
+                    Instantiate(yellowBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), yellowBean.transform.rotation);
                 }
 
             }
@@ -95,7 +100,8 @@ public class HouseScript : MonoBehaviour
 
                 for (int i = 1; i <= green; i++)
                 {
-                    Instantiate(greenBean, new Vector2(transform.position.x + i, transform.position.y), greenBean.transform.rotation);
+                    offset++;
+                    Instantiate(greenBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), greenBean.transform.rotation);
                 }
 
             }
@@ -104,7 +110,8 @@ public class HouseScript : MonoBehaviour
 
                 for (int i = 1; i <= blue; i++)
                 {
-                    Instantiate(blueBean, new Vector2(transform.position.x + i, transform.position.y), blueBean.transform.rotation);
+                    offset++;
+                    Instantiate(blueBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), blueBean.transform.rotation);
                 }
 
             }
@@ -113,7 +120,8 @@ public class HouseScript : MonoBehaviour
 
                 for (int i = 1; i <= purple; i++)
                 {
-                    Instantiate(purpleBean, new Vector2(transform.position.x + i, transform.position.y), purpleBean.transform.rotation);
+                    offset++;
+                    Instantiate(purpleBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), purpleBean.transform.rotation);
                 }
 
             }

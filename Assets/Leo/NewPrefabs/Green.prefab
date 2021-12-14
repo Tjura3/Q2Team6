@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 400
-  nextWaypointDistance: 1
+  nextWaypointDistance: 3
   done: 0
 --- !u!114 &-7854461745957079581
 MonoBehaviour:

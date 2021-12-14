@@ -1176,7 +1176,12 @@ PrefabInstance:
     - target: {fileID: 578207547509878306, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 578207547509878307, guid: e881d47c4d7b3c549bd1e4525364ccae,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 578207547509878307, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
@@ -1314,6 +1319,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9065252331753589731, guid: 87b6759d940c41a489883784705986a3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e99ecbb1edd57784396090d5729c8d81, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b6759d940c41a489883784705986a3, type: 3}
 --- !u!1001 &675283262
@@ -2133,6 +2143,12 @@ MonoBehaviour:
 --- !u!58 &947747276 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 578207547509878311, guid: e881d47c4d7b3c549bd1e4525364ccae,
+    type: 3}
+  m_PrefabInstance: {fileID: 589691347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &947747278 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 578207547509878306, guid: e881d47c4d7b3c549bd1e4525364ccae,
     type: 3}
   m_PrefabInstance: {fileID: 589691347}
   m_PrefabAsset: {fileID: 0}
@@ -3951,6 +3967,11 @@ PrefabInstance:
       propertyPath: playerT
       value: 
       objectReference: {fileID: 947747280}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 947747278}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: playerCollider

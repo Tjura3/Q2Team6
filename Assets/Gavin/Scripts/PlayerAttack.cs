@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     Collider2D stunHitboxCollider;
     [SerializeField] float stunHitboxDuration;
     float stunHitboxActiveTime;
+    [SerializeField] float maxSpinSpeed;
     bool stunHitboxActive;
     // Start is called before the first frame update
     void Start()
@@ -64,16 +65,17 @@ public class PlayerAttack : MonoBehaviour
         List<Collider2D> colliders = new List<Collider2D>();
         collider.GetContacts(colliders);
 
-        print("Searching colliders");
+        System.Random random = new System.Random();
 
         foreach(Collider2D collider in colliders)
         {
-            print("Loop");
             //CHANGE TAG FROM TEST FOOD TO ENEMY OR SOMETHING IDK
             if (collider.tag == "Enemy" || collider.tag == "RunEnemy")
             {
-                print("eat");
-                growScript.Eat(collider.gameObject);
+                print("eat: " + collider.gameObject.name + "; Tag: " + collider.gameObject.tag);
+                collider.GetComponent<Rigidbody2D>().AddTorque(((float)random.NextDouble() * maxSpinSpeed));
+                collider.GetComponent<SpriteRenderer>().color = new Color(0, 0, 50);
+                //growScript.Eat(collider.gameObject);
             }
         }
     }

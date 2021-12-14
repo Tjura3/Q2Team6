@@ -49,10 +49,13 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Collider2D playerCollider;
     [SerializeField] Transform playerT;
+    [SerializeField] Animator playerAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+
+
         canShoot = true;
 
         playerMovement.canMove = true;
@@ -130,6 +133,8 @@ public class ElasticTongue : MonoBehaviour
             shootVelocity = dir * mouseShootSpeed;
             //canShoot = false;
             shoot = false;
+            playerMovement.canMove = false;
+            playerAnimator.SetBool("MouthOpen", true);
         }
 
 
@@ -172,7 +177,6 @@ public class ElasticTongue : MonoBehaviour
                         point.pointStick.objectsAttached.Add(destroyedPoint[i]);
                         point.pointStick.Sticky(destroyedPoint[i]);
 
-                        point.gameObject.name = (points.Count - 3).ToString();
 
                     }
 
@@ -180,8 +184,6 @@ public class ElasticTongue : MonoBehaviour
 
                     Destroy(points[points.Count - 2].gameObject);
                     points.RemoveAt(points.Count - 2);
-
-                    point.gameObject.name = points[points.Count - 2].gameObject.name + (points.Count - 2).ToString();
 
                     point.pointStick.UpdateStuckObjects();
 
@@ -201,6 +203,7 @@ public class ElasticTongue : MonoBehaviour
         if(IsAllPointsInside() && isTongueOut)
         {
             isTongueOut = false;
+            playerMovement.canMove = true;
             CloseMouth();
         }
 
@@ -210,7 +213,8 @@ public class ElasticTongue : MonoBehaviour
 
     void CloseMouth()
     {
-        print("Close mouth");
+        playerAnimator.SetBool("MouthOpen", false);
+        
     }
 
     bool IsAllPointsInside()

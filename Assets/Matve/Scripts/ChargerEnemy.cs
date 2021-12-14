@@ -12,12 +12,14 @@ public class ChargerEnemy : MonoBehaviour
 
     public GameObject hitbox;
     public Collider2D hitboxCol;
+    Animator controlBoi;
+
     // Start is called before the first frame update
     void Start()
     {
         hitbox = gameObject.transform.Find("Hitbox").gameObject;
         hitboxCol = hitbox.GetComponent<Collider2D>();
-        
+        controlBoi = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class ChargerEnemy : MonoBehaviour
 
         if (attacking)
         {
+            controlBoi.SetBool("Attack", true);
             if (timer <= time)
             {
                 timer += Time.deltaTime;
@@ -40,6 +43,7 @@ public class ChargerEnemy : MonoBehaviour
                 hitboxCol.enabled = true;
                 timer = 0;
                 attacking = false;
+                controlBoi.SetBool("Attack", false);
             }
         }
         else

@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 public class PointStickScript : MonoBehaviour
 {
     public List<GameObject> objectsAttached;
+    [SerializeField] ParentConstraint parentConstraintPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,11 @@ public class PointStickScript : MonoBehaviour
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
             constraintSource.weight = 1;
-            collision.gameObject.AddComponent<ParentConstraint>();
             ParentConstraint pc = collision.gameObject.GetComponent<ParentConstraint>();
+            if (pc == null)
+            {
+                pc = collision.gameObject.AddComponent<ParentConstraint>();
+            }
             pc.locked = true;
 
 
@@ -76,6 +80,7 @@ public class PointStickScript : MonoBehaviour
             collision.gameObject.AddComponent<ParentConstraint>();
             ParentConstraint pc = collision.gameObject.GetComponent<ParentConstraint>();
             pc.locked = true;
+            
 
 
             //Clear sources that have been deleted
@@ -149,6 +154,11 @@ public class PointStickScript : MonoBehaviour
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
             constraintSource.weight = 1;
+
+            if(gameObject == null)
+            {
+                continue;
+            }
 
             ParentConstraint pc = gameObject.GetComponent<ParentConstraint>();
             pc.locked = true;

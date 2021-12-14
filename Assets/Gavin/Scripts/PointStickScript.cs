@@ -26,8 +26,11 @@ public class PointStickScript : MonoBehaviour
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
             constraintSource.weight = 1;
-            collision.gameObject.AddComponent<ParentConstraint>();
             ParentConstraint pc = collision.gameObject.GetComponent<ParentConstraint>();
+            if (pc == null)
+            {
+                pc = collision.gameObject.AddComponent<ParentConstraint>();
+            }
             pc.locked = true;
 
 

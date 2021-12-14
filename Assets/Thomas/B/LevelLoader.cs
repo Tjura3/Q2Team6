@@ -12,7 +12,7 @@ public class LevelLoader : MonoBehaviour
 
     // Update is called once per frame
     
-    void Update()
+   /* void Update()
     {
         
 
@@ -22,7 +22,7 @@ public class LevelLoader : MonoBehaviour
             LoadNextLevel();
         }
     }
-    
+    */
 
     public void LoadNextLevel()
     {
@@ -41,12 +41,51 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
-    public void MainMenu()
+    public void LoadMainMenu()
     {
-
-        LoadNextLevel();
-
+        StartCoroutine(LoadMenu());
     }
+    IEnumerator LoadMenu()
+    {
+        //Anim
+        transition.SetTrigger("Start");
+        //Wait
+        yield return new WaitForSeconds(transitionTime);
+        //Load
+        SceneManager.LoadScene("Menu");
+    }
+
+
+    public void Play()
+    {
+        StartCoroutine(PlayGame());
+    }
+    IEnumerator PlayGame()
+    {
+        //Anim
+        transition.SetTrigger("Start");
+        //Wait
+        yield return new WaitForSeconds(transitionTime);
+        //Load
+        SceneManager.LoadScene("Tutorial");
+    }
+
+
+
+    public void Credits()
+    {
+        StartCoroutine(OpenCredits());
+    }
+    IEnumerator OpenCredits()
+    {
+        //Anim
+        transition.SetTrigger("Start");
+        //Wait
+        yield return new WaitForSeconds(transitionTime);
+        //Load
+        SceneManager.LoadScene("SimpleCredits");
+    }
+
 
 
 }

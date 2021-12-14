@@ -7,6 +7,7 @@ public class Pause : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public static bool GameIsPaused = false;
+    public LevelLoader LL;
 
     private void Update()
     {
@@ -46,9 +47,10 @@ public class Pause : MonoBehaviour
     }
     public void loadmenu()
     {
-        Time.timeScale = 1f;
         Debug.Log("Menu");
-        SceneManager.LoadScene("Menu");
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        LL.LoadMainMenu();
     }
    
 }

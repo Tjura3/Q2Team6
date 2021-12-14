@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class healthSystem : MonoBehaviour
 {
-    PlayerMovement PM;
+    CopiedPlayerMovement PM;
 
     public Text hpText;
 
@@ -22,7 +22,7 @@ public class healthSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PM = GetComponent<PlayerMovement>();
+        PM = GetComponent<CopiedPlayerMovement>();
         canDamage = true;
         healthPoints = maxHealth;
     }
@@ -63,7 +63,8 @@ public class healthSystem : MonoBehaviour
         {
             isDead = true;
             healthPoints = 0.0f;
-            canDamage = false;
+            
+
         }
         else if (healthPoints >= maxHealth)
         {
@@ -78,6 +79,9 @@ public class healthSystem : MonoBehaviour
         if (isDead)
         {
             PM.enabled = false;
+            canDamage = false;
+            invFrame = false;
+          
         }
         else
         {

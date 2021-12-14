@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
 
-    public LevelLoader Sussysixtynineing;
+
     public Animator transition;
     public float transitionTime = 1f;
 
     // Update is called once per frame
+    /*
     void Update()
     {
         
@@ -21,11 +22,7 @@ public class LevelLoader : MonoBehaviour
             LoadNextLevel();
         }
     }
-    public void Wackystacks()
-    {
-        Sussysixtynineing.LoadNextLevel();
-    }
-
+    */
 
     public void LoadNextLevel()
     {
@@ -38,11 +35,18 @@ public class LevelLoader : MonoBehaviour
     {
         //Anim
         transition.SetTrigger("Start");
-
         //Wait
         yield return new WaitForSeconds(transitionTime);
         //Load
         SceneManager.LoadScene(levelIndex);
     }
+
+    public void MainMenu()
+    {
+
+        LoadNextLevel();
+
+    }
+
 
 }

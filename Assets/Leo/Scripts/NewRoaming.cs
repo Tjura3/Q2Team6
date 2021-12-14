@@ -126,11 +126,11 @@ public class NewRoaming : MonoBehaviour
             currentWaypoint++;
         }
 
-        if (direction.x >= 0.01f)
+        if (rb.velocity.x >= 0.01f)
         {
             sr.flipX = true;
         }
-        else if (direction.x <= -0.01f)
+        else if (rb.velocity.x <= -0.01f)
         {
             sr.flipX = false;
         }

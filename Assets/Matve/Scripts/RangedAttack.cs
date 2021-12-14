@@ -54,6 +54,10 @@ public class RangedAttack : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            timer = 0;
+        }
     }
 
     void Shoot()

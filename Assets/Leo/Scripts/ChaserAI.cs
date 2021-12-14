@@ -85,7 +85,7 @@ public class ChaserAI : MonoBehaviour
                 StartCoroutine(WaitToRoam());
             }
             //return;
-        }
+        } 
 
 
         if (path == null)
@@ -116,18 +116,20 @@ public class ChaserAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        if (direction.x >= 0.01f)
+        if (rb.velocity.x >= 0.01f)
         {
             //Debug.Log("Flip x 1");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = true;
         }
-        else if (direction.x <= -0.01f)
+        else if (rb.velocity.x <= -0.01f)
         {
             //Debug.Log("Flip x 2");
             //enemyGFX.localScale = new Vector3(-Mathf.Abs(enemyGFX.localScale.x), enemyGFX.localScale.y, enemyGFX.localScale.z);
             sr.flipX = false;
         }
+
+        //print("Dir: " + direction);
     }
 
     IEnumerator WaitToRoam()

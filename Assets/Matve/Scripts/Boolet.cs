@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Boolet : MonoBehaviour
 {
+    float time = 2.5f;
+    float timer;
+
     public float damage;
     healthSystem HS;
     GameObject Player;
@@ -17,7 +20,14 @@ public class Boolet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(timer <= time)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,8 +38,14 @@ public class Boolet : MonoBehaviour
             {
                 HS.healthPoints -= damage;
                 HS.canDamage = false;
+                
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "RunEnemy")
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

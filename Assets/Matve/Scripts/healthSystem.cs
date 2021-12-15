@@ -7,7 +7,7 @@ public class healthSystem : MonoBehaviour
 {
     CopiedPlayerMovement PM;
 
-    //public Text hpText;
+    public Text hpText;
 
     public float healthPoints;
     public float maxHealth = 100.0f;
@@ -30,7 +30,7 @@ public class healthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        hpText.text = healthPoints + "/" + maxHealth;
         if (!canDamage)
         {
             if (invFrame)

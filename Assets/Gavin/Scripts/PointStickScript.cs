@@ -61,7 +61,7 @@ public class PointStickScript : MonoBehaviour
             {
                 scaredAI.enabled = false;
             }
-            else
+            else if(chaserAI != null)
             {
                 chaserAI.enabled = false;
             }

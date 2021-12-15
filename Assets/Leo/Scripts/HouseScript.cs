@@ -6,14 +6,12 @@ public class HouseScript : MonoBehaviour
 {
 
     public int red = 0;
-    public int orange = 0;
     public int yellow = 0;
     public int green = 0;
     public int blue = 0;
     public int purple = 0;
 
     public GameObject redBean;
-    public GameObject orangeBean;
     public GameObject yellowBean;
     public GameObject greenBean;
     public GameObject blueBean;
@@ -27,12 +25,7 @@ public class HouseScript : MonoBehaviour
             red += 1;
             Destroy(collision.gameObject);
 
-        } else if (collision.gameObject.name.Split(' ')[0] == ("Orange") || collision.gameObject.name.Split('(')[0] == ("Orange")) { 
-
-            orange += 1;
-            Destroy(collision.gameObject);
-
-        }
+        } 
         else if (collision.gameObject.name.Split(' ')[0] == ("Yellow") || collision.gameObject.name.Split('(')[0] == ("Yellow"))
         {
 
@@ -64,6 +57,7 @@ public class HouseScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            print("house touched");
             int offset = 0;
 
             if (red > 0)
@@ -75,16 +69,7 @@ public class HouseScript : MonoBehaviour
                 }
 
             }
-            if (orange > 0)
-            {
-
-                for (int i = 1; i <= orange; i++)
-                {
-                    offset++;
-                    Instantiate(orangeBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), orangeBean.transform.rotation);
-                }
-
-            }
+ 
             if (yellow > 0)
             {
 

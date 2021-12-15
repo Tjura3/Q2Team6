@@ -137,7 +137,7 @@ public class ElasticTongue : MonoBehaviour
             //canShoot = false;
             shoot = false;
             playerMovement.canMove = false;
-            playerAnimator.SetBool("MouthOpen", true);
+            playerAnimator.SetTrigger("OpenMouth");
             lineRenderer.enabled = true;
         }
 
@@ -217,7 +217,7 @@ public class ElasticTongue : MonoBehaviour
 
     void CloseMouth()
     {
-        playerAnimator.SetBool("MouthOpen", false);
+        playerAnimator.SetTrigger("CloseMouth");
         playerAttack.Eat();
         lineRenderer.enabled = false;
     }

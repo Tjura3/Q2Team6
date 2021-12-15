@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Thomas/Credits/SimpleCredits.unity
+    path: Assets/Thomas/SimpleCredits.unity
     guid: a8293826580ecc94a8d6330e51d7eb3f
   - enabled: 1
-    path: Assets/Thomas/MAinMene/Menu.unity
+    path: Assets/Thomas/Menu.unity
     guid: fe7f7fd76d1fb414488f4d8518a66357
   - enabled: 1
     path: Assets/Thomas/Ev Test/Pause!.unity

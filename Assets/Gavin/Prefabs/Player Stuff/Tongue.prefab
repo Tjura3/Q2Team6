@@ -39,7 +39,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692983717276927586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -70,7 +70,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 16
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDistance: 0
-  strechStrength: 500
-  maxSpeed: 10000
+  strechStrength: 700
+  maxSpeed: 1000
   maxNumOfPoints: 50
   initialDistanceBetweenPoints: 0.025
   pointPrefab: {fileID: 5945156180727510716, guid: 74831af7c76145944b384f146b4090fe,
@@ -150,9 +150,13 @@ MonoBehaviour:
   despawDist: 0.5
   camera: {fileID: 0}
   mouseDragSpeed: 50
-  mouseShootSpeed: 10
-  playerT: {fileID: 0}
+  mouseShootSpeed: 35
   testVar: 50
-  maxShootTime: 0.5
-  minShootTime: 0.2
+  maxShootTime: 0.2
+  minShootTime: 0.1
   slowDist: 0.6
+  playerMovement: {fileID: 0}
+  playerCollider: {fileID: 0}
+  playerT: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  playerAttack: {fileID: 0}

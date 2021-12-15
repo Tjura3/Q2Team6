@@ -50,6 +50,9 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] Collider2D playerCollider;
     [SerializeField] Transform playerT;
     [SerializeField] Animator playerAnimator;
+    [SerializeField] PlayerAttack playerAttack;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +138,7 @@ public class ElasticTongue : MonoBehaviour
             shoot = false;
             playerMovement.canMove = false;
             playerAnimator.SetBool("MouthOpen", true);
+            lineRenderer.enabled = true;
         }
 
 
@@ -214,7 +218,8 @@ public class ElasticTongue : MonoBehaviour
     void CloseMouth()
     {
         playerAnimator.SetBool("MouthOpen", false);
-        
+        playerAttack.Eat();
+        lineRenderer.enabled = false;
     }
 
     bool IsAllPointsInside()

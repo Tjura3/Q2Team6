@@ -6656,7 +6656,7 @@ PrefabInstance:
     - target: {fileID: 803312794441088577, guid: 0c199ba7df24d634b8e72993a264007f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 803312794441088577, guid: 0c199ba7df24d634b8e72993a264007f,
         type: 3}
@@ -7451,7 +7451,17 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 130990322}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691425185445363490, guid: c0c78f672e13a4b418562dfa0e522182,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1001036795}
+    - target: {fileID: 3691425185445363490, guid: c0c78f672e13a4b418562dfa0e522182,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4099143380953606181, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
       propertyPath: m_Name
@@ -7516,7 +7526,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 130990322}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c78f672e13a4b418562dfa0e522182, type: 3}
 --- !u!1 &889760483
@@ -7789,7 +7799,7 @@ PrefabInstance:
     - target: {fileID: 91190105080102600, guid: 4e0609930c09484468686502ba122391,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 91190105080102600, guid: 4e0609930c09484468686502ba122391,
         type: 3}
@@ -8709,7 +8719,7 @@ PrefabInstance:
     - target: {fileID: 8661778861960949991, guid: a6d37b4590487d54b978ed79134370e5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8661778861960949991, guid: a6d37b4590487d54b978ed79134370e5,
         type: 3}
@@ -10332,7 +10342,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerT
       value: 
-      objectReference: {fileID: 130990322}
+      objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: mouseShootSpeed
@@ -11974,6 +11984,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1610613456}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1504476068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 578207547509878332, guid: e881d47c4d7b3c549bd1e4525364ccae,
+    type: 3}
+  m_PrefabInstance: {fileID: 578207547514187474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1504476077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504476068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d48cf017c8f11e4081cb937eac6d09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 0
+  maxHealth: 100
+  invFrame: 0
+  invTime: 0.1
+  invTimer: 0
+  debug: 0
+  isDead: 0
+  canDamage: 0
 --- !u!1001 &1509813071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20947,7 +20983,7 @@ PrefabInstance:
     - target: {fileID: 4004661137736771412, guid: 283349621dcd0a844bfb21c6761a3c73,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4004661137736771412, guid: 283349621dcd0a844bfb21c6761a3c73,
         type: 3}

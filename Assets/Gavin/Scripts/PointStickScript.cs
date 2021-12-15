@@ -27,10 +27,10 @@ public class PointStickScript : MonoBehaviour
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
             constraintSource.weight = 1;
-            ParentConstraint pc = collision.gameObject.GetComponent<ParentConstraint>();
+            PositionConstraint pc = collision.gameObject.GetComponent<PositionConstraint>();
             if (pc == null)
             {
-                pc = collision.gameObject.AddComponent<ParentConstraint>();
+                pc = collision.gameObject.AddComponent<PositionConstraint>();
             }
             pc.locked = true;
 
@@ -77,8 +77,8 @@ public class PointStickScript : MonoBehaviour
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
             constraintSource.weight = 1;
-            collision.gameObject.AddComponent<ParentConstraint>();
-            ParentConstraint pc = collision.gameObject.GetComponent<ParentConstraint>();
+            collision.gameObject.AddComponent<PositionConstraint>();
+            PositionConstraint pc = collision.gameObject.GetComponent<PositionConstraint>();
             pc.locked = true;
             
 
@@ -125,7 +125,10 @@ public class PointStickScript : MonoBehaviour
         constraintSource.sourceTransform = transform;
         constraintSource.weight = 1;
         enemyGO.AddComponent<ParentConstraint>();
-        ParentConstraint pc = enemyGO.GetComponent<ParentConstraint>();
+
+
+
+        PositionConstraint pc = enemyGO.GetComponent<PositionConstraint>();
         pc.locked = true;
 
         //Clear sources that have been deleted
@@ -160,7 +163,7 @@ public class PointStickScript : MonoBehaviour
                 continue;
             }
 
-            ParentConstraint pc = gameObject.GetComponent<ParentConstraint>();
+            PositionConstraint pc = gameObject.GetComponent<PositionConstraint>();
             pc.locked = true;
 
             gameObject.name = transform.gameObject.name;

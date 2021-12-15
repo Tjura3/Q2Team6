@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 578207547509878304}
   - component: {fileID: 578207547509878307}
   - component: {fileID: 578207547509878306}
-  - component: {fileID: 578207547509878333}
   - component: {fileID: 578207547509878310}
   - component: {fileID: 578207547509878311}
   - component: {fileID: 578207547509878305}
   - component: {fileID: 578207547509878309}
   - component: {fileID: 578207547509878308}
+  - component: {fileID: 5114628808019347599}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -107,19 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &578207547509878333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578207547509878332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55daa04a8200741429fc1518a4279d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
 --- !u!50 &578207547509878310
 Rigidbody2D:
   serializedVersion: 4
@@ -213,3 +200,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   stunHitboxDuration: 0.1
+  maxSpinSpeed: 0
+--- !u!114 &5114628808019347599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578207547509878332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2486de03dd37c4983d85f89dd4c46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  canMove: 0

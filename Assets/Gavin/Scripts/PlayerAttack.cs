@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Eat();
+            //Eat();
         }
         return;
         if (Input.GetMouseButtonDown(0))
@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// Checks to see if there is a creature to eat
     /// </summary>
-    void Eat()
+    public void Eat()
     {
         List<Collider2D> colliders = new List<Collider2D>();
         collider.GetContacts(colliders);
@@ -73,8 +73,7 @@ public class PlayerAttack : MonoBehaviour
             if (collider.tag == "Enemy" || collider.tag == "RunEnemy")
             {
                 print("eat: " + collider.gameObject.name + "; Tag: " + collider.gameObject.tag);
-                collider.GetComponent<Rigidbody2D>().AddTorque(((float)random.NextDouble() * maxSpinSpeed));
-                collider.GetComponent<SpriteRenderer>().color = new Color(0, 0, 50);
+                collider.GetComponent<Animator>().SetTrigger("Shrink");
                 //growScript.Eat(collider.gameObject);
             }
         }

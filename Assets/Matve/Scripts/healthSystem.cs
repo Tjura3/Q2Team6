@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class healthSystem : MonoBehaviour
 {
-    CopiedPlayerMovement PM;
+    CopiedPlayerMovement CPM;
+    PlayerMovement PM;
 
     public Text hpText;
 
@@ -22,7 +23,7 @@ public class healthSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PM = GetComponent<CopiedPlayerMovement>();
+        PM = GetComponent<PlayerMovement>();
         canDamage = true;
         healthPoints = maxHealth;
     }
@@ -91,18 +92,18 @@ public class healthSystem : MonoBehaviour
 
 
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
 
-            if (canDamage)
-            {
-                healthPoints -= collision.gameObject.GetComponent<DoDamage>().damage;
-                canDamage = false;
-            }
+    //        if (canDamage)
+    //        {
+    //            healthPoints -= collision.gameObject.GetComponent<DoDamage>().damage;
+    //            canDamage = false;
+    //        }
 
-        }
-    }
+    //    }
+    //}
     
 }

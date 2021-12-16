@@ -8,8 +8,8 @@ public class knockbackTwo : MonoBehaviour
     public float damage;
 
     GameObject player;
-    //PlayerMovement PM;
-    CopiedPlayerMovement CPM;
+    PlayerMovement PM;
+    //CopiedPlayerMovement CPM;
     healthSystem HS;
     Rigidbody2D RB2;
     Collider2D col;
@@ -23,8 +23,8 @@ public class knockbackTwo : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
-        //PM = player.GetComponent<PlayerMovement>();
-        CPM = player.GetComponent<CopiedPlayerMovement>();
+        PM = player.GetComponent<PlayerMovement>();
+        //CPM = player.GetComponent<CopiedPlayerMovement>();
         HS = player.GetComponent<healthSystem>();
         RB2 = player.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<Collider2D>();
@@ -37,7 +37,7 @@ public class knockbackTwo : MonoBehaviour
 
     private void Update()
     {
-        if (CPM.enabled == false)
+        if (PM.enabled == false)
         {
             if (stunned >= timer)
             {
@@ -46,7 +46,7 @@ public class knockbackTwo : MonoBehaviour
             else
             {
                 timer = 0;
-                CPM.enabled = true;
+                PM.enabled = true;
                 RB2.velocity = new Vector2(0, 0);
             }
         }
@@ -71,25 +71,25 @@ public class knockbackTwo : MonoBehaviour
             HS.healthPoints -= damage/2;
             if(player.transform.position.x <= gameObject.transform.position.x)
             {
-                CPM.enabled = false;
+                PM.enabled = false;
                 RB2.AddForce(transform.right * -kbForce);
             }
 
             if (player.transform.position.x >= gameObject.transform.position.x)
             {
-                CPM.enabled = false;
+                PM.enabled = false;
                 RB2.AddForce(transform.right * kbForce);
             }
 
             if (player.transform.position.y < gameObject.transform.position.y)
             {
-                CPM.enabled = false;
+                PM.enabled = false;
                 RB2.AddForce(transform.up * -kbForce);
             }
 
             if (player.transform.position.y > gameObject.transform.position.y)
             {
-                CPM.enabled = false;
+                PM.enabled = false;
                 RB2.AddForce(transform.up * kbForce);
             }
         }

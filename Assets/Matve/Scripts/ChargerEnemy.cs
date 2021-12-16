@@ -11,15 +11,16 @@ public class ChargerEnemy : MonoBehaviour
     public bool inRange;
 
     public GameObject hitbox;
+    public GameObject enemy;
     public Collider2D hitboxCol;
     Animator controlBoi;
 
     // Start is called before the first frame update
     void Start()
     {
-        hitbox = gameObject.transform.Find("Hitbox").gameObject;
+        hitbox = gameObject.transform.GetChild(0).gameObject;
         hitboxCol = hitbox.GetComponent<Collider2D>();
-        controlBoi = gameObject.GetComponent<Animator>();
+        controlBoi = enemy.GetComponent<Animator>();
     }
 
     // Update is called once per frame

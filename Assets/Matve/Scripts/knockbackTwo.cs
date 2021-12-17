@@ -68,7 +68,7 @@ public class knockbackTwo : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            HS.healthPoints -= damage/2;
+            HS.healthPoints -= damage;
             if(player.transform.position.x <= gameObject.transform.position.x)
             {
                 PM.enabled = false;

@@ -15,12 +15,17 @@ public class ChargerEnemy : MonoBehaviour
     public Collider2D hitboxCol;
     Animator controlBoi;
 
+    ChaserAI CAI;
+    NewRoaming NR;
+
     // Start is called before the first frame update
     void Start()
     {
         hitbox = gameObject.transform.GetChild(0).gameObject;
         hitboxCol = hitbox.GetComponent<Collider2D>();
         controlBoi = enemy.GetComponent<Animator>();
+        CAI = enemy.GetComponent<ChaserAI>();
+        NR = enemy.GetComponent<NewRoaming>();
     }
 
     // Update is called once per frame
@@ -37,7 +42,8 @@ public class ChargerEnemy : MonoBehaviour
             if (timer <= time)
             {
                 timer += Time.deltaTime;
-
+                CAI.enabled = false;
+                NR.enabled = false;
             }
             else
             {
@@ -45,13 +51,11 @@ public class ChargerEnemy : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 controlBoi.SetBool("Attack", false);
+                inRange = false;
+                CAI.enabled = true;
+                NR.enabled = true;
             }
         }
-        else
-        {
-            
-        }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,14 +63,6 @@ public class ChargerEnemy : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             inRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            inRange = false;
         }
     }
 }

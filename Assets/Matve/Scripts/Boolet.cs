@@ -42,7 +42,7 @@ public class Boolet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "RunEnemy")
+        else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "RunEnemy" || collision.gameObject.tag == "Enviro")
         {
             Destroy(gameObject);
         }

@@ -22,12 +22,12 @@ public class lookAtPlayer : MonoBehaviour
 
        if(player.position.x > enemy.position.x)
         {
-            enemy.rotation = Quaternion.Euler(0, 180, 0);
-            sr.flipX = false;
+            gameObject.transform.localPosition = new Vector2(1.86f, 0);
+            sr.flipX = true;
         }
         else
         {
-            enemy.rotation = Quaternion.Euler(0, 0, 0);
+            gameObject.transform.localPosition = new Vector2(-1.86f, 0);
             sr.flipX = false;
         }
     }

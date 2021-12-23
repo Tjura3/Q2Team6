@@ -190,7 +190,7 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   maxDistance: 6
   speed: 200
-  nextWaypointDistance: 3
+  nextWaypointDistance: 1
   done: 0
   range: 0
   isOff: 0
@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 400
-  nextWaypointDistance: 20
+  speed: -400
+  nextWaypointDistance: 1
   done: 0
 --- !u!58 &5530814629948333609
 CircleCollider2D:

@@ -217,8 +217,11 @@ public class ElasticTongue : MonoBehaviour
 
     void CloseMouth()
     {
-        playerAnimator.SetTrigger("CloseMouth");
-        playerAttack.Eat();
+        bool enemiesEaten = playerAttack.Eat();
+        if (!enemiesEaten)
+        {
+            playerAnimator.SetTrigger("CloseMouth");
+        }
         lineRenderer.enabled = false;
     }
 

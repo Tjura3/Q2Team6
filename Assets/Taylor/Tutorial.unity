@@ -883,6 +883,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.476723, y: 12.201401}
   m_EdgeRadius: 0
+--- !u!1 &84074578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5692983717276927586, guid: 04e270a15090b884d9482e3696eca5f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246827204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &85681842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3219,12 +3225,17 @@ PrefabInstance:
     - target: {fileID: 176015772697987831, guid: e8619b1b7e95a17439d884bb3a763ac4,
         type: 3}
       propertyPath: damage
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7207134946293880464, guid: e8619b1b7e95a17439d884bb3a763ac4,
         type: 3}
       propertyPath: m_Name
       value: Charger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207134946293880464, guid: e8619b1b7e95a17439d884bb3a763ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207134946293880464, guid: e8619b1b7e95a17439d884bb3a763ac4,
         type: 3}
@@ -8120,6 +8131,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -3889270543283088341, guid: c0c78f672e13a4b418562dfa0e522182,
+        type: 3}
+      propertyPath: delayTime
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3691425185445363490, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
       propertyPath: enemy
@@ -8148,7 +8164,7 @@ PrefabInstance:
     - target: {fileID: 4099143380953606183, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4099143380953606200, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
@@ -13562,6 +13578,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 578207547514187474}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1504476073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504476068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8af9e01c02e98a4386579c43d73b124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gavinsTongue: {fileID: 84074578}
 --- !u!114 &1504476077
 MonoBehaviour:
   m_ObjectHideFlags: 0

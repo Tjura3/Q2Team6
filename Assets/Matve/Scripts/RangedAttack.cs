@@ -6,6 +6,9 @@ public class RangedAttack : MonoBehaviour
 {
     GameObject Player;
     healthSystem HS;
+
+    Animator anim;
+
     public GameObject projectile;
     public Transform rotate; //Projectile spawn point
     public Transform target;
@@ -25,6 +28,7 @@ public class RangedAttack : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         HS = Player.GetComponent<healthSystem>();
         target = GameObject.Find("Player").transform;
+        anim = GetComponent<Animator>();
         
         rb = GetComponent<Rigidbody2D>();
         shooter = GetComponent<ShooterAI>();
@@ -52,18 +56,22 @@ public class RangedAttack : MonoBehaviour
         {
             if (canShoot)
             {
+                anim.SetBool("Shoot", true);
                 Shoot();
 
                 canShoot = false;
             }
             else
             {
-                if(timer <= delayTime)
+                
+                if (timer <= delayTime)
                 {
+                    
                     timer += Time.deltaTime;
                 }
                 else
                 {
+                    
                     canShoot = true;
                     timer = 0;
                 }
@@ -72,11 +80,13 @@ public class RangedAttack : MonoBehaviour
         else
         {
             timer = 0;
+            anim.SetBool("Shoot", false);
         }
     }
 
     void Shoot()
     {
+        
         GameObject bullet = Instantiate(projectile, rotate.position, rotate.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(rotate.up * speed, ForceMode2D.Impulse);

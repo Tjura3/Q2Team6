@@ -8,6 +8,8 @@ public class healthSystem : MonoBehaviour
     CopiedPlayerMovement CPM;
     PlayerMovement PM;
 
+    Rigidbody2D RB2;
+
     public Text hpText;
 
     public float healthPoints;
@@ -26,6 +28,7 @@ public class healthSystem : MonoBehaviour
         PM = GetComponent<PlayerMovement>();
         canDamage = true;
         healthPoints = maxHealth;
+        RB2 = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -82,7 +85,7 @@ public class healthSystem : MonoBehaviour
             PM.enabled = false;
             canDamage = false;
             invFrame = false;
-          
+            RB2.constraints = RigidbodyConstraints2D.FreezeAll;
         }
         else
         {

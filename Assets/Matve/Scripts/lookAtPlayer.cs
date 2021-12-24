@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class lookAtPlayer : MonoBehaviour
 {
+    ShooterAI shooter;
     public Transform player;
     public Transform gunBarrel;
     public Transform enemy;
@@ -13,6 +14,7 @@ public class lookAtPlayer : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         sr = gameObject.GetComponentInParent<SpriteRenderer>();
+        shooter = GetComponentInParent<ShooterAI>();
     }
 
     // Update is called once per frame
@@ -20,15 +22,20 @@ public class lookAtPlayer : MonoBehaviour
     {
         gunBarrel.up = player.position - gunBarrel.position;
 
-       if(player.position.x > enemy.position.x)
+        if (shooter.done == false)
         {
-            enemy.rotation = Quaternion.Euler(0, 180, 0);
-            sr.flipX = false;
+            if (player.position.x > enemy.position.x)
+            {
+                gameObject.transform.localPosition = new Vector2(1.86f, 0);
+                sr.flipX = true;
+            }
+            else
+            {
+                gameObject.transform.localPosition = new Vector2(-1.86f, 0);
+                sr.flipX = false;
+            }
         }
-        else
-        {
-            enemy.rotation = Quaternion.Euler(0, 0, 0);
-            sr.flipX = false;
-        }
+
+     
     }
 }

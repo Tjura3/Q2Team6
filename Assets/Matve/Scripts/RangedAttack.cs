@@ -12,7 +12,7 @@ public class RangedAttack : MonoBehaviour
     public GameObject projectile;
     public Transform rotate; //Projectile spawn point
     public Transform target;
-    Rigidbody2D rb;
+    //Rigidbody2D enemyRB;
 
     public bool canShoot;
     public bool inRange;
@@ -29,8 +29,8 @@ public class RangedAttack : MonoBehaviour
         HS = Player.GetComponent<healthSystem>();
         target = GameObject.Find("Player").transform;
         anim = GetComponent<Animator>();
-        
-        rb = GetComponent<Rigidbody2D>();
+
+        //enemyRB = GetComponent<Rigidbody2D>();
         shooter = GetComponent<ShooterAI>();
         canShoot = true;
     }

@@ -50,7 +50,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f27def4e2a259e04f8a6445a68d4ec47, type: 2}
+  - {fileID: 2100000, guid: 88117f5e57e8d7340a5fedd0e9a1fb6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,7 +70,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 16
+  m_SortingOrder: 20
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -92,8 +92,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.48175287, b: 0, a: 1}
-      key1: {r: 1, g: 0.48175287, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 1, g: 0.48175287, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -122,7 +122,7 @@ LineRenderer:
     numCornerVertices: 5
     numCapVertices: 4
     alignment: 0
-    textureMode: 3
+    textureMode: 0
     shadowBias: 0.5
     generateLightingData: 1
   m_UseWorldSpace: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   startDistance: 0
   strechStrength: 700
   maxSpeed: 1000
-  maxNumOfPoints: 50
+  maxNumOfPoints: 10000
   initialDistanceBetweenPoints: 0.025
   pointPrefab: {fileID: 5945156180727510716, guid: 74831af7c76145944b384f146b4090fe,
     type: 3}
@@ -150,7 +150,7 @@ MonoBehaviour:
   despawDist: 0.5
   camera: {fileID: 0}
   mouseDragSpeed: 50
-  mouseShootSpeed: 35
+  mouseShootSpeed: 20
   testVar: 50
   maxShootTime: 0.2
   minShootTime: 0.1

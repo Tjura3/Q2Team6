@@ -10,7 +10,7 @@ public class ShooterAI : MonoBehaviour
 
 
     public float speed = 200f;
-    public float nextWaypointDistance = 10f;
+    public float nextWaypointDistance = 1f;
 
     public bool done = false;
     bool wait = false;
@@ -72,19 +72,19 @@ public class ShooterAI : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 20)
+        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
         {
             done = false;
             GetComponent<NewRoaming>().isOff = true;
         }
-        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 20)
+        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
         {
             done = true;
             if (wait == false)
             {
                 StartCoroutine(WaitToRoam());
             }
-            //return;
+            return;
         }
 
 
@@ -135,7 +135,7 @@ public class ShooterAI : MonoBehaviour
     IEnumerator WaitToRoam()
     {
         wait = true;
-        //Debug.Log("stuff");
+        Debug.Log("stuff");
         yield return new WaitForSeconds(2);
         GetComponent<NewRoaming>().isOff = false;
         wait = false;

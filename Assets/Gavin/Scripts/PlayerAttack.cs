@@ -60,8 +60,9 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// Checks to see if there is a creature to eat
     /// </summary>
-    public void Eat()
+    public bool Eat()
     {
+        bool enemiesEaten = false;
         List<Collider2D> colliders = new List<Collider2D>();
         collider.GetContacts(colliders);
 
@@ -72,11 +73,14 @@ public class PlayerAttack : MonoBehaviour
             //CHANGE TAG FROM TEST FOOD TO ENEMY OR SOMETHING IDK
             if (collider.tag == "Enemy" || collider.tag == "RunEnemy")
             {
+                enemiesEaten = true;
                 print("eat: " + collider.gameObject.name + "; Tag: " + collider.gameObject.tag);
                 collider.GetComponent<Animator>().SetTrigger("Shrink");
                 //growScript.Eat(collider.gameObject);
             }
         }
+
+        return enemiesEaten;
     }
 
     void StunAttack()

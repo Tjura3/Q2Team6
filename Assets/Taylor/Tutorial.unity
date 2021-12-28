@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1234,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 4099143380953606181, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4099143380953606181, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
@@ -1801,6 +1801,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213723839048555413, guid: a53e87197738cbb44a5f892defd8b093,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 213723839048555418, guid: a53e87197738cbb44a5f892defd8b093,
         type: 3}
       propertyPath: m_IsActive
@@ -2883,7 +2888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 130990322}
   cameraSize: 10
-  cameraGrowthSpeed: 5
+  cameraGrowthSpeed: 0.1
+  lerpProgress: 0
 --- !u!4 &1463996372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180296822893672783, guid: 973554834e814a743acc06320d1bdb75,

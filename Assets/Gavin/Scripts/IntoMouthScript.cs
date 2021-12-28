@@ -8,6 +8,7 @@ public class IntoMouthScript : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Animator>().SetTrigger("CloseMouth");
         GrowScript growScript = player.GetComponent<GrowScript>();
 
         growScript.Eat(animator.gameObject);

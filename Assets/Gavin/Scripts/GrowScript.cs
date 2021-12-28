@@ -19,7 +19,7 @@ public class GrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraFollow.cameraSize = currentSize * 2 + 15;
+        cameraFollow.cameraSize = currentSize * 2 + 10;
 
         
 
@@ -46,5 +46,11 @@ public class GrowScript : MonoBehaviour
         Destroy(gameObject);
         currentSize += growSpeed;
         Debug.Log("Munch");
+    }
+
+    [ContextMenu("Grow a Bit")]
+    public void GrowABit()
+    {
+        currentSize += growSpeed;
     }
 }

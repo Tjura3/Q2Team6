@@ -45,6 +45,8 @@ public class GrowScript : MonoBehaviour
     {
         Destroy(gameObject);
         currentSize += growSpeed;
+        Spawner.enemyNumber -= 1;
+        Debug.Log("Enemies:" + Spawner.enemyNumber);
         Debug.Log("Munch");
     }
 

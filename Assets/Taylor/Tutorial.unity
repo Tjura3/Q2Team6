@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2609,6 +2609,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3213120363891442662}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1284295548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 578207547509878332, guid: e881d47c4d7b3c549bd1e4525364ccae,
+    type: 3}
+  m_PrefabInstance: {fileID: 578207547514187474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1284295549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284295548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88a0fa4d76ccad4187babec6ee05d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material:
+  - {fileID: 2100000, guid: e3b2d52b7a56d234d883528b532d8347, type: 2}
+  - {fileID: 2100000, guid: 6ac7d4ea49c25d24f8918cefc7fd7c2b, type: 2}
 --- !u!4 &1289525362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8027526878160944735, guid: 5abcb437b09cdc0499845c7f90a7b9f9,
@@ -3578,7 +3599,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 578207547514187474}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1284295548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc5572d1f6015a4d9a3605a2c9a006d, type: 3}
@@ -3596,7 +3617,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 578207547514187474}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1284295548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee2486de03dd37c4983d85f89dd4c46a, type: 3}
@@ -16366,6 +16387,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 578207547509878307, guid: e881d47c4d7b3c549bd1e4525364ccae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3b2d52b7a56d234d883528b532d8347, type: 2}
     - target: {fileID: 578207547509878308, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
       propertyPath: camera

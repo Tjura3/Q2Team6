@@ -1576,7 +1576,7 @@ PrefabInstance:
     - target: {fileID: 4099143380953606181, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4099143380953606181, guid: c0c78f672e13a4b418562dfa0e522182,
         type: 3}
@@ -16338,6 +16338,18 @@ PrefabInstance:
       propertyPath: hpText
       value: 
       objectReference: {fileID: 1415010375}
+    - target: {fileID: 1504476077, guid: e881d47c4d7b3c549bd1e4525364ccae, type: 3}
+      propertyPath: invTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504476077, guid: e881d47c4d7b3c549bd1e4525364ccae, type: 3}
+      propertyPath: invFrame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504476077, guid: e881d47c4d7b3c549bd1e4525364ccae, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 578207547509878304, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
       propertyPath: m_RootOrder

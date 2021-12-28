@@ -27,11 +27,11 @@ public class InvincFrame : MonoBehaviour
         //    rend.sharedMaterial = material[0];
         //}
 
-        if (gameObject.GetComponent<healthSystem>().invFrame == true)
+        if (gameObject.GetComponent<healthSystem>().canDamage == true)
         {
             rend.sharedMaterial = material[0];
         }
-        else if (gameObject.GetComponent<healthSystem>().invFrame == false)
+        else if (gameObject.GetComponent<healthSystem>().canDamage == false)
         {
             rend.sharedMaterial = material[1];
         }

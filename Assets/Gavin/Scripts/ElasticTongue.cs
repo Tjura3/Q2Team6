@@ -258,6 +258,13 @@ public class ElasticTongue : MonoBehaviour
                 slow = true;
             }
 
+            //Test for anti swirl
+            if (!Input.GetMouseButton(0))
+            {
+                //points[i].rb.velocity *= 0.5f;
+            }
+
+
             if (i != 0)
             {
                 //Calculate one behind

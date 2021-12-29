@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z);
         if (camera.orthographicSize < cameraSize)

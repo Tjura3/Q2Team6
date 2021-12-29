@@ -115,15 +115,19 @@ public class PointStickScript : MonoBehaviour
 
             ScaredAI scaredAI = collision.gameObject.GetComponent<ScaredAI>();
             ChaserAI chaserAI = collision.gameObject.GetComponent<ChaserAI>();
+            ShooterAI shooterAI = collision.gameObject.GetComponent<ShooterAI>();
             enemyRoaming enemyRoaming = collision.gameObject.GetComponent<enemyRoaming>();
 
             if (scaredAI != null)
             {
                 scaredAI.enabled = false;
             }
-            else
+            else if(chaserAI != null)
             {
                 chaserAI.enabled = false;
+            }else if(shooterAI != null)
+            {
+                shooterAI.enabled = false;
             }
 
             //enemyRoaming.enabled = false;

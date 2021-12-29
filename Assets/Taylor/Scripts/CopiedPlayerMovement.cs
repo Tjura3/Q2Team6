@@ -38,17 +38,17 @@ public class CopiedPlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Vertical") > 0)
         {
-            sr.flipX = true;
+            sr.flipX = false;
         }
         else
         {
-            sr.flipX = false;
+            sr.flipX = true;
         }
 
         //Bottom left kinda cringe
         if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
         {
-            sr.flipX = false;
+            sr.flipX = true;
         }
 
     }

@@ -2688,6 +2688,21 @@ PrefabInstance:
       objectReference: {fileID: 130990322}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
+      propertyPath: maxSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: slowDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: despawDist
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
       propertyPath: playerAttack
       value: 
       objectReference: {fileID: 1912379389}
@@ -2706,6 +2721,11 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1912379394}
+    - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: strechStrength
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927597, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: m_RootOrder

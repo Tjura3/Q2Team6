@@ -63,5 +63,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2.MovePosition(rb2.position + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed * Time.deltaTime);
         }
+        else
+        {
+            rb2.velocity = Vector2.zero;
+        }
     }
 }

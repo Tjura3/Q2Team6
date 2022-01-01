@@ -135,7 +135,6 @@ public class ShooterAI : MonoBehaviour
     IEnumerator WaitToRoam()
     {
         wait = true;
-        Debug.Log("stuff");
         yield return new WaitForSeconds(2);
         GetComponent<NewRoaming>().isOff = false;
         wait = false;

@@ -7,7 +7,7 @@ public class GrowScript : MonoBehaviour
     [SerializeField] float growSpeed;
     [SerializeField] float lerpGrowSpeed;
     [SerializeField] float startSize;
-    float currentSize;
+    public float currentSize;
 
     [SerializeField] CameraFollow cameraFollow;
     // Start is called before the first frame update

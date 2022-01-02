@@ -7,8 +7,10 @@ public class Twening : MonoBehaviour
     public GrowScript GS;
     int waitingTime = 2;
     bool stop1 = false;
+    public bool ConsumeBig = false;
 
-    // Start is called before the first frame update
+
+
     void Start()
     {
         transform.localScale = Vector2.zero;
@@ -20,6 +22,7 @@ public class Twening : MonoBehaviour
         if (GS.currentSize >= 1f & stop1 == false || Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(BubbleOne());
+            ConsumeBig = true;
             stop1 = true;
         }
     }

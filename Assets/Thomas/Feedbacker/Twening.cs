@@ -5,6 +5,7 @@ using UnityEngine;
 public class Twening : MonoBehaviour
 {
     public GrowScript GS;
+    public float EnemySizeRequierment;
     int waitingTime = 2;
     bool stop1 = false;
     public bool ConsumeBig = false;
@@ -19,7 +20,7 @@ public class Twening : MonoBehaviour
     private void Update()
     {
         //Debug.Log(string.Format("size = {0}", GS.currentSize));
-        if (GS.currentSize >= 1f & stop1 == false || Input.GetKeyDown(KeyCode.T))
+        if (GS.currentSize >= EnemySizeRequierment & stop1 == false || Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(BubbleOne());
             ConsumeBig = true;

@@ -25211,6 +25211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GS: {fileID: 1284295550}
+  EnemySizeRequierment: 1
   ConsumeBig: 0
 --- !u!224 &4014974161260811376
 RectTransform:

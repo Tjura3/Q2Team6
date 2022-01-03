@@ -29,8 +29,8 @@ public class ElasticTongue : MonoBehaviour
     //Does the tongue need to be launched
     bool shoot;
     bool canShoot;
-    //Is the tongue being dragged
-    bool drag;
+    //Is the tongue being shot again while it is already out
+    bool extendShoot;
 
     [SerializeField] float testVar;
 
@@ -38,6 +38,13 @@ public class ElasticTongue : MonoBehaviour
     bool isShooting;
     bool isTongueOut;
     Vector2 shootVelocity;
+    bool canSpawnPoint;
+
+
+    float retractTimer;
+    [SerializeField] float maxRetractTime;
+
+    [SerializeField] float extendShootStrength;
 
     [SerializeField] float maxShootTime;
     [SerializeField] float minShootTime;
@@ -96,33 +103,56 @@ public class ElasticTongue : MonoBehaviour
     void Update()
     {
         DrawLine();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isShooting && !isTongueOut)
         {
             shoot = true;
-            Debug.Log("Shoot");
             isShooting = true;
             shootTime = 0;
+            canSpawnPoint = true;
 
+            extendShoot = true;
+
+            retractTimer = 0;
+        }
+        else if (Input.GetMouseButtonDown(0) && isTongueOut)
+        {
+            extendShoot = true;
+
+            canSpawnPoint = true;
+            retractTimer = 0;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+
+            retractTimer = 0;
         }
 
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            canSpawnPoint = false;
+            canShoot = true;
+        }
 
         shootTime += Time.deltaTime;
         if ((shootTime >= maxShootTime || (!Input.GetMouseButton(0) && shootTime >= minShootTime)) && isShooting)
         {
             isShooting = false;
-            canShoot = true;
+            //canShoot = true;
         }
+
+        retractTimer += Time.deltaTime;
+        if(retractTimer >= maxRetractTime)
+        {
+            canSpawnPoint = false;
+        }
+
     }
     private void FixedUpdate()
     {
         if (shoot)
         {
-
-            //playerMovement.canMove = false;
-            //Put mouth ani stuff here
-
-            //-----------
 
 
             Vector3 mousePos = Input.mousePosition;
@@ -139,8 +169,32 @@ public class ElasticTongue : MonoBehaviour
             playerMovement.canMove = false;
             playerAnimator.SetTrigger("OpenMouth");
             lineRenderer.enabled = true;
+
+
         }
 
+        if (extendShoot)
+        {
+            extendShoot = false;
+
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = camera.ScreenToWorldPoint(mousePos);
+            mousePos.z = 0;
+
+            Vector2 dir = (mousePos - points[0].transform.position).normalized;
+
+            //points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
+
+            Vector2 shootVelocity = dir * extendShootStrength;
+
+            for (int i = 0; i < 5; i++)
+            {
+                points[i].rb.AddForce(shootVelocity, ForceMode2D.Impulse);
+            }
+            
+
+            print("Shoot");
+        }
 
         UpdateTongue();
 
@@ -160,16 +214,17 @@ public class ElasticTongue : MonoBehaviour
 
         if (points.Count > 2)
         {
+            points[0].gameObject.name = "Anchor";
             if (Vector2.Distance(points[0].transform.position, playerT.position) >= spawnDist)
             {
 
-                if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints && isShooting)
+                if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints && canSpawnPoint)
                 {
-                    isTongueOut = isShooting;
+                    isTongueOut = canSpawnPoint;
                     CreateNewPoint();
                     UpdateLine();
                 }
-                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !isShooting)
+                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !canSpawnPoint)
                 {
 
                     List<GameObject> destroyedPoint = points[points.Count - 2].pointStick.objectsAttached;
@@ -207,6 +262,8 @@ public class ElasticTongue : MonoBehaviour
         if(IsAllPointsInside() && isTongueOut)
         {
             isTongueOut = false;
+            canSpawnPoint = false;
+            isShooting = false;
             playerMovement.canMove = true;
             CloseMouth();
         }
@@ -250,6 +307,7 @@ public class ElasticTongue : MonoBehaviour
             bool slow = false;
             if (isShooting)
             {
+                print(1);
                 points[i].rb.velocity = shootVelocity;
                 continue;
             }

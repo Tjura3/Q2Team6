@@ -144,9 +144,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5018825, y: 0}
+  m_Offset: {x: -0.5, y: -3}
   serializedVersion: 2
-  m_Radius: 2.2858143
+  m_Radius: 1.5
 --- !u!61 &578207547509878305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   growSpeed: 0.1
   lerpGrowSpeed: 1
   startSize: 0.5
+  currentSize: 0
   cameraFollow: {fileID: 0}
 --- !u!114 &578207547509878308
 MonoBehaviour:
@@ -247,7 +248,7 @@ MonoBehaviour:
   healthPoints: 0
   maxHealth: 100
   invFrame: 1
-  invTime: 0.1
+  invTime: 1
   invTimer: 0
   debug: 0
   isDead: 0

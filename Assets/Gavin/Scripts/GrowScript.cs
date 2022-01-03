@@ -9,11 +9,18 @@ public class GrowScript : MonoBehaviour
     [SerializeField] float startSize;
     public float currentSize;
 
+    //Thomas Stuff
+    public BeanBar Bbar;
+    public int StartBeans = 0;
+    public int currentBeans = 0;
+    //Thomas Stuff End
+
     [SerializeField] CameraFollow cameraFollow;
     // Start is called before the first frame update
     void Start()
     {
         currentSize = startSize;
+        Bbar.SetStartBeans(StartBeans);
     }
 
     // Update is called once per frame
@@ -46,6 +53,8 @@ public class GrowScript : MonoBehaviour
         Destroy(gameObject);
         currentSize += growSpeed;
         Spawner.enemyNumber -= 1;
+        currentBeans++;  //ThomasThing
+        Bbar.SetBeans(currentBeans); //ThomasThing
         Debug.Log("Enemies:" + Spawner.enemyNumber);
         Debug.Log("Munch");
     }

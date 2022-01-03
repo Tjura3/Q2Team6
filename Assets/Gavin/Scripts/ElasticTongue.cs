@@ -189,7 +189,13 @@ public class ElasticTongue : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                points[i].rb.AddForce(shootVelocity, ForceMode2D.Impulse);
+                try
+                {
+                    points[i].rb.AddForce(shootVelocity, ForceMode2D.Impulse);
+                }catch(System.Exception e)
+                {
+                    break;
+                }
             }
             
 

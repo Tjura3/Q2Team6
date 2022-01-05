@@ -20,7 +20,7 @@ public class Twening : MonoBehaviour
     private void Update()
     {
         //Debug.Log(string.Format("size = {0}", GS.currentSize));
-        if (GS.currentSize >= EnemySizeRequierment & stop1 == false || Input.GetKeyDown(KeyCode.T))
+        if (GS.currentSize >= EnemySizeRequierment & stop1 == false) //|| Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(BubbleOne());
             ConsumeBig = true;

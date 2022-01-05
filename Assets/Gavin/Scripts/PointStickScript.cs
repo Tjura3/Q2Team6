@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 
 public class PointStickScript : MonoBehaviour
 {
+    ElasticTongue tongue;
     public List<GameObject> objectsAttached;
     [SerializeField] ParentConstraint parentConstraintPrefab;
 
@@ -12,6 +13,8 @@ public class PointStickScript : MonoBehaviour
     void Start()
     {
         objectsAttached = new List<GameObject>();
+        tongue = transform.parent.GetComponent<ElasticTongue>();
+
     }
 
     // Update is called once per frame
@@ -22,6 +25,16 @@ public class PointStickScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(tongue == null)
+        {
+            tongue = transform.parent.GetComponent<ElasticTongue>();
+        }
+
+        if (!tongue.isTongueOut)
+        {
+            return;
+        }
+        
         if (collision.transform.tag.CompareTo("Enemy") == 0 || collision.transform.tag.CompareTo("RunEnemy") == 0)
         {
             ConstraintSource constraintSource = new ConstraintSource();

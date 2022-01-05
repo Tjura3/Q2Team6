@@ -11,8 +11,8 @@ public class GrowScript : MonoBehaviour
 
     //Thomas Stuff
     public BeanBar Bbar;
-    public int StartBeans = 0;
-    public int currentBeans = 0;
+    int StartBeans = 0;
+    int currentBeans = 0;
     //Thomas Stuff End
 
     [SerializeField] CameraFollow cameraFollow;
@@ -20,7 +20,7 @@ public class GrowScript : MonoBehaviour
     void Start()
     {
         currentSize = startSize;
-        Bbar.SetStartBeans(StartBeans);
+        Bbar.SetStartBeans(StartBeans);  //thomas again
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class GrowScript : MonoBehaviour
     {
         cameraFollow.cameraSize = currentSize * 2 + 10;
 
-        
+         
 
         //Debug.Log("cameraSize: " + cameraFollow.cameraSize);
         //Debug.Log("CurrentSize: " + currentSize);

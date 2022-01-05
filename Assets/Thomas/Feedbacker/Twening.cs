@@ -8,6 +8,7 @@ public class Twening : MonoBehaviour
     public float EnemySizeRequierment;
     int waitingTime = 2;
     bool stop1 = false;
+
     public bool ConsumeBig = false;
 
 

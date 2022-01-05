@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class BeanBar : MonoBehaviour
 {
     public Slider slider;
-    public Gradient BarColor;
-    public Image fill;
-    
+    [SerializeField] private Gradient BarColor;
+    [SerializeField] private Image fill;
+    [SerializeField] private int MaxVal;
     public void SetStartBeans(int beans)
     {
 
-        slider.maxValue = 200;
+        slider.maxValue = MaxVal;
         slider.value = beans;
         fill.color = BarColor.Evaluate(0);
     }
@@ -23,3 +23,13 @@ public class BeanBar : MonoBehaviour
         fill.color = BarColor.Evaluate(slider.normalizedValue);
     }
 }
+/*200 for door
+ destroy rocks at 175
+ house at 150
+125 trees
+100 for big bois
+25 shooter
+*/
+
+
+

@@ -163,7 +163,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Goya
+    name:
+    - 
+    - 
+    - 
+    - 
     sentences:
     - Papa...? Where am I going...?
     - O-oke papa!! I-I promise I'll make you proud!!
@@ -238,13 +242,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Beelzebub
+    name:
+    - Beelzebub
+    - Goya
+    - Beelzebub
+    - Goya
     sentences:
     - To this world of sweets, that has foresaken her dream, I will send only you,
       young Goya.
+    - Papa...? Where am I going...?
     - You are going to a place from my past, that has been overtaken by parasites.
       Let your hunger be your guide, and once your job is complete, we will see eachother
       again.
+    - O-oke papa... I'll make you proud!!
 --- !u!61 &541451585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1195,7 +1205,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1568435799}
   - component: {fileID: 1568435800}
-  - component: {fileID: 1568435801}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1231,26 +1240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 49051892}
   dialogueText: {fileID: 1078926115}
-  anim: {fileID: 1568435801}
---- !u!95 &1568435801
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568435798}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4aede1117fb730644ba43d8aa87fdb4e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  diaCurrentTrigger: {fileID: 0}
+  anim: {fileID: 484994154}
 --- !u!1 &1590919953
 GameObject:
   m_ObjectHideFlags: 0

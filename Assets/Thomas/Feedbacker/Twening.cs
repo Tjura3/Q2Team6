@@ -31,7 +31,7 @@ public class Twening : MonoBehaviour
 
     IEnumerator BubbleOne()
     {
-        transform.LeanScale(Vector2.one, 0.8f).setEaseOutCubic();
+        transform.LeanScale(new Vector2(1.5f, 1.5f), 0.8f).setEaseOutCubic();
         yield return new WaitForSeconds(waitingTime);
         transform.LeanScale(Vector2.zero, 0.8f).setEaseOutCubic();
     }

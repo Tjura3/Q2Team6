@@ -9,12 +9,14 @@ public class BeanBar : MonoBehaviour
     [SerializeField] private Gradient BarColor;
     [SerializeField] private Image fill;
     [SerializeField] private int MaxVal;
+    public int Beanlevel;
     public void SetStartBeans(int beans)
     {
 
         slider.maxValue = MaxVal;
         slider.value = beans;
         fill.color = BarColor.Evaluate(0);
+        beans = Beanlevel;
     }
 
     public void SetBeans(int beans)

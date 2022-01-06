@@ -16,7 +16,7 @@ public class ColTrigDialogue : MonoBehaviour
     {
         if (diaActive)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 FindObjectOfType<DialogueManager>().DisplayNextSentence();
             }
@@ -25,6 +25,8 @@ public class ColTrigDialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        DialogueManager DM = FindObjectOfType<DialogueManager>();
+        DM.diaCurrentTrigger = gameObject;
         dia.TriggerDialogue();
         diaActive = true;
     }

@@ -301,6 +301,15 @@ public class ElasticTongue : MonoBehaviour
         return true;
     }
 
+    public void TurnOffTongueCollider()
+    {
+
+    }
+
+    public void TurnOnTongueCollider()
+    {
+    }
+
     /// <summary>
     /// Calculates the velocity and applies it to every point
     /// </summary>

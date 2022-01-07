@@ -59,7 +59,7 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] PlayerAttack playerAttack;
 
-    int numOfextendShoots = 0;
+    int numOfextendShoots = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -176,7 +176,6 @@ public class ElasticTongue : MonoBehaviour
         if (extendShoot && numOfextendShoots >= 0)
         {
             numOfextendShoots--;
-            print("Extend: " + numOfextendShoots);
             extendShoot = false;
 
             Vector3 mousePos = Input.mousePosition;
@@ -201,7 +200,6 @@ public class ElasticTongue : MonoBehaviour
             }
             
 
-            print("Shoot");
         }
 
         UpdateTongue();

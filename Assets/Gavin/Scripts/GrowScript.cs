@@ -55,7 +55,7 @@ public class GrowScript : MonoBehaviour
         Spawner.enemyNumber -= 1;
         currentBeans++;  //ThomasThing
         //Bbar.SetBeans(currentBeans); //ThomasThing
-        Debug.Log("Enemies:" + Spawner.enemyNumber);
+        //Debug.Log("Enemies:" + Spawner.enemyNumber);
         Debug.Log("Munch");
     }
 

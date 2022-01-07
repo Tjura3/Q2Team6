@@ -96,6 +96,16 @@ public class PointStickScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (tongue == null)
+        {
+            tongue = transform.parent.GetComponent<ElasticTongue>();
+        }
+
+        if (!tongue.isTongueOut)
+        {
+            return;
+        }
+
         if (collision.transform.tag.CompareTo("Enemy") == 0 || collision.transform.tag.CompareTo("RunEnemy") == 0)
         {
             ConstraintSource constraintSource = new ConstraintSource();

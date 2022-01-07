@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ColTrigDialogue : MonoBehaviour
 {
+    GameObject player;
+    PlayerMovement PM;
+
     DiaTrigger dia;
     bool diaActive;
     void Start()
     {
+        player = GameObject.Find("Player");
+        PM = player.GetComponent<PlayerMovement>();
+
         dia = GetComponent<DiaTrigger>();
     }
 
@@ -29,5 +35,7 @@ public class ColTrigDialogue : MonoBehaviour
         DM.diaCurrentTrigger = gameObject;
         dia.TriggerDialogue();
         diaActive = true;
+
+        PM.enabled = false;
     }
 }

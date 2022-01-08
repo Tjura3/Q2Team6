@@ -22,42 +22,38 @@ public class HouseScript : MonoBehaviour
     {
         if (collision.gameObject.name.Split(' ')[0] == ("Red") || collision.gameObject.name.Split('(')[0] == ("Red"))
         {
+            SFXManager.PlaySound("EnteringHouse");
             red += 1;
             Destroy(collision.gameObject);
-
         } 
         else if (collision.gameObject.name.Split(' ')[0] == ("Yellow") || collision.gameObject.name.Split('(')[0] == ("Yellow"))
         {
-
+            SFXManager.PlaySound("EnteringHouse");
             yellow += 1;
             Destroy(collision.gameObject);
-
         }
         else if (collision.gameObject.name.Split(' ')[0] == ("Green") || collision.gameObject.name.Split('(')[0] == ("Green"))
         {
-
+            SFXManager.PlaySound("EnteringHouse");
             green += 1;
             Destroy(collision.gameObject);
-
         }
         else if (collision.gameObject.name.Split(' ')[0] == ("Blue") || collision.gameObject.name.Split('(')[0] == ("Blue"))
         {
-
+            SFXManager.PlaySound("EnteringHouse");
             blue += 1;
             Destroy(collision.gameObject);
-
         }
         else if (collision.gameObject.name.Split(' ')[0] == ("Purple") || collision.gameObject.name.Split('(')[0] == ("Purple"))
         {
-
+            SFXManager.PlaySound("EnteringHouse");
             purple += 1;
             Destroy(collision.gameObject);
-
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("house touched");
+            SFXManager.PlaySound("Destroy");
             int offset = 0;
 
             if (red > 0)

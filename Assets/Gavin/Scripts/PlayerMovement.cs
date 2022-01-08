@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     
     [HideInInspector] public bool canMove;
 
+    //variables for audio 
+    private float stepRate = 0.3f;
+    private float stepCoolDown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,15 @@ public class PlayerMovement : MonoBehaviour
             a.SetBool("Running", true);
             a.SetBool("Shoot", false);
             a.SetBool("Attack", false);
+
+            //play footstep sfx
+            stepCoolDown -= Time.deltaTime;
+
+            if (stepCoolDown < 0f)
+            {
+                SFXManager.PlaySound("Footstep");
+                stepCoolDown = stepRate;
+            }
         }
 
 
@@ -54,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
-
     }
 
     private void FixedUpdate()

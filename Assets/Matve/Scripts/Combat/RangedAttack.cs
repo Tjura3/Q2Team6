@@ -86,7 +86,7 @@ public class RangedAttack : MonoBehaviour
 
     void Shoot()
     {
-        
+        SFXManager.PlaySound("Shooting");
         GameObject bullet = Instantiate(projectile, rotate.position, rotate.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(rotate.up * speed, ForceMode2D.Impulse);

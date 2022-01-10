@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Thomas/SimpleCredits.unity
     guid: a8293826580ecc94a8d6330e51d7eb3f
   - enabled: 1
-    path: Assets/Thomas/Ev Test/Pause!.unity
-    guid: c36637de4b25a784f88c82fe9d9024da
-  - enabled: 1
     path: Assets/Taylor/Tutorial.unity
     guid: 777d8219dad31c643bac804b3dd828e5
   m_configObjects: {}

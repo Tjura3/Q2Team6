@@ -20,6 +20,7 @@ public class HouseScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.name.Split(' ')[0] == ("Red") || collision.gameObject.name.Split('(')[0] == ("Red"))
         {
             red += 1;
@@ -55,6 +56,10 @@ public class HouseScript : MonoBehaviour
 
         }
 
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Player"))
         {
             print("house touched");
@@ -69,7 +74,7 @@ public class HouseScript : MonoBehaviour
                 }
 
             }
- 
+
             if (yellow > 0)
             {
 
@@ -110,13 +115,13 @@ public class HouseScript : MonoBehaviour
                 }
 
             }
-            
+
 
             if (gameObject != null)
             {
                 Destroy(gameObject);
             }
-            
+
         }
     }
 }

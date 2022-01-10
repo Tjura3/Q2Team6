@@ -4668,7 +4668,7 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: strechStrength
-      value: 600
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
@@ -22293,6 +22293,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578207547509878305, guid: e881d47c4d7b3c549bd1e4525364ccae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 578207547509878305, guid: e881d47c4d7b3c549bd1e4525364ccae,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 578207547509878308, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}

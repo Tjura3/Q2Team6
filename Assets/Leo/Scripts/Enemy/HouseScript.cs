@@ -5,11 +5,11 @@ using UnityEngine;
 public class HouseScript : MonoBehaviour
 {
 
-    public int red = 0;
-    public int yellow = 0;
-    public int green = 0;
-    public int blue = 0;
-    public int purple = 0;
+    private int red = 0;
+    private int yellow = 0;
+    private int green = 0;
+    private int blue = 0;
+    private int purple = 0;
 
     public GameObject redBean;
     public GameObject yellowBean;
@@ -21,37 +21,30 @@ public class HouseScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.name.Split(' ')[0] == ("Red") || collision.gameObject.name.Split('(')[0] == ("Red"))
+        switch (collision.gameObject.name[0])
         {
-            SFXManager.PlaySound("EnteringHouse");
-            red += 1;
-            Destroy(collision.gameObject);
-        } 
-        else if (collision.gameObject.name.Split(' ')[0] == ("Yellow") || collision.gameObject.name.Split('(')[0] == ("Yellow"))
-        {
-            SFXManager.PlaySound("EnteringHouse");
-            yellow += 1;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Green") || collision.gameObject.name.Split('(')[0] == ("Green"))
-        {
-            SFXManager.PlaySound("EnteringHouse");
-            green += 1;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Blue") || collision.gameObject.name.Split('(')[0] == ("Blue"))
-        {
-            SFXManager.PlaySound("EnteringHouse");
-            blue += 1;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.name.Split(' ')[0] == ("Purple") || collision.gameObject.name.Split('(')[0] == ("Purple"))
-        {
-            SFXManager.PlaySound("EnteringHouse");
-            purple += 1;
-            Destroy(collision.gameObject);
+            case 'R':
+                red++;
+                break;
+            case 'Y':
+                yellow++;
+                break;
+            case 'G':
+                green++;
+                break;
+            case 'B':
+                blue++;
+                break;
+            case 'P':
+                purple++;
+                break;
         }
 
+        if (collision.transform.CompareTag("RunEnemy"))
+        {
+            SFXManager.PlaySound("EnteringHouse");
+            Destroy(collision.gameObject);
+        }
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,7 +61,6 @@ public class HouseScript : MonoBehaviour
                     offset++;
                     Instantiate(redBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), redBean.transform.rotation);
                 }
-
             }
 
             if (yellow > 0)
@@ -78,8 +70,7 @@ public class HouseScript : MonoBehaviour
                 {
                     offset++;
                     Instantiate(yellowBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), yellowBean.transform.rotation);
-                }
-
+                }          
             }
             if (green > 0)
             {
@@ -89,7 +80,6 @@ public class HouseScript : MonoBehaviour
                     offset++;
                     Instantiate(greenBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), greenBean.transform.rotation);
                 }
-
             }
             if (blue > 0)
             {
@@ -99,7 +89,6 @@ public class HouseScript : MonoBehaviour
                     offset++;
                     Instantiate(blueBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), blueBean.transform.rotation);
                 }
-
             }
             if (purple > 0)
             {
@@ -109,7 +98,6 @@ public class HouseScript : MonoBehaviour
                     offset++;
                     Instantiate(purpleBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), purpleBean.transform.rotation);
                 }
-
             }
 
 
@@ -117,7 +105,6 @@ public class HouseScript : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
         }
     }
 }

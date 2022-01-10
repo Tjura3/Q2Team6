@@ -1861,6 +1861,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7062165481685107837}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1009378373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5733306653895704890, guid: aedd5a321bcd0474cbece0f592f2c431,
+    type: 3}
+  m_PrefabInstance: {fileID: 532007536222528206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11df0259df5203f42b894b769f29a1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1028331955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180296822893672783, guid: 973554834e814a743acc06320d1bdb75,
@@ -18245,6 +18257,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8658383298465236053, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: GS
+      value: 
+      objectReference: {fileID: 1284295550}
+    - target: {fileID: 8658383298465236053, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: consumeBig
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658383298465236053, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: consumeHouse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658383298465236053, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: consumeShoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658383298465236053, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: consumeVeggies
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aedd5a321bcd0474cbece0f592f2c431, type: 3}
 --- !u!1001 &544546222392892287
@@ -18531,7 +18568,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Bbar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1009378373}
     - target: {fileID: 578207547509878309, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
       propertyPath: growSpeed

@@ -31,8 +31,14 @@ public class Twening : MonoBehaviour
 
     void Start()
     {
-        
-        transform.localScale = Vector2.zero;
+     consumeShoot = false;
+     consumeBig = false;
+     consumeVeggies = false;
+     consumeHouse = false;
+     consumeRcok = false;
+     consumeDoor = false;
+
+    transform.localScale = Vector2.zero;
         bigBoy.SetActive(false);
         shooty.SetActive(false);
         tree.SetActive(false);

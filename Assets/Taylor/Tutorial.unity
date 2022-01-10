@@ -2790,8 +2790,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5733306651873191598, guid: aedd5a321bcd0474cbece0f592f2c431,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733306651873191598, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733306653895704891, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733306653895704891, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733306653895704891, guid: aedd5a321bcd0474cbece0f592f2c431,
+        type: 3}
+      propertyPath: m_WholeNumbers
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8658383297281008790, guid: aedd5a321bcd0474cbece0f592f2c431,
         type: 3}
@@ -2933,7 +2953,8 @@ PrefabInstance:
       propertyPath: houseReq
       value: 1.8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5733306651873191599, guid: aedd5a321bcd0474cbece0f592f2c431, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aedd5a321bcd0474cbece0f592f2c431, type: 3}
 --- !u!114 &709099086 stripped
 MonoBehaviour:

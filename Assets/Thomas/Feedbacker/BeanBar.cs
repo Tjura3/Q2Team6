@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class BeanBar : MonoBehaviour
 {
     public Slider slider;
-    [SerializeField] private Gradient BarColor;
-    [SerializeField] private Image fill;
-    [SerializeField] private int MaxVal;
+    public Gradient BarColor;
+    public Image fill;
+    public int MaxVal;
     public int Beanlevel;
     public void SetStartBeans(int beans)
     {

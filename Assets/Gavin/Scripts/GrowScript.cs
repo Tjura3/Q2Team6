@@ -20,7 +20,7 @@ public class GrowScript : MonoBehaviour
     void Start()
     {
         currentSize = startSize;
-        //Bbar.SetStartBeans(StartBeans);  //thomas again
+        Bbar.SetStartBeans(StartBeans);  //thomas again
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class GrowScript : MonoBehaviour
         currentSize += growSpeed;
         Spawner.enemyNumber -= 1;
         currentBeans++;  //ThomasThing
-        //Bbar.SetBeans(currentBeans); //ThomasThing
+        Bbar.SetBeans(currentBeans); //ThomasThing
         //Debug.Log("Enemies:" + Spawner.enemyNumber);
         Debug.Log("Munch");
     }

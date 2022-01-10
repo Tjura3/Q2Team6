@@ -36,7 +36,7 @@ public class ElasticTongue : MonoBehaviour
 
     //Is the tongue going out.
     bool isShooting;
-    bool isTongueOut;
+    public bool isTongueOut;
     Vector2 shootVelocity;
     bool canSpawnPoint;
 
@@ -59,7 +59,7 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] PlayerAttack playerAttack;
 
-
+    int numOfextendShoots = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -173,8 +173,9 @@ public class ElasticTongue : MonoBehaviour
 
         }
 
-        if (extendShoot)
+        if (extendShoot && numOfextendShoots >= 0)
         {
+            numOfextendShoots--;
             extendShoot = false;
 
             Vector3 mousePos = Input.mousePosition;
@@ -199,7 +200,6 @@ public class ElasticTongue : MonoBehaviour
             }
             
 
-            print("Shoot");
         }
 
         UpdateTongue();
@@ -271,6 +271,7 @@ public class ElasticTongue : MonoBehaviour
             canSpawnPoint = false;
             isShooting = false;
             playerMovement.canMove = true;
+            numOfextendShoots = 3;
             CloseMouth();
         }
 
@@ -300,6 +301,15 @@ public class ElasticTongue : MonoBehaviour
         return true;
     }
 
+    public void TurnOffTongueCollider()
+    {
+
+    }
+
+    public void TurnOnTongueCollider()
+    {
+    }
+
     /// <summary>
     /// Calculates the velocity and applies it to every point
     /// </summary>
@@ -313,7 +323,6 @@ public class ElasticTongue : MonoBehaviour
             bool slow = false;
             if (isShooting)
             {
-                print(1);
                 points[i].rb.velocity = shootVelocity;
                 continue;
             }

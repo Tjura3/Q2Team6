@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<Collider2D>();
+        collider = GetComponent<BoxCollider2D>();
         growScript = GetComponent<GrowScript>();
 
         //stunHitbox = transform.GetChild(0).gameObject;

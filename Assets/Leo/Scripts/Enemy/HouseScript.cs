@@ -20,6 +20,7 @@ public class HouseScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.name.Split(' ')[0] == ("Red") || collision.gameObject.name.Split('(')[0] == ("Red"))
         {
             SFXManager.PlaySound("EnteringHouse");
@@ -51,6 +52,10 @@ public class HouseScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Player"))
         {
             SFXManager.PlaySound("Destroy");
@@ -65,7 +70,7 @@ public class HouseScript : MonoBehaviour
                 }
 
             }
- 
+
             if (yellow > 0)
             {
 
@@ -106,13 +111,13 @@ public class HouseScript : MonoBehaviour
                 }
 
             }
-            
+
 
             if (gameObject != null)
             {
                 Destroy(gameObject);
             }
-            
+
         }
     }
 }

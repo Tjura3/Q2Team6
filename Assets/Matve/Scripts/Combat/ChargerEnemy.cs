@@ -39,6 +39,7 @@ public class ChargerEnemy : MonoBehaviour
         if (attacking)
         {
             controlBoi.SetBool("Attack", true);
+
             if (timer <= time)
             {
                 timer += Time.deltaTime;

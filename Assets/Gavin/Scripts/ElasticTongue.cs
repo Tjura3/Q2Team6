@@ -153,7 +153,7 @@ public class ElasticTongue : MonoBehaviour
     {
         if (shoot)
         {
-
+            SFXManager.PlaySound("Tongue");
 
             Vector3 mousePos = Input.mousePosition;
             mousePos = camera.ScreenToWorldPoint(mousePos);
@@ -175,6 +175,8 @@ public class ElasticTongue : MonoBehaviour
 
         if (extendShoot && numOfextendShoots >= 0)
         {
+            SFXManager.PlaySound("Tongue");
+
             numOfextendShoots--;
             extendShoot = false;
 
@@ -281,6 +283,8 @@ public class ElasticTongue : MonoBehaviour
 
     void CloseMouth()
     {
+        SFXManager.PlaySound("Eating");
+
         bool enemiesEaten = playerAttack.Eat();
         if (!enemiesEaten)
         {

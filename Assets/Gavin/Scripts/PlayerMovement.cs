@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         a = gameObject.GetComponent<Animator>();
 
-        stepCoolDown = stepRate;
     }
 
     // Update is called once per frame

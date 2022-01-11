@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085527239064033925}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.4, y: 26.3, z: 66.55455}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
@@ -122,12 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa11ff6c0f82597489981aab172ea314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redBean: {fileID: 5416893526598497230, guid: 7d491982ae3eb784c91b32ef3b8b4cd5, type: 3}
-  yellowBean: {fileID: 8661778861960950011, guid: a6d37b4590487d54b978ed79134370e5,
+  redBean: {fileID: 1419702522175541620, guid: 3b2a0f1006ed0af49b4fe3e47464b647, type: 3}
+  yellowBean: {fileID: 1001634961563283226, guid: 6a03deb2d988c0049b593cd700735880,
     type: 3}
-  greenBean: {fileID: 5448326535167458998, guid: f07efff3c905c5b41b9119cc01275611,
+  greenBean: {fileID: 803312794441088580, guid: 0c199ba7df24d634b8e72993a264007f,
     type: 3}
-  blueBean: {fileID: 7186763674872583918, guid: 5304875ec2aa9c84b951fc0571c59658,
-    type: 3}
-  purpleBean: {fileID: 4004661137736771400, guid: 283349621dcd0a844bfb21c6761a3c73,
+  blueBean: {fileID: 91190105080102599, guid: 4e0609930c09484468686502ba122391, type: 3}
+  purpleBean: {fileID: 3647461895725456378, guid: 235c81a1beb82894bae8d9e6417d3ba1,
     type: 3}

@@ -22065,16 +22065,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578207547509878305, guid: e881d47c4d7b3c549bd1e4525364ccae,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 578207547509878305, guid: e881d47c4d7b3c549bd1e4525364ccae,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 578207547509878308, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
       propertyPath: camera
@@ -23727,6 +23717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BGMManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425671204793078649, guid: ce1df34000c0bfc4fb40765c969c4b10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1df34000c0bfc4fb40765c969c4b10, type: 3}

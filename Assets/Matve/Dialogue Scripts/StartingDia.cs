@@ -22,6 +22,7 @@ public class StartingDia : MonoBehaviour
 
     private void Start()
     {
+        tutorialtext1.SetActive(false);
         
         player = GameObject.Find("Player");
         PM = player.GetComponent<PlayerMovement>();

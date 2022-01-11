@@ -145,7 +145,7 @@ public class ScaredAI : MonoBehaviour
 
     public void FindHouse()
     {
-        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
+        GameObject[] houses = GameObject.FindGameObjectsWithTag("Entrance");
         if (houses.Length != 0)
         {
             //Debug.Log(houses.Length);

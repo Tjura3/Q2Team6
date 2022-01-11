@@ -40,7 +40,7 @@ public class SFXManager : MonoBehaviour
         switch (clip)
         {
             case "Footstep":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.footstep, 1f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.footstep, 0.3f);
                 break;
             case "Tongue":
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.tongue);
@@ -49,13 +49,13 @@ public class SFXManager : MonoBehaviour
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.eat);
                 break;
             case "Destroy":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.destroy, 0.05f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.destroy, 0.03f);
                 break;
             case "EnteringHouse":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.escape, 0.2f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.escape, 0.05f);
                 break;
             case "Shooting":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.shoot, 0.1f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.shoot, 0.06f);
                 break;
         }
     }

@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
         rb2 = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         a = gameObject.GetComponent<Animator>();
+
+        stepCoolDown = stepRate;
     }
 
     // Update is called once per frame
@@ -38,18 +40,18 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            a.SetBool("Running", true);
-            a.SetBool("Shoot", false);
-            a.SetBool("Attack", false);
-
             //play footstep sfx
             stepCoolDown -= Time.deltaTime;
 
-            if (stepCoolDown < 0f)
+            if (stepCoolDown <= 0f)
             {
-                SFXManager.PlaySound("Footstep");
                 stepCoolDown = stepRate;
+                SFXManager.PlaySound("Footstep");
             }
+
+            a.SetBool("Running", true);
+            a.SetBool("Shoot", false);
+            a.SetBool("Attack", false);
         }
 
 

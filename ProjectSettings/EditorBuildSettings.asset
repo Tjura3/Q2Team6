@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Taylor/Tutorial.unity
     guid: 777d8219dad31c643bac804b3dd828e5
-  - enabled: 1
-    path: Assets/Thomas/B/BET.unity
-    guid: 16ce2cee28272444ab9161e92333a7e6
   m_configObjects: {}

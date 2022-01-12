@@ -25,15 +25,16 @@ public class HouseScript : MonoBehaviour
     BoxCollider2D boxCollider;
     private void Start()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponentInChildren<BoxCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        //print("contact");
         switch (collision.gameObject.name[0])
         {
             case 'R':
+                //print("add one");
                 red++;
                 break;
             case 'Y':
@@ -52,6 +53,7 @@ public class HouseScript : MonoBehaviour
 
         if (collision.transform.CompareTag("RunEnemy"))
         {
+            //print("entered");
             SFXManager.PlaySound("EnteringHouse");
             Destroy(collision.gameObject);
         }
@@ -101,9 +103,9 @@ public class HouseScript : MonoBehaviour
 
             if (gameObject != null)
             {
-                Destroy(gameObject);
+                FillHouseAreaWalkableThenDestroy();
 
-                
+
             }
             
 
@@ -111,22 +113,23 @@ public class HouseScript : MonoBehaviour
         }
     }
 
-    private void FillHouseAreaWalkable()
+    private void FillHouseAreaWalkableThenDestroy()
     {
         AstarPath.active.AddWorkItem(new AstarWorkItem(() => {
             // Safe to update graphs here
-            GraphNode topLeftNode = AstarPath.active.GetNearest(new Vector2(boxCollider.bounds.center.x - boxCollider.bounds.extents.x, boxCollider.bounds.center.y - boxCollider.bounds.extents.y)).node;
-            GraphNode bottomRightNode = AstarPath.active.GetNearest(new Vector2(boxCollider.bounds.center.x + boxCollider.bounds.extents.x, boxCollider.bounds.center.y + boxCollider.bounds.extents.y)).node;
 
-            for (int x = 0; x < boxCollider.bounds.extents.x * 2; x++)
+            for (float x = -boxCollider.bounds.extents.x - 1f; x <= boxCollider.bounds.extents.x + 1f; x+=0.5f)
             {
-                for (int y = 0; y < boxCollider.bounds.extents.y * 2; y++)
+                for (float y = -boxCollider.bounds.extents.y - 1f; y <= boxCollider.bounds.extents.y + 1.5f; y+=0.5f)
                 {
-
-                    GraphNode topLeftNode = AstarPath.active.GetNearest(new Vector2(x, y))).node;
+                    GraphNode node = AstarPath.active.GetNearest(new Vector2(x + boxCollider.bounds.center.x, y + boxCollider.bounds.center.y)).node;
+                    node.Walkable = true;
                 }
             }
+            var gg = AstarPath.active.data.gridGraph;
+            gg.GetNodes(node => gg.CalculateConnections((GridNodeBase)node));
 
+            Destroy(gameObject);
         }));
     }
 

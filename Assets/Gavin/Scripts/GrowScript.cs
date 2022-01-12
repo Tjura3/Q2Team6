@@ -20,7 +20,7 @@ public class GrowScript : MonoBehaviour
     void Start()
     {
         currentSize = startSize;
-        Bbar.SetStartBeans(StartBeans);  //thomas again
+        //Bbar.SetStartBeans(StartBeans);  //thomas again
     }
 
     // Update is called once per frame

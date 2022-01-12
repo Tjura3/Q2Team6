@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class StartingDia : MonoBehaviour
 {
+    public TriggerTutorial TT;
+
     public GameObject tutorialtext1;
-    float timer;
+    public float timer;
     float time = 0.1f;
 
 
@@ -21,6 +23,7 @@ public class StartingDia : MonoBehaviour
     private void Start()
     {
         tutorialtext1.SetActive(false);
+
         player = GameObject.Find("Player");
         PM = player.GetComponent<PlayerMovement>();
         PM.enabled = false;
@@ -34,12 +37,12 @@ public class StartingDia : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             clicks -= 1;
-            if(clicks <= 0)
+            if (clicks <= 0)
             {
                 anim.SetBool("begin", true);
                 text.SetActive(true);
-                
-                
+
+
             }
 
         }
@@ -47,6 +50,6 @@ public class StartingDia : MonoBehaviour
 
     private void OnDestroy()
     {
-        tutorialtext1.SetActive(true);
+        TT.started = true;
     }
 }

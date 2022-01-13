@@ -11,6 +11,7 @@ public class AniTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        summonWave = false;
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -23,7 +24,7 @@ public class AniTest : MonoBehaviour
             summonWave = true;
         }
 
-        if (summonWave = true)
+        if (summonWave == true)
         {
             anim.SetBool("StartWave", true);
         }

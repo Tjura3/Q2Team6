@@ -36,18 +36,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (animActive)
         {
-            if (time >= timer)
-            {
-                timer += Time.deltaTime;
-            }
-            else
-            {
-                Time.timeScale = 0;
-            }
-        }
-        else
-        {
-            timer = 0;
+            Time.timeScale = 0;
+            
         }
     }
 

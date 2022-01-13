@@ -31,11 +31,15 @@ public class ColTrigDialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DialogueManager DM = FindObjectOfType<DialogueManager>();
-        DM.diaCurrentTrigger = gameObject;
-        dia.TriggerDialogue();
-        diaActive = true;
+        if(collision.gameObject.tag == "Player")
+        {
+            DialogueManager DM = FindObjectOfType<DialogueManager>();
+            DM.diaCurrentTrigger = gameObject;
+            dia.TriggerDialogue();
+            diaActive = true;
 
-        PM.enabled = false;
+            PM.enabled = false;
+        }
+        
     }
 }

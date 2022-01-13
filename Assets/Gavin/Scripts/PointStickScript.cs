@@ -172,4 +172,16 @@ public class PointStickScript : MonoBehaviour
             pc.constraintActive = true;
         }
     }
+
+    public bool EnemiesAttached()
+    {
+        foreach (GameObject enemy in objectsAttached)
+        {
+            if(enemy != null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

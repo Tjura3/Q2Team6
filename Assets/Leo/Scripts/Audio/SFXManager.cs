@@ -7,7 +7,7 @@ public class SFXManager : MonoBehaviour
     public AudioSource Audiosrc;
 
     [HideInInspector]
-    public AudioClip footstep, tongue, eat, destroy, escape, shoot, mele;
+    public AudioClip footstep, tongue, eat, destroy, escape, shoot, mele, click, hover;
 
     public static SFXManager SFXInstance;
 
@@ -32,6 +32,8 @@ public class SFXManager : MonoBehaviour
         escape = Resources.Load<AudioClip>("EnteringHouse");
         shoot = Resources.Load<AudioClip>("Shooting");
         mele = Resources.Load<AudioClip>("MeleHit2");
+        click = Resources.Load<AudioClip>("click");
+        hover = Resources.Load<AudioClip>("hover");
 
         Audiosrc = GetComponent<AudioSource>();
     }
@@ -60,6 +62,12 @@ public class SFXManager : MonoBehaviour
                 break;
             case "MeleHit2":
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.mele, 0.1f);
+                break;
+            case "click":
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.click, 0.1f);
+                break;
+            case "hover":
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.hover, 0.1f);
                 break;
         }
     }

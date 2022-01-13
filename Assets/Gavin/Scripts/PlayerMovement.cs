@@ -33,9 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
         {
-            a.SetBool("Running", false);
-            a.SetBool("Shoot", true);
-            a.SetBool("Attack", true);
         }
         else
         {
@@ -48,9 +45,6 @@ public class PlayerMovement : MonoBehaviour
                 SFXManager.PlaySound("Footstep");
             }
 
-            a.SetBool("Running", true);
-            a.SetBool("Shoot", false);
-            a.SetBool("Attack", false);
         }
 
 

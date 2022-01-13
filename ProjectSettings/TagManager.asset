@@ -11,6 +11,7 @@ TagManager:
   - TestFood
   - Tier3
   - Enviro
+  - Entrance
   layers:
   - Default
   - TransparentFX

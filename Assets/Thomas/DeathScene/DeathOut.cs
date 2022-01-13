@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class DeathOut : MonoBehaviour
 {
-
+    public CanvasGroup TransImage;
     
     
     void Start()
     {
-        transform.localScale = Vector2.zero;
+        transit();
+        //StartCoroutine(StartTransit());
     }
 
+    private void transit()
+    {
+        TransImage.LeanAlpha(0,1.2f);
+    }
+
+
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(BubbleOne());
         }
     }
-    IEnumerator BubbleOne()
+    IEnumerator StartTransit()
     {
 
-        transform.LeanScale(Vector2.one, 0.8f).setEaseOutCubic();
+        TransImage.LeanAlpha(0, 1);
         yield return new WaitForSeconds(2f);
-        transform.LeanScale(Vector2.zero, 0.8f).setEaseOutCubic();
-
-    }
+        
+    }*/
 }

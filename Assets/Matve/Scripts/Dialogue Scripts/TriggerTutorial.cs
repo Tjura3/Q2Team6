@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerTutorial : MonoBehaviour
 {
     public GameObject tutorial;
+    public GameObject HP;
 
     public bool started;
 
@@ -13,6 +14,7 @@ public class TriggerTutorial : MonoBehaviour
     void Start()
     {
         tutorial.SetActive(false);
+        HP.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class TriggerTutorial : MonoBehaviour
             else
             {
                 tutorial.SetActive(true);
+                HP.SetActive(true);
             }
         }
     }

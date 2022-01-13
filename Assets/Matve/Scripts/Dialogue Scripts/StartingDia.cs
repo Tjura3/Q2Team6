@@ -13,8 +13,11 @@ public class StartingDia : MonoBehaviour
 
     public GameObject text;
     public GameObject blackScreen;
+
+    public GameObject tongue;
     GameObject player;
     PlayerMovement PM;
+    public Animator AA;
 
     Animator anim;
 
@@ -24,10 +27,12 @@ public class StartingDia : MonoBehaviour
     {
         tutorialtext1.SetActive(false);
 
+        tongue.SetActive(false);
         player = GameObject.Find("Player");
         PM = player.GetComponent<PlayerMovement>();
         PM.enabled = false;
         anim = blackScreen.GetComponent<Animator>();
+        AA.SetBool("Running", false);
 
         text.SetActive(false);
     }
@@ -41,8 +46,6 @@ public class StartingDia : MonoBehaviour
             {
                 anim.SetBool("begin", true);
                 text.SetActive(true);
-
-
             }
 
         }

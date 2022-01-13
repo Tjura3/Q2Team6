@@ -8,6 +8,7 @@ public class ScaredAI : MonoBehaviour
 
     public Transform target;
 
+    public float sight = 10.0f;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -78,7 +79,7 @@ public class ScaredAI : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
+        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < sight)
         {
             done = false;
             GetComponent<NewRoaming>().isOff = true;
@@ -89,7 +90,7 @@ public class ScaredAI : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }*/
         }
-        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
+        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > sight)
         {
             done = true;
             if (wait == false)

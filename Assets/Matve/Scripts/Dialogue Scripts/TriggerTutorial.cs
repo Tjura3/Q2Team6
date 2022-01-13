@@ -6,6 +6,7 @@ public class TriggerTutorial : MonoBehaviour
 {
     public GameObject tutorial;
     public GameObject HP;
+    public GameObject BeanBar;
 
     public bool started;
 
@@ -15,6 +16,7 @@ public class TriggerTutorial : MonoBehaviour
     {
         tutorial.SetActive(false);
         HP.SetActive(false);
+        BeanBar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class TriggerTutorial : MonoBehaviour
             {
                 tutorial.SetActive(true);
                 HP.SetActive(true);
+                BeanBar.SetActive(true);
             }
         }
     }

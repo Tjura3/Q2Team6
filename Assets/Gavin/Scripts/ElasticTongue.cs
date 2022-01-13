@@ -86,7 +86,6 @@ public class ElasticTongue : MonoBehaviour
 
 
         //points[points.Length - 1].position = new Vector3(6, 0, 0);
-
     }
 
     void GeneratePoints()
@@ -102,9 +101,13 @@ public class ElasticTongue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        lineRenderer.widthMultiplier = playerT.localScale.x;
+
         DrawLine();
         if (Input.GetMouseButtonDown(0) && !isShooting && !isTongueOut)
         {
+            
             shoot = true;
             isShooting = true;
             shootTime = 0;
@@ -148,6 +151,10 @@ public class ElasticTongue : MonoBehaviour
             canSpawnPoint = false;
         }
 
+        if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("BiteClose") && IsAllPointsInside())
+        {
+            
+        }
     }
     private void FixedUpdate()
     {
@@ -281,12 +288,28 @@ public class ElasticTongue : MonoBehaviour
         //Debug.Log(-(maxNumOfPoints * testVar) * points.Count);
     }
 
+    bool AllEnemiesEaten()
+    {
+        bool allEnemiesEaten = false;
+        for (int i = 0; i < points.Count; i++)
+        {
+            if (points[0].pointStick.EnemiesAttached())
+            {
+                return false;
+            }
+        }
+        return allEnemiesEaten;
+    }
+
     void CloseMouth()
     {
-        SFXManager.PlaySound("Eating");
 
         bool enemiesEaten = playerAttack.Eat();
-        if (!enemiesEaten)
+        if (enemiesEaten)
+        {
+            SFXManager.PlaySound("Eating");
+        }
+        else
         {
             playerAnimator.SetTrigger("CloseMouth");
         }

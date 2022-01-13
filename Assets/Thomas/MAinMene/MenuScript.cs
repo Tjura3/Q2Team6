@@ -20,4 +20,13 @@ public class MenuScript : MonoBehaviour
         LL.Credits();
     }
 
+    public void Hover()
+    {
+        SFXManager.PlaySound("hover");
+    }
+
+    public void Click()
+    {
+        SFXManager.PlaySound("click");
+    }
 }

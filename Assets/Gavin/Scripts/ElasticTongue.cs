@@ -53,6 +53,7 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] float slowDist;
 
     [Header("Player Variables")]
+    //[SerializeField] SpriteRenderer 
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Collider2D playerCollider;
     [SerializeField] Transform playerT;
@@ -125,7 +126,7 @@ public class ElasticTongue : MonoBehaviour
             retractTimer = 0;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
 
             retractTimer = 0;
@@ -229,7 +230,7 @@ public class ElasticTongue : MonoBehaviour
 
         if (points.Count > 2)
         {
-            points[0].gameObject.name = "Anchor";
+            points[0].gameObject.name = "End";
             if (Vector2.Distance(points[0].transform.position, playerT.position) >= spawnDist)
             {
 
@@ -344,7 +345,6 @@ public class ElasticTongue : MonoBehaviour
     { 
         points[points.Count - 1].rb.MovePosition(playerT.position);
 
-
         for (int i = 0; i < points.Count; i++)
         {
             bool slow = false;
@@ -355,7 +355,7 @@ public class ElasticTongue : MonoBehaviour
             }
             else if (Vector2.Distance(points[i].transform.position, playerT.position) <= slowDist)
             {
-                slow = true;
+                //slow = true;
             }
 
             //Test for anti swirl

@@ -3780,7 +3780,7 @@ PrefabInstance:
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
       propertyPath: spawnDist
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927587, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
@@ -3821,6 +3821,21 @@ PrefabInstance:
         type: 3}
       propertyPath: extendShootStrength
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5692983717276927596, guid: 04e270a15090b884d9482e3696eca5f1,
         type: 3}
@@ -4953,7 +4968,7 @@ PrefabInstance:
     - target: {fileID: 9080828678215677755, guid: 470f437737b86cf4799653bdbe7f976c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470f437737b86cf4799653bdbe7f976c, type: 3}
@@ -7832,6 +7847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DiaTriggers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180909615293572517, guid: 3cc4f3160f6896445a8a76d17ebb7efb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4231326085697797430, guid: 3cc4f3160f6896445a8a76d17ebb7efb,
         type: 3}
@@ -20890,6 +20910,11 @@ PrefabInstance:
     - target: {fileID: 578207547509878304, guid: e881d47c4d7b3c549bd1e4525364ccae,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578207547509878307, guid: e881d47c4d7b3c549bd1e4525364ccae,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 578207547509878308, guid: e881d47c4d7b3c549bd1e4525364ccae,

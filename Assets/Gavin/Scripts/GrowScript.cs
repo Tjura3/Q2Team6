@@ -20,7 +20,13 @@ public class GrowScript : MonoBehaviour
     void Start()
     {
         currentSize = startSize;
-        Bbar.SetStartBeans(StartBeans);  //thomas again
+        try
+        {
+            Bbar.SetStartBeans(StartBeans);  //thomas again
+        }catch(System.Exception e)
+        {
+            Debug.LogError("THERE IS NO BEAN BAR IN GAME YET. ADD THAT");
+        }
     }
 
     // Update is called once per frame

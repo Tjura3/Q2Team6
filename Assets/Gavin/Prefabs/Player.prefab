@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f747f0aadcb9fb4498744f8e9acb3008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growSpeed: 0.1
+  growSpeed: 0.03
   lerpGrowSpeed: 1
   startSize: 0.5
   currentSize: 0

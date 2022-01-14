@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
   maxDistance: 6
-  speed: 200
+  speed: 200000
   nextWaypointDistance: 1
   done: 0
   range: 0

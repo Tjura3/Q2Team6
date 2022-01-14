@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class tutorial2 : MonoBehaviour
 {
+    SizeTrigger ST;
+
     public GameObject tongue;
     // Start is called before the first frame update
     void Start()

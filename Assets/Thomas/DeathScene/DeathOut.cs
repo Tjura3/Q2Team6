@@ -5,11 +5,11 @@ using UnityEngine;
 public class DeathOut : MonoBehaviour
 {
     public CanvasGroup TransImage;
-    
-    
+    public GameObject WhiteFade;
     void Start()
     {
-        transit();
+        StartCoroutine(StartTransiting());
+        //transit();
         //StartCoroutine(StartTransit());
     }
 
@@ -17,21 +17,12 @@ public class DeathOut : MonoBehaviour
     {
         TransImage.LeanAlpha(0,1.2f);
     }
-
-
-    // Update is called once per frame
-    /*void Update()
+    IEnumerator StartTransiting()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(BubbleOne());
-        }
-    }
-    IEnumerator StartTransit()
-    {
-
-        TransImage.LeanAlpha(0, 1);
+        transit();
         yield return new WaitForSeconds(2f);
-        
-    }*/
+        WhiteFade.SetActive(false);
+    }
+
+   
 }

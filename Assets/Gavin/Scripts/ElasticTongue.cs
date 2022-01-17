@@ -53,6 +53,7 @@ public class ElasticTongue : MonoBehaviour
     [SerializeField] float slowDist;
 
     [Header("Player Variables")]
+    //[SerializeField] SpriteRenderer 
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Collider2D playerCollider;
     [SerializeField] Transform playerT;
@@ -125,7 +126,7 @@ public class ElasticTongue : MonoBehaviour
             retractTimer = 0;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
 
             retractTimer = 0;
@@ -175,6 +176,23 @@ public class ElasticTongue : MonoBehaviour
             shoot = false;
             playerMovement.canMove = false;
             playerAnimator.SetTrigger("OpenMouth");
+            ContactFilter2D filter2D = new ContactFilter2D();
+            filter2D.layerMask = 1<<12;
+            filter2D.useLayerMask = true;
+            Collider2D[] results = new Collider2D[5];
+            int num = Physics2D.OverlapBox(playerT.position, new Vector2(0.1f, 0.1f), 180, filter2D, results);
+            print(num);
+            //Debug.Log(ray.collider.gameObject.name);
+            if(num != 0)
+            {
+                GetComponent<Renderer>().sortingOrder = 6;
+                print("Yeah");
+            }
+            else
+            {
+                GetComponent<Renderer>().sortingOrder = 8;
+            }
+
             lineRenderer.enabled = true;
 
 
@@ -225,11 +243,11 @@ public class ElasticTongue : MonoBehaviour
     /// </summary>
     void UpdateTongue()
     {
-       
+        float adjustedDespawnDist = despawDist * playerT.localScale.x;
 
         if (points.Count > 2)
         {
-            points[0].gameObject.name = "Anchor";
+            points[0].gameObject.name = "End";
             if (Vector2.Distance(points[0].transform.position, playerT.position) >= spawnDist)
             {
 
@@ -239,7 +257,7 @@ public class ElasticTongue : MonoBehaviour
                     CreateNewPoint();
                     UpdateLine();
                 }
-                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !canSpawnPoint)
+                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= adjustedDespawnDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !canSpawnPoint)
                 {
 
                     List<GameObject> destroyedPoint = points[points.Count - 2].pointStick.objectsAttached;
@@ -344,7 +362,6 @@ public class ElasticTongue : MonoBehaviour
     { 
         points[points.Count - 1].rb.MovePosition(playerT.position);
 
-
         for (int i = 0; i < points.Count; i++)
         {
             bool slow = false;
@@ -355,7 +372,7 @@ public class ElasticTongue : MonoBehaviour
             }
             else if (Vector2.Distance(points[i].transform.position, playerT.position) <= slowDist)
             {
-                slow = true;
+                //slow = true;
             }
 
             //Test for anti swirl

@@ -55,7 +55,8 @@ public class PointStickScript : MonoBehaviour
             {
                 pc = objectTransform.gameObject.AddComponent<PositionConstraint>();
             }
-            
+
+            objectTransform.GetComponent<Renderer>().sortingOrder = transform.parent.GetComponent<Renderer>().sortingOrder;
             
             pc.locked = true;
 

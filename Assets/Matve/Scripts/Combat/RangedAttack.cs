@@ -56,6 +56,7 @@ public class RangedAttack : MonoBehaviour
         {
             if (canShoot)
             {
+                
                 Shoot();
 
                 canShoot = false;
@@ -85,8 +86,10 @@ public class RangedAttack : MonoBehaviour
 
     void Shoot()
     {
+        anim.SetBool("Shoot", true);
         GameObject bullet = Instantiate(projectile, rotate.position, rotate.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(rotate.up * speed, ForceMode2D.Impulse);
+        
     }
 }

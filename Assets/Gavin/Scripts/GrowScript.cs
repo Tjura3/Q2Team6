@@ -32,7 +32,7 @@ public class GrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraFollow.cameraSize = currentSize * 2 + 10;
+        cameraFollow.cameraSize = currentSize * 3 + 10;
 
          
 

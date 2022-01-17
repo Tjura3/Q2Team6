@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
-
         //Bottom left kinda cringe
         if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
         {

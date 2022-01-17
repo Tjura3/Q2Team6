@@ -176,6 +176,19 @@ public class ElasticTongue : MonoBehaviour
             shoot = false;
             playerMovement.canMove = false;
             playerAnimator.SetTrigger("OpenMouth");
+
+            bool hit = Physics.Raycast(playerT.position, new Vector3(0, 0, 1), 200, 12);
+            Debug.DrawRay(playerT.position, new Vector3(0, 0, 1), new Color(0, 255, 0), 200f);
+            //Debug.Log(ray.collider.gameObject.name);
+            if(hit)
+            {
+                GetComponent<Renderer>().sortingOrder = 6;
+            }
+            else
+            {
+                GetComponent<Renderer>().sortingOrder = 8;
+            }
+
             lineRenderer.enabled = true;
 
 
@@ -226,7 +239,7 @@ public class ElasticTongue : MonoBehaviour
     /// </summary>
     void UpdateTongue()
     {
-       
+        float adjustedDespawnDist = despawDist * playerT.localScale.x;
 
         if (points.Count > 2)
         {
@@ -240,7 +253,7 @@ public class ElasticTongue : MonoBehaviour
                     CreateNewPoint();
                     UpdateLine();
                 }
-                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= despawDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !canSpawnPoint)
+                else if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) <= adjustedDespawnDist && !Input.GetMouseButton(0) && points[points.Count - 2].canBeDestroyed >= 5 && !canSpawnPoint)
                 {
 
                     List<GameObject> destroyedPoint = points[points.Count - 2].pointStick.objectsAttached;

@@ -12,6 +12,11 @@ TagManager:
   - Tier3
   - Enviro
   - Entrance
+  - Tree
+  - RockCandy
+  - Breaker
+  - HiddenByTree
+  - ParticleSystem
   layers:
   - Default
   - TransparentFX
@@ -25,7 +30,7 @@ TagManager:
   - Wall
   - Tongue
   - Player
-  - 
+  - TongueHidder
   - 
   - 
   - 

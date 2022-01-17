@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 1504476073}
   - component: {fileID: 1504476077}
   - component: {fileID: 1910283209}
+  - component: {fileID: 958823956}
+  - component: {fileID: 958823955}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -144,9 +146,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: -3}
+  m_Offset: {x: -0.5, y: -2.4631448}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 1.9652753
 --- !u!61 &578207547509878305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2486de03dd37c4983d85f89dd4c46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 15
   canMove: 0
 --- !u!114 &1504476073
 MonoBehaviour:
@@ -240,7 +242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578207547509878332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d48cf017c8f11e4081cb937eac6d09c, type: 3}
   m_Name: 
@@ -269,3 +271,32 @@ MonoBehaviour:
   material:
   - {fileID: 2100000, guid: e3b2d52b7a56d234d883528b532d8347, type: 2}
   - {fileID: 2100000, guid: 6ac7d4ea49c25d24f8918cefc7fd7c2b, type: 2}
+--- !u!58 &958823956
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578207547509878332}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.4210043, y: -0.70167255}
+  serializedVersion: 2
+  m_Radius: 1.1508269
+--- !u!114 &958823955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578207547509878332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77bf83584e26c9428150a85dec96165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  twening: {fileID: 0}

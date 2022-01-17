@@ -23,6 +23,9 @@ public class HouseScript : MonoBehaviour
     public GameObject purpleBean;
 
     BoxCollider2D boxCollider;
+
+    [SerializeField]
+    Twening stupidName;
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -61,6 +64,10 @@ public class HouseScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!stupidName.consumeHouse)
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             SFXManager.PlaySound("Destroy");

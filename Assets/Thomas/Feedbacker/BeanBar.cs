@@ -10,6 +10,8 @@ public class BeanBar : MonoBehaviour
     public Image fill;
     public int MaxVal;
     public int Beanlevel;
+                                private int jake;
+
     public void SetStartBeans(int beans)
     {
 
@@ -24,7 +26,19 @@ public class BeanBar : MonoBehaviour
         slider.value = beans;
         fill.color = BarColor.Evaluate(slider.normalizedValue);
     }
+    /*
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log("Pressed");
+            SetBeans(jake);
+            jake++;
+        }
+    }
+    */
 }
+
 /*200 for door
  destroy rocks at 175
  house at 150

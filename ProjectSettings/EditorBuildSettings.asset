@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Thomas/SimpleCredits.unity
     guid: a8293826580ecc94a8d6330e51d7eb3f
   - enabled: 1
+    path: Assets/Thomas/DeathScene/Death.unity
+    guid: 2cf7249f1d9c521408cffb2a0a799d65
+  - enabled: 1
+    path: Assets/Thomas/Feedbacker/L1Testback.unity
+    guid: 7b051b7af6a51e14aa6ed0df5bc84297
+  - enabled: 1
     path: Assets/Taylor/Tutorial.unity
     guid: 777d8219dad31c643bac804b3dd828e5
   m_configObjects: {}

@@ -51,6 +51,7 @@ public class ElasticTongue : MonoBehaviour
     float shootTime;
 
     [SerializeField] float slowDist;
+    [SerializeField] public Twening twen;
 
     [Header("Player Variables")]
     //[SerializeField] SpriteRenderer 

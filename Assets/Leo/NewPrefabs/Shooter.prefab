@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457cbf5f8b8e5084dbd7411c53bc3e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 966186186275620361, guid: 6ffa3898ee75ccf4b8b25a50245b46dc,
+  projectile: {fileID: 966186186275620361, guid: ff54b4a8f55afbf498d91fd1c623142f,
     type: 3}
   rotate: {fileID: 744685228638115193}
   target: {fileID: 0}

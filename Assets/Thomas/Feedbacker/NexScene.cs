@@ -11,7 +11,6 @@ public class NexScene : MonoBehaviour
     
         private void OnTriggerEnter2D(Collider2D collision)
         {
-        Debug.Log("bruh");
             if (collision.gameObject.tag == "Player")
             {
               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class whenUDie : MonoBehaviour
 {
     public GameObject gavinsTongue;
-
+    
     Animator A;
     healthSystem HS;
 

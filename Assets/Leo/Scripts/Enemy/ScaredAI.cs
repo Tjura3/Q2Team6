@@ -25,7 +25,7 @@ public class ScaredAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    public bool runsToHouse;//If true when scared will run to house. If false the bean will not run to the house
+    public bool runsToHouse = true;//If true when scared will run to house. If false the bean will not run to the house
 
     SpriteRenderer sr;
 
@@ -43,8 +43,8 @@ public class ScaredAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .5f);
 
-        System.Random random = new System.Random(gameObject.name.GetHashCode());
-        runsToHouse = random.Next(0, 100) > 80 ? false : true;//80% will run to house. 20% will run away
+        //System.Random random = new System.Random(gameObject.name.GetHashCode());
+        //runsToHouse = random.Next(0, 100) > 80 ? false : true;//80% will run to house. 20% will run away
 
     }
 
@@ -80,6 +80,8 @@ public class ScaredAI : MonoBehaviour
 
         {
             FindHouse();
+
+            print("Find house");
             return;
         }
 

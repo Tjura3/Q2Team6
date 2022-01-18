@@ -10,14 +10,23 @@ public class DeathTween : MonoBehaviour
     {
         transform.localScale = Vector2.zero;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            deathTween();
+        }
+    }
     public void deathTween()
     {
         StartCoroutine(DT());
     }
     IEnumerator DT()
     {
-       
-        transform.LeanScale(Vector2.one, 0.8f).setEaseOutCubic();
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
+        transform.LeanScale(new Vector2(2, 2), 0.8f).setEaseOutCubic();
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Death");
     }

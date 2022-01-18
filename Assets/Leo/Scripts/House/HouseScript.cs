@@ -62,7 +62,7 @@ public class HouseScript : MonoBehaviour
             //print("entered");
             if(red + yellow + green + blue + purple >= houseCap)
             {
-                houseFull = true;
+                Destroy(transform.GetChild(0).gameObject);
                 return;
             }
             SFXManager.PlaySound("EnteringHouse");

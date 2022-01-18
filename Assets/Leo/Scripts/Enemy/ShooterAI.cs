@@ -7,6 +7,7 @@ public class ShooterAI : MonoBehaviour
 {
 
     public Transform target;
+    private float sight = 15.0f;
 
 
     public float speed = 200f;
@@ -72,12 +73,12 @@ public class ShooterAI : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < 10)
+        if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) < sight)
         {
             done = false;
             GetComponent<NewRoaming>().isOff = true;
         }
-        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > 10)
+        else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > sight)
         {
             done = true;
             if (wait == false)

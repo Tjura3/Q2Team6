@@ -25,6 +25,7 @@ public class ScaredAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    public bool runsToHouse;//If true when scared will run to house. If false the bean will not run to the house
 
     SpriteRenderer sr;
 
@@ -41,6 +42,9 @@ public class ScaredAI : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        System.Random random = new System.Random(gameObject.name.GetHashCode());
+        runsToHouse = random.Next(0, 100) > 80 ? false : true;//80% will run to house. 20% will run away
 
     }
 
@@ -111,6 +115,7 @@ public class ScaredAI : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
+            target = null;
             return;
         }
         else
@@ -147,15 +152,18 @@ public class ScaredAI : MonoBehaviour
     public void FindHouse()
     {
         GameObject[] houses = GameObject.FindGameObjectsWithTag("Entrance");
-        if (houses.Length != 0)
+        //print(houses.Length);
+        if (houses.Length != 0 && runsToHouse)
         {
             //Debug.Log(houses.Length);
             GameObject closestHouse = houses[0];
             for (int i = 0; i < houses.Length; i++)
             {
-                if (Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
+                //print(1);
+                if (!closestHouse.transform.parent.GetComponent<HouseScript>().houseFull && Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
                 {
                     closestHouse = houses[i];
+                    print(2);
                 }
             }
             target = closestHouse.transform;

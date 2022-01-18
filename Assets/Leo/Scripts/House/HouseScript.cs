@@ -22,6 +22,9 @@ public class HouseScript : MonoBehaviour
     public GameObject blueBean;
     public GameObject purpleBean;
 
+    [SerializeField] int houseCap = 10;
+    public bool houseFull = false;
+
     BoxCollider2D boxCollider;
 
     [SerializeField]
@@ -57,6 +60,11 @@ public class HouseScript : MonoBehaviour
         if (collision.transform.CompareTag("RunEnemy"))
         {
             //print("entered");
+            if(red + yellow + green + blue + purple >= houseCap)
+            {
+                houseFull = true;
+                return;
+            }
             SFXManager.PlaySound("EnteringHouse");
             Destroy(collision.gameObject);
         }

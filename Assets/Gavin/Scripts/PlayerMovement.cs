@@ -33,9 +33,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
         {
+            a.SetBool("Running", false);
         }
         else
         {
+
+            a.SetBool("Running", true);
             //play footstep sfx
             stepCoolDown -= Time.deltaTime;
 
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
+
     }
 
     private void FixedUpdate()

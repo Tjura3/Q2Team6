@@ -10,6 +10,7 @@ public class DeathTween : MonoBehaviour
     {
         transform.localScale = Vector2.zero;
     }
+    /*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -17,6 +18,7 @@ public class DeathTween : MonoBehaviour
             deathTween();
         }
     }
+    */
     public void deathTween()
     {
         StartCoroutine(DT());

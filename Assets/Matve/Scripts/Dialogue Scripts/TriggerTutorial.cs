@@ -14,6 +14,7 @@ public class TriggerTutorial : MonoBehaviour
     float timer;
     void Start()
     {
+        started = true;
         tutorial.SetActive(false);
         HP.SetActive(false);
         BeanBar.SetActive(false);

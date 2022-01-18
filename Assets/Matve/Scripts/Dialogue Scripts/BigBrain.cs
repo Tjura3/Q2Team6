@@ -13,11 +13,10 @@ public class BigBrain : MonoBehaviour
     int clicks = 4;
 
     public GameObject blackScreen;
-    Animator anim2;
+    
     void Start()
     {
-        anim2 = blackScreen.GetComponent<Animator>();
-        anim2.SetBool("begin", true);
+       
         
         
         player = GameObject.Find("Player");

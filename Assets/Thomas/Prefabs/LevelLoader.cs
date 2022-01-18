@@ -57,7 +57,7 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         //Load
         //SceneManager.LoadScene("Pause!");
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("IntroScene");
     }
 
 

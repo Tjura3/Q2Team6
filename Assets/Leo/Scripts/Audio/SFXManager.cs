@@ -43,19 +43,19 @@ public class SFXManager : MonoBehaviour
         switch (clip)
         {
             case "Footstep":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.footstep, 0.6f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.footstep, 0.85f);
                 break;
             case "Tongue":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.tongue, 0.3f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.tongue, 0.4f);
                 break;
             case "Eating":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.eat, 0.3f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.eat, 0.4f);
                 break;
             case "Destroy":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.destroy, 0.1f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.destroy, 0.4f);
                 break;
             case "EnteringHouse":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.escape, 0.1f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.escape, 0.8f);
                 break;
             case "Shooting":
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.shoot, 0.06f);
@@ -64,10 +64,10 @@ public class SFXManager : MonoBehaviour
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.mele, 0.1f);
                 break;
             case "click":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.click, 0.2f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.click, 0.5f);
                 break;
             case "hover":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.hover, 0.2f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.hover, 0.5f);
                 break;
         }
     }

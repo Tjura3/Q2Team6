@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1094364097998941771}
   - component: {fileID: 7293675164768838145}
   - component: {fileID: -1166856472916772101}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Blue
   m_TagString: RunEnemy
   m_Icon: {fileID: 0}
@@ -173,9 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 200
+  speed: 400
   nextWaypointDistance: 3
   done: 0
+  runsToHouse: 1
 --- !u!114 &7293675164768838145
 MonoBehaviour:
   m_ObjectHideFlags: 0

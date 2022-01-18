@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Taylor/KingRoom.unity
     guid: 3c920775c1fb50643826e698b28cfaf7
+  - enabled: 1
+    path: Assets/Thomas/#1VictoryRoyal/rqwe.unity
+    guid: 2bdbd6e9178adf1429d808d1feb1ea4c
   m_configObjects: {}

@@ -110,6 +110,8 @@ MonoBehaviour:
   blueBean: {fileID: 91190105080102599, guid: 4e0609930c09484468686502ba122391, type: 3}
   purpleBean: {fileID: 3647461895725456378, guid: 235c81a1beb82894bae8d9e6417d3ba1,
     type: 3}
+  houseCap: 10
+  houseFull: 0
   stupidName: {fileID: 0}
 --- !u!61 &5949632374159664885
 BoxCollider2D:
@@ -163,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7129097858091809224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.11, z: 0}
+  m_LocalPosition: {x: 0, y: -3.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2085527239064033920}

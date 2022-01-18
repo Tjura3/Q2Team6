@@ -47,6 +47,20 @@ public class PointStickScript : MonoBehaviour
 
         if (objectTransform.tag.CompareTo("Enemy") == 0 || objectTransform.tag.CompareTo("RunEnemy") == 0)
         {
+
+            ScaredAI scaredAI = objectTransform.gameObject.GetComponent<ScaredAI>();
+            ChaserAI chaserAI = objectTransform.gameObject.GetComponent<ChaserAI>();
+            ShooterAI shooterAI = objectTransform.gameObject.GetComponent<ShooterAI>();
+            enemyRoaming enemyRoaming = objectTransform.gameObject.GetComponent<enemyRoaming>();
+
+            if(chaserAI != null && tongue.twen.consumeBig)
+            {
+                return;
+            }else if(shooterAI != null && tongue.twen.consumeShoot)
+            {
+                return;
+            }
+
             ConstraintSource constraintSource = new ConstraintSource();
             constraintSource.sourceTransform = transform;
             constraintSource.weight = 1;
@@ -81,10 +95,6 @@ public class PointStickScript : MonoBehaviour
                 objectsAttached.Add(objectTransform.gameObject);
             }
 
-            ScaredAI scaredAI = objectTransform.gameObject.GetComponent<ScaredAI>();
-            ChaserAI chaserAI = objectTransform.gameObject.GetComponent<ChaserAI>();
-            ShooterAI shooterAI = objectTransform.gameObject.GetComponent<ShooterAI>();
-            enemyRoaming enemyRoaming = objectTransform.gameObject.GetComponent<enemyRoaming>();
 
             objectTransform.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 8;
 

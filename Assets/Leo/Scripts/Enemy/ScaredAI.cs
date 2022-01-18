@@ -8,9 +8,9 @@ public class ScaredAI : MonoBehaviour
 
     public Transform target;
 
-    public float sight = 10.0f;
+    private float sight = 15.0f;
 
-    public float speed = 200f;
+    public float speed = 600f;
     public float nextWaypointDistance = 3f;
 
     public bool done = false;
@@ -42,6 +42,7 @@ public class ScaredAI : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("FindHouse", 0f, 1);
 
         //System.Random random = new System.Random(gameObject.name.GetHashCode());
         //runsToHouse = random.Next(0, 100) > 80 ? false : true;//80% will run to house. 20% will run away

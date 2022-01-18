@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class whenUDie : MonoBehaviour
 {
+    public DeathTween DT;
     public GameObject gavinsTongue;
-
+    
     Animator A;
     healthSystem HS;
 
@@ -29,6 +30,7 @@ public class whenUDie : MonoBehaviour
             PA.enabled = false;
             A.enabled = false;
             gavinsTongue.SetActive(false);
+            DT.deathTween();
         }
     }
 }

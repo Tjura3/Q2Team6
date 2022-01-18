@@ -330,14 +330,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 9780ccfd65ab7db4eb2fbe5fd1d63c17, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3298002869832431796, guid: 908fbac01586de546946e3df2cbafded,
+  m_Sprite: {fileID: 5793156181727834770, guid: 6a2e8875beb9b444c97c17ae874bfea3,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1125,12 +1125,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GS: {fileID: 0}
-  shootReq: 0.8
-  bigReq: 1
-  treeReq: 1.2
-  houseReq: 1.4
-  rokcReq: 1.6
-  doorReq: 1.8
+  shootReq: 1.25
+  bigReq: 3.5
+  treeReq: 4.25
+  houseReq: 5
+  rokcReq: 5.75
+  doorReq: 6.5
   consumeShoot: 1
   consumeBig: 1
   consumeVeggies: 1

@@ -6,15 +6,16 @@ using UnityEngine.SceneManagement;
 public class NexScene : MonoBehaviour
 {
 
+    public float Req;
+    public GrowScript GS;
 
-    // Update is called once per frame
-    
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.tag == "Player")
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+            if (collision.gameObject.tag == "Player" && GS.currentSize >= Req)
             {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+               SceneManager.LoadScene("KingRoom");
             }
-        }
+    }
     
 }

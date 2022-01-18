@@ -49,34 +49,34 @@ public class Twening : MonoBehaviour
 
     private void Update()
     {
-        if (GS.currentSize >= shootReq & consumeShoot == false)
+        if (GS.currentSize >= shootReq && consumeShoot == false)
         {
             StartCoroutine(Bubbletwo());
             consumeShoot = true;
         }
             //Debug.Log(string.Format("size = {0}", GS.currentSize));
             
-        if (GS.currentSize >= bigReq & consumeBig == false)
+        if (GS.currentSize >= bigReq && consumeBig == false)
         {
             StartCoroutine(BubbleOne());
             consumeBig = true;
         }
-        if (GS.currentSize >= treeReq & consumeVeggies == false)
+        if (GS.currentSize >= treeReq && consumeVeggies == false)
         {
             StartCoroutine(Bubblethree());
             consumeVeggies = true;
         }
-        if (GS.currentSize >= houseReq & consumeHouse == false)
+        if (GS.currentSize >= houseReq && consumeHouse == false)
         {
             StartCoroutine(Bubblefour());
             consumeHouse = true;
         }
-        if (GS.currentSize >= rokcReq & consumeRcok == false)
+        if (GS.currentSize >= rokcReq && consumeRcok == false)
         {
             StartCoroutine(Bubblefive());
             consumeRcok = true;
         }
-        if (GS.currentSize >= doorReq & consumeDoor == false)
+        if (GS.currentSize >= doorReq && consumeDoor == false)
         {
             StartCoroutine(Bubblesix());
             consumeDoor = true;

@@ -47,7 +47,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 88117f5e57e8d7340a5fedd0e9a1fb6a, type: 2}
@@ -70,7 +70,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 8
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -79,14 +79,23 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.14781758
-        value: 0.41932374
+        time: 0.15046498
+        value: 0.2477234
         inSlope: 0
-        outSlope: 0
+        outSlope: 0.45278466
         tangentMode: 1
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.15085377
+      - serializedVersion: 3
+        time: 0.9418028
+        value: 0.4970443
+        inSlope: 0.34412804
+        outSlope: 0
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.08692484
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -141,20 +150,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDistance: 0
   strechStrength: 700
-  maxSpeed: 1000
+  maxSpeed: 700
   maxNumOfPoints: 10000
   initialDistanceBetweenPoints: 0.025
   pointPrefab: {fileID: 5945156180727510716, guid: 74831af7c76145944b384f146b4090fe,
     type: 3}
-  spawnDist: 0.1
-  despawDist: 0.5
+  spawnDist: 0.01
+  despawDist: 2
   camera: {fileID: 0}
   mouseDragSpeed: 50
   mouseShootSpeed: 20
   testVar: 50
+  isTongueOut: 0
+  maxRetractTime: 0.1
+  extendShootStrength: 50
   maxShootTime: 0.2
   minShootTime: 0.1
-  slowDist: 0.6
+  slowDist: 1
   playerMovement: {fileID: 0}
   playerCollider: {fileID: 0}
   playerT: {fileID: 0}

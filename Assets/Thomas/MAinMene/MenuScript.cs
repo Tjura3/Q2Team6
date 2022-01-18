@@ -29,4 +29,8 @@ public class MenuScript : MonoBehaviour
     {
         SFXManager.PlaySound("click");
     }
+    public void LoadMenu() 
+    {
+        LL.LoadMainMenu();
+    }
 }

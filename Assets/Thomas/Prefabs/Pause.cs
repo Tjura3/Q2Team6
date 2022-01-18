@@ -52,5 +52,15 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         LL.LoadMainMenu();
     }
-   
+    public void Sloadmenu()
+    {
+        Debug.Log("Menu");
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
+
+
+
+
 }

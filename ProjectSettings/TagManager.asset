@@ -57,3 +57,6 @@ TagManager:
   - name: new
     uniqueID: 1712055583
     locked: 0
+  - name: Window
+    uniqueID: 295026735
+    locked: 0

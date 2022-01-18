@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Taylor/Tutorial.unity
     guid: 777d8219dad31c643bac804b3dd828e5
+  - enabled: 1
+    path: Assets/Taylor/KingRoom.unity
+    guid: 3c920775c1fb50643826e698b28cfaf7
   m_configObjects: {}

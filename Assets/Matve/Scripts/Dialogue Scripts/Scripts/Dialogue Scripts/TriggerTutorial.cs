@@ -31,10 +31,19 @@ public class TriggerTutorial : MonoBehaviour
             }
             else
             {
-                tutorial.SetActive(true);
-                HP.SetActive(true);
-                BeanBar.SetActive(true);
-            }
+                if (tutorial != null)
+                {
+                    tutorial.SetActive(true);
+                }
+                if (HP != null)
+                {
+                    HP.SetActive(true);
+                }
+                if (BeanBar != null)
+                {
+                    BeanBar.SetActive(true);
+                }
+           }
         }
     }
 }

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Thomas/SimpleCredits.unity
     guid: a8293826580ecc94a8d6330e51d7eb3f
   - enabled: 1
-    path: Assets/Matve/IntroScene.unity
+    path: Assets/Matve/Scripts/Dialogue Scripts/IntroScene.unity
     guid: e4954bd29229c9b4fbe5b74cf1dc8337
   - enabled: 1
     path: Assets/Thomas/DeathScene/Death.unity

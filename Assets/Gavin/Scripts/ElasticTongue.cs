@@ -172,7 +172,7 @@ public class ElasticTongue : MonoBehaviour
 
             //points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
 
-            shootVelocity = dir * (mouseShootSpeed * playerT.gameObject.GetComponent<GrowScript>().currentSize + 10);
+            shootVelocity = dir * (mouseShootSpeed * (playerT.gameObject.GetComponent<GrowScript>().currentSize * 0.75f) + 10);
             //canShoot = false;
             shoot = false;
             playerMovement.canMove = false;
@@ -213,7 +213,7 @@ public class ElasticTongue : MonoBehaviour
 
             //points[0].rb.AddForce(dir * mouseShootSpeed, ForceMode2D.Impulse);
 
-            Vector2 shootVelocity = dir * (extendShootStrength * playerT.gameObject.GetComponent<GrowScript>().currentSize + 20);
+            Vector2 shootVelocity = dir * (extendShootStrength * (playerT.gameObject.GetComponent<GrowScript>().currentSize/2) + 30);
 
             for (int i = 0; i < 5; i++)
             {

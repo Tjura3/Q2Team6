@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 29822278199826061, guid: 7bb514f86313f5f4abbcf7cc80121c6d, type: 3}
+  - {fileID: 0}
   spawnPoint:
   - {fileID: 1756469616}
   - {fileID: 45028573}
@@ -12267,7 +12267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756469615
 GameObject:
@@ -12311,10 +12311,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: King
       objectReference: {fileID: 0}
+    - target: {fileID: 9175475187033985180, guid: 099e72cfea913f5459e37aa0d2841631,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09339499a181a8b4982532042f769854, type: 2}
     - target: {fileID: 9175475187033985183, guid: 099e72cfea913f5459e37aa0d2841631,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9175475187033985183, guid: 099e72cfea913f5459e37aa0d2841631,
         type: 3}

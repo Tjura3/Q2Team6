@@ -32,4 +32,17 @@ public class DeathTween : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Death");
     }
+    public void VictoryTween()
+    {
+        StartCoroutine(VT());
+    }
+    IEnumerator VT()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
+        transform.LeanScale(new Vector2(2, 2), 0.8f).setEaseOutCubic();
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(7);
+    }
 }

@@ -14,6 +14,7 @@ public class GrowScript : MonoBehaviour
     public BeanBar Bbar;
     int StartBeans = 0;
     int currentBeans = 0;
+    public DeathTween darthTweener;
     //Thomas Stuff End
 
     [SerializeField] CameraFollow cameraFollow;
@@ -73,7 +74,7 @@ public class GrowScript : MonoBehaviour
 
         if(gameObject.tag == "King")
         {
-            StartCoroutine(EatenKing());
+            darthTweener.VictoryTween();
         }
 
         //Debug.Log("Enemies:" + Spawner.enemyNumber);
@@ -85,9 +86,5 @@ public class GrowScript : MonoBehaviour
         currentSize += growSpeed;
     }
 
-    IEnumerator EatenKing()
-    {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(7);
-    }
+    
 }

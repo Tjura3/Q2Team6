@@ -71,7 +71,7 @@ public class SFXManager : MonoBehaviour
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.hover, 0.5f);
                 break;
             case "transition":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.transition, 1);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.transition, 0.3f);
                 break;
         }
     }

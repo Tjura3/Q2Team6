@@ -11,7 +11,7 @@ public class MusicManager : MonoBehaviour
     private string currentClip = " ";
 
     [HideInInspector]
-    public AudioClip mainMenu, credits, gameScene, boss, win, intro;
+    public AudioClip mainMenu, credits, gameScene, boss, win, intro, death;
 
     public void Awake()
     {
@@ -27,12 +27,13 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        mainMenu = Resources.Load<AudioClip>("InfiniteDoors");
+        mainMenu = Resources.Load<AudioClip>("Purple_Planet");
         credits = Resources.Load<AudioClip>("Tiny_Blocks");
-        gameScene = Resources.Load<AudioClip>("Potato");
+        gameScene = Resources.Load<AudioClip>("InfiniteDoors");
         boss = Resources.Load<AudioClip>("Stupid_Dancer");
-        win = Resources.Load<AudioClip>("FNAF Beatbox");
+        win = Resources.Load<AudioClip>("Feelin' Good");
         intro = Resources.Load<AudioClip>("FutureWorld");
+        death = Resources.Load<AudioClip>("Lament");
 
         BGM = GetComponent<AudioSource>();
     }
@@ -44,7 +45,7 @@ public class MusicManager : MonoBehaviour
         switch (sceneIndex)
         {
             case 0:
-                currentClip = "InfiniteDoors";
+                currentClip = "Purple_Planet";
                 if (BGM.clip.name != currentClip)
                 {
                     BGM.Stop();
@@ -70,8 +71,17 @@ public class MusicManager : MonoBehaviour
                     BGM.Play();
                 }
                 break;
+            case 3:
+                currentClip = "Lament";
+                if (BGM.clip.name != currentClip)
+                {
+                    BGM.Stop();
+                    BGM.clip = death;
+                    BGM.Play();
+                }
+                break;
             case 4:
-                currentClip = "Potato";
+                currentClip = "InfiniteDoors";
                 if (BGM.clip.name != currentClip)
                 {
                     BGM.Stop();
@@ -89,7 +99,7 @@ public class MusicManager : MonoBehaviour
                 }
                 break;
             case 7:
-                currentClip = "FNAF Beatbox";
+                currentClip = "Feelin' Good";
                 if (BGM.clip.name != currentClip)
                 {
                     BGM.Stop();

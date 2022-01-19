@@ -50,7 +50,7 @@ public class King : MonoBehaviour
         {
             SpinnerSpawner.spinnerNumber = 11;
         }
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(8);
         waveNum++;
     }
 

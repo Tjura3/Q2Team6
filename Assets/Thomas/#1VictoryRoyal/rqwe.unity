@@ -301,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -39, y: -78}
+  m_AnchoredPosition: {x: -65, y: -78}
   m_SizeDelta: {x: 374.75537, y: 114.70697}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &167380720
@@ -323,17 +323,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU WIN!!! :D
+  m_text: You Conquered the Candy Kingdom!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d786103a1f2360a4c80fc61ae6d01673, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: d786103a1f2360a4c80fc61ae6d01673, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 927f1a322cc59e04a8963122e6f9cbd1, type: 2}
+  m_sharedMaterial: {fileID: 7595207814122179588, guid: 927f1a322cc59e04a8963122e6f9cbd1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280432205
+  m_fontColor: {r: 0.3018868, g: 0.21368292, b: 0.13527946, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -458,16 +459,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c3eab7443301dd4faef9209a657c3ba, type: 2}
-  m_sharedMaterial: {fileID: -64860728694832394, guid: 9c3eab7443301dd4faef9209a657c3ba,
+  m_fontAsset: {fileID: 11400000, guid: 927f1a322cc59e04a8963122e6f9cbd1, type: 2}
+  m_sharedMaterial: {fileID: 7595207814122179588, guid: 927f1a322cc59e04a8963122e6f9cbd1,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281413180
-  m_fontColor: {r: 0.23584908, g: 0.18133679, b: 0.19097178, a: 1}
+    rgba: 4280366412
+  m_fontColor: {r: 0.29803923, g: 0.20784315, b: 0.12941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -484,8 +485,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.2
-  m_fontSizeBase: 37.2
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -638,8 +639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -168.55, y: 113.35}
-  m_SizeDelta: {x: 142.739, y: 53.02164}
+  m_AnchoredPosition: {x: -80, y: 80}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!95 &322257621
 Animator:
@@ -651,7 +652,7 @@ Animator:
   m_GameObject: {fileID: 322257619}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c87d0db592255d34db8f0640ea7de13e, type: 2}
+  m_Controller: {fileID: 9100000, guid: e7521521b35e3874888bcb6b5b7ad259, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

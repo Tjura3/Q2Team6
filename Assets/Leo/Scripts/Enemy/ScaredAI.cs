@@ -15,8 +15,8 @@ public class ScaredAI : MonoBehaviour
 
     public bool done = false;
     bool wait = false;
-
-    //public Transform enemyGFX;
+    bool screamed;
+    int randomScream;
 
     Path path;
     int currentWaypoint = 0;
@@ -88,12 +88,11 @@ public class ScaredAI : MonoBehaviour
         {
             done = false;
             GetComponent<NewRoaming>().isOff = true;
-
-
-            /*if ((Vector2.Distance(rb.position, target.position) > 20) && playerIsTarget == true)
+            if (!screamed)
             {
-                rb.velocity = Vector2.zero;
-            }*/
+                StartCoroutine(WaitToScream());
+            }
+
         }
         else if (Vector2.Distance(rb.position, GameObject.Find("Player").transform.position) > sight)
         {
@@ -102,6 +101,7 @@ public class ScaredAI : MonoBehaviour
             {
                 StartCoroutine(WaitToRoam());
             }
+            screamed = false;
 
         }
 
@@ -184,5 +184,13 @@ public class ScaredAI : MonoBehaviour
         GetComponent<NewRoaming>().isOff = false;
         wait = false;
         yield return new WaitForFixedUpdate();
+    }
+
+    IEnumerator WaitToScream()
+    {
+        screamed = true;
+        randomScream = Random.Range(0, 5);
+        yield return new WaitForSeconds(randomScream);
+        SFXManager.PlaySound("scream");
     }
 }

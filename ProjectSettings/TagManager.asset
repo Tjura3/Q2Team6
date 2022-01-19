@@ -62,3 +62,6 @@ TagManager:
   - name: Window
     uniqueID: 295026735
     locked: 0
+  - name: Throne
+    uniqueID: 501626691
+    locked: 0

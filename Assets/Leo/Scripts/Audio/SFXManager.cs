@@ -76,7 +76,7 @@ public class SFXManager : MonoBehaviour
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.transition, 0.3f);
                 break;
             case "Alert":
-                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.alert, 0.4f);
+                SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.alert, 0.2f);
                 break;
             case "scream":
                 SFXManager.SFXInstance.Audiosrc.PlayOneShot(SFXManager.SFXInstance.scream, 0.4f);

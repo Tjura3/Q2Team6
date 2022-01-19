@@ -162,7 +162,6 @@ public class ElasticTongue : MonoBehaviour
     {
         if (shoot)
         {
-            print("Shoot");
             SFXManager.PlaySound("Tongue");
 
             Vector3 mousePos = Input.mousePosition;
@@ -178,6 +177,7 @@ public class ElasticTongue : MonoBehaviour
             shoot = false;
             playerMovement.canMove = false;
             playerAnimator.SetTrigger("OpenMouth");
+            playerAnimator.SetBool("MouthClose", false);
             ContactFilter2D filter2D = new ContactFilter2D();
             filter2D.layerMask = 1<<12;
             filter2D.useLayerMask = true;
@@ -329,7 +329,7 @@ public class ElasticTongue : MonoBehaviour
         }
         else
         {
-            playerAnimator.SetTrigger("CloseMouth");
+            playerAnimator.SetBool("MouthClose", true);
         }
         lineRenderer.enabled = false;
     }

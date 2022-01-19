@@ -81,8 +81,6 @@ public class ScaredAI : MonoBehaviour
 
         {
             FindHouse();
-
-            print("Find house");
             return;
         }
 

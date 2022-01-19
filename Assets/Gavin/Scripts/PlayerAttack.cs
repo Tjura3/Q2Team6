@@ -71,7 +71,7 @@ public class PlayerAttack : MonoBehaviour
         foreach(Collider2D collider in colliders)
         {
             //CHANGE TAG FROM TEST FOOD TO ENEMY OR SOMETHING IDK
-            if (collider.tag == "Enemy" || collider.tag == "RunEnemy")
+            if (collider.tag == "Enemy" || collider.tag == "RunEnemy" || collider.tag == "King")
             {
                 enemiesEaten = true;
                 collider.GetComponent<Animator>().SetTrigger("Shrink");

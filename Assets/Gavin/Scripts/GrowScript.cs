@@ -71,7 +71,7 @@ public class GrowScript : MonoBehaviour
         }
         print("Name: "  +gameObject.name);
 
-        if(gameObject.name == "End")
+        if(gameObject.tag == "King")
         {
             StartCoroutine(EatenKing());
         }

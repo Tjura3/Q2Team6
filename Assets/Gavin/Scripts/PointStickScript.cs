@@ -45,7 +45,7 @@ public class PointStickScript : MonoBehaviour
             return;
         }
 
-        if (objectTransform.tag.CompareTo("Enemy") == 0 || objectTransform.tag.CompareTo("RunEnemy") == 0)
+        if (objectTransform.tag.CompareTo("Enemy") == 0 || objectTransform.tag.CompareTo("RunEnemy") == 0 || objectTransform.tag.CompareTo("King") == 0)
         {
 
             ScaredAI scaredAI = objectTransform.gameObject.GetComponent<ScaredAI>();

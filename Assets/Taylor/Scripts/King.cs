@@ -17,24 +17,39 @@ public class King : MonoBehaviour
 
     IEnumerator flip()
     {
+        yield return new WaitForSeconds(2);
+        anim.SetBool("StartWave", true);
         yield return new WaitForSeconds(0);
         anim.SetBool("StartWave", false);
         waveNum++;
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         if (waveNum == 1)
         {
             SpinnerSpawner.spinnerNumber = 2;
+            waveNum++;
         }
 
+        yield return new WaitForSeconds(6);
+        anim.SetBool("StartWave", true);
+        yield return new WaitForSeconds(0);
+        anim.SetBool("StartWave", false);
+        yield return new WaitForSeconds(7);
         if (waveNum == 2)
         {
             SpinnerSpawner.spinnerNumber = 5;
+            waveNum++;
         }
 
+        yield return new WaitForSeconds(9);
+        anim.SetBool("StartWave", true);
+        yield return new WaitForSeconds(0);
+        anim.SetBool("StartWave", false);
+        yield return new WaitForSeconds(7);
         if (waveNum == 3)
         {
-            SpinnerSpawner.spinnerNumber = 8;
+            SpinnerSpawner.spinnerNumber = 11;
+            waveNum++;
         }
     }
 
@@ -43,7 +58,6 @@ public class King : MonoBehaviour
     {
         if (Input.GetKeyDown("p"))
         {
-            anim.SetBool("StartWave", true);
             StartCoroutine(flip());
         }
     }

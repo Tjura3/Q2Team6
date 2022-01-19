@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrowScript : MonoBehaviour
 {
@@ -68,6 +69,13 @@ public class GrowScript : MonoBehaviour
         {
             Bbar.SetBeans(currentBeans); //ThomasThing
         }
+        print("Name: "  +gameObject.name);
+
+        if(gameObject.name == "End")
+        {
+            StartCoroutine(EatenKing());
+        }
+
         //Debug.Log("Enemies:" + Spawner.enemyNumber);
     }
 
@@ -75,5 +83,11 @@ public class GrowScript : MonoBehaviour
     public void GrowABit()
     {
         currentSize += growSpeed;
+    }
+
+    IEnumerator EatenKing()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(7);
     }
 }

@@ -18,6 +18,7 @@ public class BigBoiSpawner : MonoBehaviour
     private void Start()
     {
         timeBetweenSpawns = startTimeBetweenSpawns;
+        bigEnemies = 0;
     }
 
     // Update is called once per frame

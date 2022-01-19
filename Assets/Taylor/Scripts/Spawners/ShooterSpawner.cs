@@ -18,6 +18,7 @@ public class ShooterSpawner : MonoBehaviour
     private void Start()
     {
         timeBetweenSpawns = startTimeBetweenSpawns;
+        shooterEnemies = 0;
     }
 
     // Update is called once per frame

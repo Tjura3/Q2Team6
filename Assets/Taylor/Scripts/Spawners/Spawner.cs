@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         timeBetweenSpawns = startTimeBetweenSpawns;
+        enemyNumber = 0;
+        totalEnemies = 0;
     }
 
     // Update is called once per frame

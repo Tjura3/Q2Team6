@@ -33,7 +33,6 @@ public class BigBoiSpawner : MonoBehaviour
 
             bigEnemies += 1;
             Spawner.totalEnemies += 1;
-            Debug.Log("BigBois:" + bigEnemies);
         }
         else
         {

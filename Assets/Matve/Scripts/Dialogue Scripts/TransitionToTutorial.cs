@@ -17,6 +17,8 @@ public class TransitionToTutorial : MonoBehaviour
     {
         if (spinny.localScale.x >= 57 && spinny.localScale.y >= 57)
         {
+            Debug.Log("transition");
+            SFXManager.PlaySound("transition");
             TutorialNext();
         }
     }

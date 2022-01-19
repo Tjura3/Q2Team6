@@ -7,23 +7,25 @@ public class SpinnerRight : MonoBehaviour
     Rigidbody2D rb2;
 
     int moveTime = 0;
-    int pauseTime = 325;
+    float pauseTime = 325;
+
+    public King king;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2 = gameObject.GetComponent<Rigidbody2D>();
 
-        if (King.waveNum == 1)
+        if (king.waveNum == 1)
         {
             pauseTime = 325;
         }
-        if (King.waveNum == 2)
+        if (king.waveNum == 2)
         {
             pauseTime = 250;
         }
 
-        if (King.waveNum == 3)
+        if (king.waveNum == 3)
         {
             pauseTime = 175;
         }
@@ -40,7 +42,7 @@ public class SpinnerRight : MonoBehaviour
     {
         if (pauseTime > 0)
         {
-            pauseTime--;
+            pauseTime -= Time.deltaTime * 1000;
         }
 
         if (pauseTime <= 0)
@@ -51,7 +53,7 @@ public class SpinnerRight : MonoBehaviour
         if (moveTime > 0)
         {
             moveTime--;
-            rb2.MovePosition(rb2.position + new Vector2(Input.GetAxis("Horizontal") - 5, 0));
+            rb2.MovePosition(rb2.position + new Vector2(-2.5f, 0));
         }
 
         StartCoroutine(die());

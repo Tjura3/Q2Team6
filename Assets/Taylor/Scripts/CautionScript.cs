@@ -8,22 +8,24 @@ public class CautionScript : MonoBehaviour
 
     int pulseTime = 275;
 
+    public King king;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         anim.SetBool("Caution", true);
 
-        if (King.waveNum == 1)
+        if (king.waveNum == 1)
         {
             pulseTime = 275;
         }
-        if (King.waveNum == 2)
+        if (king.waveNum == 2)
         {
             pulseTime = 200;
         }
 
-        if (King.waveNum == 3)
+        if (king.waveNum == 3)
         {
             pulseTime = 125;
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrowScript : MonoBehaviour
 {
@@ -32,7 +33,10 @@ public class GrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraFollow.cameraSize = currentSize * 5 + 10;
+        if (cameraFollow != null)
+        {
+            cameraFollow.cameraSize = currentSize * 5 + 10;
+        }
 
          
 
@@ -56,11 +60,22 @@ public class GrowScript : MonoBehaviour
     /// </summary>
     public void Eat(GameObject gameObject)
     {
+        print("final eat");
         Destroy(gameObject);
         currentSize += growSpeed;
         Spawner.enemyNumber -= 1;
         currentBeans++;  //ThomasThing
-        Bbar.SetBeans(currentBeans); //ThomasThing
+        if (Bbar != null)
+        {
+            Bbar.SetBeans(currentBeans); //ThomasThing
+        }
+        print("Name: "  +gameObject.name);
+
+        if(gameObject.name == "End")
+        {
+            StartCoroutine(EatenKing());
+        }
+
         //Debug.Log("Enemies:" + Spawner.enemyNumber);
     }
 
@@ -68,5 +83,11 @@ public class GrowScript : MonoBehaviour
     public void GrowABit()
     {
         currentSize += growSpeed;
+    }
+
+    IEnumerator EatenKing()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(7);
     }
 }

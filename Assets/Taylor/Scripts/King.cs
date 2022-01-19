@@ -6,7 +6,7 @@ public class King : MonoBehaviour
 {
     Animator anim;
 
-    public static int waveNum = 0;
+    public int waveNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +59,12 @@ public class King : MonoBehaviour
     {
         if (Input.GetKeyDown("p"))
         {
-            StartCoroutine(flip());
+            //StartCoroutine(flip());
         }
+    }
+
+    public void StartFight()
+    {
+        StartCoroutine(flip());
     }
 }

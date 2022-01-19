@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
         collider.GetContacts(colliders);
 
         System.Random random = new System.Random();
-
+        print("Eat");
         foreach(Collider2D collider in colliders)
         {
             //CHANGE TAG FROM TEST FOOD TO ENEMY OR SOMETHING IDK

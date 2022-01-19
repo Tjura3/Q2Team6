@@ -32,7 +32,10 @@ public class GrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraFollow.cameraSize = currentSize * 5 + 10;
+        if (cameraFollow != null)
+        {
+            cameraFollow.cameraSize = currentSize * 5 + 10;
+        }
 
          
 
@@ -56,11 +59,15 @@ public class GrowScript : MonoBehaviour
     /// </summary>
     public void Eat(GameObject gameObject)
     {
+        print("final eat");
         Destroy(gameObject);
         currentSize += growSpeed;
         Spawner.enemyNumber -= 1;
         currentBeans++;  //ThomasThing
-        Bbar.SetBeans(currentBeans); //ThomasThing
+        if (Bbar != null)
+        {
+            Bbar.SetBeans(currentBeans); //ThomasThing
+        }
         //Debug.Log("Enemies:" + Spawner.enemyNumber);
     }
 

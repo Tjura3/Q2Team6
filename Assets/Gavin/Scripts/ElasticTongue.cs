@@ -253,6 +253,7 @@ public class ElasticTongue : MonoBehaviour
 
                 if (Vector2.Distance(points[points.Count - 2].transform.position, playerT.position) >= spawnDist && points.Count <= maxNumOfPoints && canSpawnPoint)
                 {
+                    print(true);
                     isTongueOut = canSpawnPoint;
                     CreateNewPoint();
                     UpdateLine();
@@ -294,7 +295,13 @@ public class ElasticTongue : MonoBehaviour
 
         if(IsAllPointsInside() && isTongueOut)
         {
+            print("Done");
             isTongueOut = false;
+            for (int i = 0; i < points.Count; i++)
+            {
+                points[i].transform.position = playerT.position;
+                points[i].rb.velocity = Vector2.zero;
+            }
             canSpawnPoint = false;
             isShooting = false;
             playerMovement.canMove = true;

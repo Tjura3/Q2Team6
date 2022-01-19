@@ -93,7 +93,13 @@ public class healthSystem : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "SpinningBigEnemy")
+        {
+            healthPoints = 0;
+        }
+    }
 
     //private void OnTriggerStay2D(Collider2D collision)
     //{
@@ -108,5 +114,5 @@ public class healthSystem : MonoBehaviour
 
     //    }
     //}
-    
+
 }

@@ -6,6 +6,9 @@ public class KingDIa : MonoBehaviour
 {
     public GameObject tongue;
     [SerializeField] GameObject kingGameObject;
+    [SerializeField] BoxCollider2D playerCollider;
+
+    King kingScript;
 
     DiaTrigger dia;
     bool diaActive;
@@ -14,15 +17,16 @@ public class KingDIa : MonoBehaviour
     {
         tongue.SetActive(false);
         dia = GetComponent<DiaTrigger>();
-
+        kingScript = kingGameObject.GetComponent<King>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(King.waveNum == 1 && !diaActive)
+        if(kingScript.waveNum == 4 && !diaActive)
         {
             print("start king stuff");
+            playerCollider.enabled = true;
             GetComponent<DiaTrigger>().TriggerDialogue();
             tongue.SetActive(true);
 

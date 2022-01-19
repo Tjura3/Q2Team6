@@ -159,9 +159,10 @@ GameObject:
   - component: {fileID: 29822278792024983}
   - component: {fileID: 29822278792024982}
   - component: {fileID: 29822278792024981}
+  - component: {fileID: 1706368631496513758}
   m_Layer: 0
   m_Name: Spinner
-  m_TagString: Untagged
+  m_TagString: SpinningBigEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,3 +283,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c409f6d9e3eec4383d389528ba939c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &1706368631496513758
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29822278792024987}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3

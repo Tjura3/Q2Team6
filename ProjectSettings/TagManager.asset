@@ -17,6 +17,7 @@ TagManager:
   - Breaker
   - HiddenByTree
   - ParticleSystem
+  - SpinningBigEnemy
   layers:
   - Default
   - TransparentFX
@@ -59,7 +60,4 @@ TagManager:
     locked: 0
   - name: Window
     uniqueID: 295026735
-    locked: 0
-  - name: Throne
-    uniqueID: 2967472059
     locked: 0

@@ -7,6 +7,8 @@ public class SpinnerSpawner : MonoBehaviour
     public GameObject[] enemies;
     public Transform[] spawnPoint;
 
+    public King king;
+
     private int rand;
     private int randPosition;
 
@@ -29,7 +31,23 @@ public class SpinnerSpawner : MonoBehaviour
             rand = Random.Range(0, enemies.Length);
             randPosition = Random.Range(0, spawnPoint.Length);
 
-            Instantiate(enemies[rand], spawnPoint[randPosition].transform.position, Quaternion.identity);
+            GameObject spawner = Instantiate(enemies[rand], spawnPoint[randPosition].transform.position, Quaternion.identity);
+            SpinnerLeft spinnerLeft = spawner.transform.GetChild(1).GetComponent<SpinnerLeft>();
+            SpinnerRight spinnerRight = spawner.transform.GetChild(1).GetComponent<SpinnerRight>();
+            CautionScript cautionScript = spawner.transform.GetChild(0).GetComponent<CautionScript>();
+            if(spinnerLeft != null)
+            {
+                spinnerLeft.king = king;
+            }else if(spinnerRight != null)
+            {
+                spinnerRight.king = king;
+            }
+
+            if(cautionScript != null)
+            {
+                cautionScript.king = king;
+            }
+
             timeBetweenSpawns = startTimeBetweenSpawns;
 
             spinnerNumber -= 1;

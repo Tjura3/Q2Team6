@@ -79,40 +79,37 @@ public class HouseScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SFXManager.PlaySound("Destroy");
-            int offset = 0;
+            System.Random random = new System.Random(Time.frameCount);
+            float spread = 0.1f;
+
 
             for (int i = 1; i <= red; i++)
             {
-                offset++;
-                Instantiate(redBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), redBean.transform.rotation);
+                Instantiate(redBean, new Vector2(transform.position.x + (random.Next(-50, 50) * spread), transform.position.y + (random.Next(0, 100) * spread)), redBean.transform.rotation);
             }
 
 
             for (int i = 1; i <= yellow; i++)
             {
-                offset++;
-                Instantiate(yellowBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), yellowBean.transform.rotation);
+                Instantiate(yellowBean, new Vector2(transform.position.x + (random.Next(-50, 50) * spread), transform.position.y + (random.Next(0, 100) * spread)), yellowBean.transform.rotation);
             }
 
 
             for (int i = 1; i <= green; i++)
             {
-                offset++;
-                Instantiate(greenBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), greenBean.transform.rotation);
+                Instantiate(greenBean, new Vector2(transform.position.x + (random.Next(-50, 50) * spread), transform.position.y + (random.Next(0, 100) * spread)), greenBean.transform.rotation);
             }
 
 
             for (int i = 1; i <= blue; i++)
             {
-                offset++;
-                Instantiate(blueBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), blueBean.transform.rotation);
+                Instantiate(blueBean, new Vector2(transform.position.x + (random.Next(-50, 50) * spread), transform.position.y + (random.Next(0, 100) * spread)), blueBean.transform.rotation);
             }
 
 
             for (int i = 1; i <= purple; i++)
             {
-                offset++;
-                Instantiate(purpleBean, new Vector2(transform.position.x + (offset * 0.1f), transform.position.y), purpleBean.transform.rotation);
+                Instantiate(purpleBean, new Vector2(transform.position.x + (random.Next(-50, 50) * spread), transform.position.y + (random.Next(0, 100) * spread)), purpleBean.transform.rotation);
             }
 
 

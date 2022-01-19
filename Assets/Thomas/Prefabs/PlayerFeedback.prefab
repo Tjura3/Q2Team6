@@ -853,7 +853,7 @@ MonoBehaviour:
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
   fill: {fileID: 5733306651873191596}
-  MaxVal: 200
+  MaxVal: 100
   Beanlevel: 0
 --- !u!1 &8658383297281008810
 GameObject:
@@ -1125,12 +1125,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GS: {fileID: 0}
-  shootReq: 1.25
-  bigReq: 3.5
-  treeReq: 4.25
-  houseReq: 5
-  rokcReq: 5.75
-  doorReq: 6.5
+  shootReq: 0.875
+  bigReq: 2.75
+  treeReq: 2.375
+  houseReq: 2
+  rokcReq: 3.125
+  doorReq: 3.5
   consumeShoot: 1
   consumeBig: 1
   consumeVeggies: 1

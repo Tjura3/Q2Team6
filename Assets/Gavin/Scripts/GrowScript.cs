@@ -62,7 +62,6 @@ public class GrowScript : MonoBehaviour
         currentBeans++;  //ThomasThing
         Bbar.SetBeans(currentBeans); //ThomasThing
         //Debug.Log("Enemies:" + Spawner.enemyNumber);
-        Debug.Log("Munch");
     }
 
     [ContextMenu("Grow a Bit")]

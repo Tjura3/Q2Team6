@@ -7,6 +7,7 @@ public class whenUDie : MonoBehaviour
 {
     public DeathTween DT;
     public GameObject gavinsTongue;
+    public GameObject lights;
     
     Animator A;
     healthSystem HS;
@@ -27,6 +28,7 @@ public class whenUDie : MonoBehaviour
     {
         if (HS.isDead)
         {
+            lights.SetActive(false);
             PreviousScene.previousSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
             GS.enabled = false;
             PA.enabled = false;

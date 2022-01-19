@@ -4754,6 +4754,7 @@ MonoBehaviour:
   cameraSize: 10
   cameraGrowthSpeed: 0.1
   lerpProgress: 0
+  lockX: 0
 --- !u!4 &1432045029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180296822893672783, guid: 973554834e814a743acc06320d1bdb75,
@@ -22225,6 +22226,10 @@ PrefabInstance:
       propertyPath: DT
       value: 
       objectReference: {fileID: 5856152131070004332}
+    - target: {fileID: 1504476073, guid: e881d47c4d7b3c549bd1e4525364ccae, type: 3}
+      propertyPath: lights
+      value: 
+      objectReference: {fileID: 232987837}
     - target: {fileID: 1504476073, guid: e881d47c4d7b3c549bd1e4525364ccae, type: 3}
       propertyPath: gavinsTongue
       value: 

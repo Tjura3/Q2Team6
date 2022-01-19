@@ -33,7 +33,6 @@ public class ShooterSpawner : MonoBehaviour
 
             shooterEnemies += 1;
             Spawner.totalEnemies += 1;
-            Debug.Log("Shooters:" + shooterEnemies);
         }
         else
         {

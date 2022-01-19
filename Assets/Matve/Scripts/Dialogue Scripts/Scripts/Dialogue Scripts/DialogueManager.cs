@@ -37,7 +37,6 @@ public class DialogueManager : MonoBehaviour
         if (animActive)
         {
             Time.timeScale = 0;
-            
         }
     }
 

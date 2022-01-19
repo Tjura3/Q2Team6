@@ -53,10 +53,10 @@ public class PointStickScript : MonoBehaviour
             ShooterAI shooterAI = objectTransform.gameObject.GetComponent<ShooterAI>();
             enemyRoaming enemyRoaming = objectTransform.gameObject.GetComponent<enemyRoaming>();
 
-            if(chaserAI != null && tongue.twen.consumeBig)
+            if(chaserAI != null && !tongue.twen.consumeBig)
             {
                 return;
-            }else if(shooterAI != null && tongue.twen.consumeShoot)
+            }else if(shooterAI != null && !tongue.twen.consumeShoot)
             {
                 return;
             }

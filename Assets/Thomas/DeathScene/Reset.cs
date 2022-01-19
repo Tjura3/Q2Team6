@@ -30,6 +30,6 @@ public class Reset : MonoBehaviour
         blackFade.SetActive(true);
         AlphaScale.LeanAlpha(1, 1.2f);
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(whenUDie.previousScene.buildIndex);
+        SceneManager.LoadScene(PreviousScene.previousSceneBuildIndex);
     }
 }

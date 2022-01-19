@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class whenUDie : MonoBehaviour
 {
-    public static Scene previousScene;
     public DeathTween DT;
     public GameObject gavinsTongue;
     
@@ -28,12 +27,12 @@ public class whenUDie : MonoBehaviour
     {
         if (HS.isDead)
         {
+            PreviousScene.previousSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
             GS.enabled = false;
             PA.enabled = false;
             A.enabled = false;
             gavinsTongue.SetActive(false);
             DT.deathTween();
-            previousScene = SceneManager.GetActiveScene();
         }
     }
 }

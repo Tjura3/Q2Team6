@@ -49,8 +49,9 @@ public class King : MonoBehaviour
         if (waveNum == 3)
         {
             SpinnerSpawner.spinnerNumber = 11;
-            waveNum++;
         }
+        yield return new WaitForSeconds(2);
+        waveNum++;
     }
 
     // Update is called once per frame

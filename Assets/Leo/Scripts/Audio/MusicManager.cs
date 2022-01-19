@@ -89,6 +89,15 @@ public class MusicManager : MonoBehaviour
                     BGM.Play();
                 }
                 break;
+            case 5:
+                currentClip = "InfiniteDoors";
+                if (BGM.clip.name != currentClip)
+                {
+                    BGM.Stop();
+                    BGM.clip = gameScene;
+                    BGM.Play();
+                }
+                break;
             case 6:
                 currentClip = "Stupid_Dancer";
                 if (BGM.clip.name != currentClip)

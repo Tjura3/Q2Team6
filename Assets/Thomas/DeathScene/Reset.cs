@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Reset : MonoBehaviour
 {
+    
     public CanvasGroup AlphaScale;
     public GameObject blackFade;
 
@@ -29,6 +30,6 @@ public class Reset : MonoBehaviour
         blackFade.SetActive(true);
         AlphaScale.LeanAlpha(1, 1.2f);
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(whenUDie.previousScene.buildIndex);
     }
 }

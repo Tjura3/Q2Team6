@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class whenUDie : MonoBehaviour
 {
+    public static Scene previousScene;
     public DeathTween DT;
     public GameObject gavinsTongue;
     
@@ -31,6 +33,7 @@ public class whenUDie : MonoBehaviour
             A.enabled = false;
             gavinsTongue.SetActive(false);
             DT.deathTween();
+            previousScene = SceneManager.GetActiveScene();
         }
     }
 }

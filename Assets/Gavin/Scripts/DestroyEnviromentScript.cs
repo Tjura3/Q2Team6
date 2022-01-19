@@ -35,7 +35,7 @@ public class DestroyEnviromentScript : MonoBehaviour
         {
             yield return null;
         }
-
+        SFXManager.PlaySound("Destroy");
         Collider2D[] colliders = gameObject.GetComponents<Collider2D>();
         for (int i = 0; i < colliders.Length; i++)
         {

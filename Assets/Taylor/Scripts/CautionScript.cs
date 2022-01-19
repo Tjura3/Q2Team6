@@ -6,7 +6,7 @@ public class CautionScript : MonoBehaviour
 {
     Animator anim;
 
-    int pulseTime = 275;
+    int pulseTime = 175;
 
     public King king;
 
@@ -18,16 +18,16 @@ public class CautionScript : MonoBehaviour
 
         if (king.waveNum == 1)
         {
-            pulseTime = 275;
+            pulseTime = 225;
         }
         if (king.waveNum == 2)
         {
-            pulseTime = 200;
+            pulseTime = 150;
         }
 
         if (king.waveNum == 3)
         {
-            pulseTime = 125;
+            pulseTime = 100;
         }
     }
 

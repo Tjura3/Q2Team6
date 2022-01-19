@@ -37,7 +37,6 @@ public class DialogueManager : MonoBehaviour
         if (animActive)
         {
             Time.timeScale = 0;
-            
         }
     }
 
@@ -65,8 +64,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        
-        if(sentences.Count == 0)
+        SFXManager.PlaySound("hover");
+        if (sentences.Count == 0)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {

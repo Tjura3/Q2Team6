@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (timeBetweenSpawns <= 0 && enemyNumber <= 29 && totalEnemies <= 199)
+        if (timeBetweenSpawns <= 0 && enemyNumber <= 150 && totalEnemies <= 500)
         {
             rand = Random.Range(0, enemies.Length);
             randPosition = Random.Range(0, spawnPoint.Length); 
@@ -34,8 +34,8 @@ public class Spawner : MonoBehaviour
 
             enemyNumber += 1;
             totalEnemies += 1;
-            Debug.Log("Enemies:" + enemyNumber);
-            Debug.Log("Total Enemies:" + totalEnemies);
+            //Debug.Log("Enemies:" + enemyNumber);
+            //Debug.Log("Total Enemies:" + totalEnemies);
         }
         else
         {

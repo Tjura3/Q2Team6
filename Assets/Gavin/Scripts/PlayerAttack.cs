@@ -74,7 +74,6 @@ public class PlayerAttack : MonoBehaviour
             if (collider.tag == "Enemy" || collider.tag == "RunEnemy")
             {
                 enemiesEaten = true;
-                print("eat: " + collider.gameObject.name + "; Tag: " + collider.gameObject.tag);
                 collider.GetComponent<Animator>().SetTrigger("Shrink");
                 //growScript.Eat(collider.gameObject);
             }

@@ -51,6 +51,8 @@ public class LevelLoader : MonoBehaviour
     }
     IEnumerator PlayGame()
     {
+        Debug.Log("transition");
+        SFXManager.PlaySound("transition");
         //Anim
         transition.SetTrigger("Start");
         //Wait

@@ -81,8 +81,6 @@ public class ScaredAI : MonoBehaviour
 
         {
             FindHouse();
-
-            print("Find house");
             return;
         }
 
@@ -166,7 +164,7 @@ public class ScaredAI : MonoBehaviour
                 if (!closestHouse.transform.parent.GetComponent<HouseScript>().houseFull && Vector2.Distance(closestHouse.transform.position, transform.position) > Vector2.Distance(houses[i].transform.position, transform.position))
                 {
                     closestHouse = houses[i];
-                    print(2);
+                    //print(2);
                 }
             }
             target = closestHouse.transform;

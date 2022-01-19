@@ -9,6 +9,7 @@ public class IntoMouthScript : StateMachineBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Animator>().SetTrigger("CloseMouth");
+        player.GetComponent<Animator>().SetBool("MouthClose", true);
         GrowScript growScript = player.GetComponent<GrowScript>();
 
         growScript.Eat(animator.gameObject);

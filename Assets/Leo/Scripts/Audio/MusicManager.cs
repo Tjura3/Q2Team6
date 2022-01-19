@@ -11,7 +11,7 @@ public class MusicManager : MonoBehaviour
     private string currentClip = " ";
 
     [HideInInspector]
-    public AudioClip mainMenu, credits, gameScene, boss, win;
+    public AudioClip mainMenu, credits, gameScene, boss, win, intro;
 
     public void Awake()
     {
@@ -32,6 +32,7 @@ public class MusicManager : MonoBehaviour
         gameScene = Resources.Load<AudioClip>("Potato");
         boss = Resources.Load<AudioClip>("Stupid_Dancer");
         win = Resources.Load<AudioClip>("FNAF Beatbox");
+        intro = Resources.Load<AudioClip>("FutureWorld");
 
         BGM = GetComponent<AudioSource>();
     }
@@ -60,6 +61,15 @@ public class MusicManager : MonoBehaviour
                     BGM.Play();
                 }
                 break;
+            case 2:
+                currentClip = "FutureWorld";
+                if (BGM.clip.name != currentClip)
+                {
+                    BGM.Stop();
+                    BGM.clip = intro;
+                    BGM.Play();
+                }
+                break;
             case 4:
                 currentClip = "Potato";
                 if (BGM.clip.name != currentClip)
@@ -69,7 +79,7 @@ public class MusicManager : MonoBehaviour
                     BGM.Play();
                 }
                 break;
-            case 5:
+            case 6:
                 currentClip = "Stupid_Dancer";
                 if (BGM.clip.name != currentClip)
                 {
@@ -78,7 +88,7 @@ public class MusicManager : MonoBehaviour
                     BGM.Play();
                 }
                 break;
-            case 6:
+            case 7:
                 currentClip = "FNAF Beatbox";
                 if (BGM.clip.name != currentClip)
                 {

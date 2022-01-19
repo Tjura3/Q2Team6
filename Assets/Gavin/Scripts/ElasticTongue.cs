@@ -28,7 +28,7 @@ public class ElasticTongue : MonoBehaviour
 
     //Does the tongue need to be launched
     bool shoot;
-    bool canShoot;
+    public bool canShoot;
     //Is the tongue being shot again while it is already out
     bool extendShoot;
 
@@ -107,7 +107,7 @@ public class ElasticTongue : MonoBehaviour
         lineRenderer.widthMultiplier = playerT.localScale.x;
 
         DrawLine();
-        if (Input.GetMouseButtonDown(0) && !isShooting && !isTongueOut)
+        if (Input.GetMouseButtonDown(0) && !isShooting && !isTongueOut && canShoot)
         {
             
             shoot = true;
@@ -177,17 +177,16 @@ public class ElasticTongue : MonoBehaviour
             shoot = false;
             playerMovement.canMove = false;
             playerAnimator.SetTrigger("OpenMouth");
+            playerAnimator.SetBool("MouthClose", false);
             ContactFilter2D filter2D = new ContactFilter2D();
             filter2D.layerMask = 1<<12;
             filter2D.useLayerMask = true;
             Collider2D[] results = new Collider2D[5];
             int num = Physics2D.OverlapBox(playerT.position, new Vector2(0.1f, 0.1f), 180, filter2D, results);
-            print(num);
             //Debug.Log(ray.collider.gameObject.name);
             if(num != 0)
             {
                 GetComponent<Renderer>().sortingOrder = 6;
-                print("Yeah");
             }
             else
             {
@@ -330,7 +329,7 @@ public class ElasticTongue : MonoBehaviour
         }
         else
         {
-            playerAnimator.SetTrigger("CloseMouth");
+            playerAnimator.SetBool("MouthClose", true);
         }
         lineRenderer.enabled = false;
     }
